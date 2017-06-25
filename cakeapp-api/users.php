@@ -12,7 +12,7 @@ if($txnmode=='list'){
 
 		echo "success";
 	}else{
-		//echo "failed";
+		echo "failed";
 	}
 }
 
