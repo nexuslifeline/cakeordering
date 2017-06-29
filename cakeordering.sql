@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 29, 2017 at 01:42 AM
+-- Generation Time: Jun 29, 2017 at 03:27 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -29,7 +29,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `cake_layer_1` (
   `cake_layer_id` int(11) NOT NULL,
   `cake_description` varchar(755) DEFAULT '',
-  `image_path` varchar(1000) DEFAULT ''
+  `image_path` varchar(1000) DEFAULT '',
+  `is_active` int(1) DEFAULT '1',
+  `is_deleted` int(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -41,7 +43,9 @@ CREATE TABLE `cake_layer_1` (
 CREATE TABLE `cake_layer_2` (
   `cake_layer_id` int(11) NOT NULL,
   `description` varchar(1000) DEFAULT '',
-  `image_path` varchar(1000) DEFAULT ''
+  `image_path` varchar(1000) DEFAULT '',
+  `is_active` int(1) DEFAULT '1',
+  `is_deleted` int(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -53,7 +57,9 @@ CREATE TABLE `cake_layer_2` (
 CREATE TABLE `cake_layer_3` (
   `cake_layer_id` int(11) DEFAULT NULL,
   `desciption` varchar(1000) DEFAULT '',
-  `image_path` varchar(1000) DEFAULT NULL
+  `image_path` varchar(1000) DEFAULT NULL,
+  `is_active` int(1) DEFAULT '1',
+  `is_deleted` int(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -65,7 +71,9 @@ CREATE TABLE `cake_layer_3` (
 CREATE TABLE `cake_layer_4` (
   `cake_layer_id` int(11) NOT NULL,
   `description` varchar(1000) DEFAULT NULL,
-  `image_path` varchar(1000) DEFAULT NULL
+  `image_path` varchar(1000) DEFAULT NULL,
+  `is_active` int(1) DEFAULT '1',
+  `is_deleted` int(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -77,7 +85,9 @@ CREATE TABLE `cake_layer_4` (
 CREATE TABLE `cake_layer_5` (
   `cake_layer_id` int(11) NOT NULL,
   `description` varchar(1000) DEFAULT NULL,
-  `image_path` varchar(1000) DEFAULT NULL
+  `image_path` varchar(1000) DEFAULT NULL,
+  `is_active` int(1) DEFAULT '1',
+  `is_deleted` int(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -97,7 +107,9 @@ CREATE TABLE `cake_orders` (
   `finalized_by` int(11) DEFAULT '0',
   `is_finalized` tinyint(4) DEFAULT '0',
   `date_pickedup` date DEFAULT '0000-00-00',
-  `is_pickedup` tinyint(4) DEFAULT '0'
+  `is_pickedup` tinyint(4) DEFAULT '0',
+  `is_active` int(1) DEFAULT '1',
+  `is_deleted` int(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -116,15 +128,18 @@ CREATE TABLE `customers` (
   `cust_bdate` date DEFAULT '0000-00-00',
   `security_code` varchar(100) DEFAULT '',
   `cust_uname` varchar(155) DEFAULT '',
-  `cust_pword` varchar(255) DEFAULT ''
+  `cust_pword` varchar(255) DEFAULT '',
+  `cust_photo` varchar(10000) DEFAULT '',
+  `is_active` int(1) DEFAULT '1',
+  `is_deleted` int(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`customer_id`, `cust_lname`, `cust_fname`, `cust_mname`, `cust_address`, `cust_mobile`, `cust_bdate`, `security_code`, `cust_uname`, `cust_pword`) VALUES
-(1, 'Bonifacio', 'Julie Ann', 'Reyes', 'Cutud, Pampanga', '999999999', NULL, '1234', 'julie', 'd033e22ae348aeb5660fc2140aec35850c4da997');
+INSERT INTO `customers` (`customer_id`, `cust_lname`, `cust_fname`, `cust_mname`, `cust_address`, `cust_mobile`, `cust_bdate`, `security_code`, `cust_uname`, `cust_pword`, `cust_photo`, `is_active`, `is_deleted`) VALUES
+(1, 'Bonifacio', 'Julie Ann', 'Reyes', 'Cutud, Pampanga', '999999999', NULL, '1234', 'julie', 'd033e22ae348aeb5660fc2140aec35850c4da997', '', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -135,7 +150,9 @@ INSERT INTO `customers` (`customer_id`, `cust_lname`, `cust_fname`, `cust_mname`
 CREATE TABLE `other_toppings` (
   `topping_id` int(11) NOT NULL,
   `description` varchar(1000) DEFAULT '',
-  `image_path` varchar(1000) DEFAULT NULL
+  `image_path` varchar(1000) DEFAULT NULL,
+  `is_active` int(1) DEFAULT '1',
+  `is_deleted` int(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -150,7 +167,9 @@ CREATE TABLE `payments` (
   `date_paid` date DEFAULT '0000-00-00',
   `customer_id` int(11) DEFAULT '0',
   `cake_order_id` int(11) DEFAULT '0',
-  `notes` varchar(1000) DEFAULT ''
+  `notes` varchar(1000) DEFAULT '',
+  `is_active` int(1) DEFAULT '1',
+  `is_deleted` int(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -160,24 +179,27 @@ CREATE TABLE `payments` (
 --
 
 CREATE TABLE `user_accounts` (
-  `user_id` int(11) NOT NULL,
+  `user_account_id` int(11) NOT NULL,
   `user_fname` varchar(255) DEFAULT '',
   `user_mname` varchar(255) DEFAULT '',
   `user_lname` varchar(255) DEFAULT '',
   `user_uname` varchar(255) DEFAULT '',
   `user_pword` varchar(255) DEFAULT '',
   `address` varchar(1000) DEFAULT '',
-  `email` varchar(255) DEFAULT '',
+  `user_email` varchar(255) DEFAULT '',
   `contact_no` varchar(100) DEFAULT '',
-  `user_bdate` date DEFAULT '0000-00-00'
+  `user_bdate` date DEFAULT '0000-00-00',
+  `is_deleted` int(1) DEFAULT '0',
+  `is_active` int(1) NOT NULL DEFAULT '1',
+  `user_photo` varchar(255) DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user_accounts`
 --
 
-INSERT INTO `user_accounts` (`user_id`, `user_fname`, `user_mname`, `user_lname`, `user_uname`, `user_pword`, `address`, `email`, `contact_no`, `user_bdate`) VALUES
-(1, NULL, 'Denis', 'Gutierrez', '', '', 'Sto. Tomas , Pampanga', 'infotechnexus28@gmail.com', '09052037350', '2017-06-16');
+INSERT INTO `user_accounts` (`user_account_id`, `user_fname`, `user_mname`, `user_lname`, `user_uname`, `user_pword`, `address`, `user_email`, `contact_no`, `user_bdate`, `is_deleted`, `is_active`, `user_photo`) VALUES
+(1, 'Denis', 'Baun', 'Gutierrez', 'admin', '', 'Sto. Tomas , Pampanga', 'infotechnexus28@gmail.com', '09052037350', '2017-06-16', 0, 1, '');
 
 --
 -- Indexes for dumped tables
@@ -235,7 +257,7 @@ ALTER TABLE `payments`
 -- Indexes for table `user_accounts`
 --
 ALTER TABLE `user_accounts`
-  ADD PRIMARY KEY (`user_id`) USING BTREE;
+  ADD PRIMARY KEY (`user_account_id`) USING BTREE;
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -285,7 +307,7 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT for table `user_accounts`
 --
 ALTER TABLE `user_accounts`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
