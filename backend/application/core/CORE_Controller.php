@@ -28,6 +28,10 @@ class CORE_Controller extends CI_Controller
     }
 
 
-
+      function validate_token(){
+        if($_GET['token']!='nexuslifeline'){
+            redirect(base_url().'error');
+        }
+    }
 
 }

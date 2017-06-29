@@ -4,6 +4,9 @@ class Users extends CORE_Controller
 {
     function __construct()
     {
+
+         $this->validate_token();
+         
         parent::__construct('');
         $this->load->model(array(
             'User_account_model'
@@ -159,7 +162,7 @@ class Users extends CORE_Controller
                 $user_id        = $this->input->post('user_account_id', TRUE);
                 $m_user_account->begin();
                 $m_user_account->is_deleted = 1;
-                $m_user_account->set('date_modified', 'NOW()');
+             
                 $m_user_account->modify($user_id);
                 
                 // make sure to update status of the user
@@ -215,7 +218,7 @@ class Users extends CORE_Controller
             
             case 'update-profile':
                 $m_users                    = $this->User_account_model;
-                $user_account_id            = $this->session->user_id;
+                $user_account_id            = 1; // Active User
                 $m_user_account->user_uname = $this->input->post('user_uname', TRUE);
                 if ($this->input->post('user_pword') != null) { //if not provided, do not updated password
                     $m_user_account->user_pword = sha1($this->input->post('user_pword', TRUE));
