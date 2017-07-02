@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 29, 2017 at 03:27 PM
+-- Generation Time: Jul 02, 2017 at 02:07 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -139,7 +139,7 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`customer_id`, `cust_lname`, `cust_fname`, `cust_mname`, `cust_address`, `cust_mobile`, `cust_bdate`, `security_code`, `cust_uname`, `cust_pword`, `cust_photo`, `is_active`, `is_deleted`) VALUES
-(1, 'Bonifacio', 'Julie Ann', 'Reyes', 'Cutud, Pampanga', '999999999', NULL, '1234', 'julie', 'd033e22ae348aeb5660fc2140aec35850c4da997', '', 1, 0);
+(1, 'customer1', 'customer1', 'customer1', 'Cutud, Pampanga', '999999999', NULL, '1234', 'julie', 'd033e22ae348aeb5660fc2140aec35850c4da997', '', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -199,7 +199,7 @@ CREATE TABLE `user_accounts` (
 --
 
 INSERT INTO `user_accounts` (`user_account_id`, `user_fname`, `user_mname`, `user_lname`, `user_uname`, `user_pword`, `address`, `user_email`, `contact_no`, `user_bdate`, `is_deleted`, `is_active`, `user_photo`) VALUES
-(1, 'Denis', 'Baun', 'Gutierrez', 'admin', '', 'Sto. Tomas , Pampanga', 'infotechnexus28@gmail.com', '09052037350', '2017-06-16', 0, 1, '');
+(1, 'Admin', 'Admin', 'Admin', 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'Sto. Tomas , Pampanga', 'infotechnexus28@gmail.com', '00000', '2017-06-16', 0, 1, '');
 
 --
 -- Indexes for dumped tables

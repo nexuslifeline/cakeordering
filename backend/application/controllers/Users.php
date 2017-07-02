@@ -277,7 +277,7 @@ class Users extends CORE_Controller
             
             $response['title'] = 'Failed';
             $response['stat']  = 'error';
-            $response['msg']   = 'Error Login';
+            $response['msg']   = 'Login not successful!';
             echo json_encode($response);
         }
     }
