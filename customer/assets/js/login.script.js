@@ -14,7 +14,7 @@ var ctrl_url = 'http://localhost:8012/cakeordering/backend/';
                         $.ajax({
                             "dataType":"json",
                             "type":"POST",
-                            "url":ctrl_url+"Users/auth_user",
+                            "url":ctrl_url+"Customers/auth_cust",
                             "data":_data,
                             "beforeSend" : function(){
                                showSpinningProgress(btn);
