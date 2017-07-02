@@ -4,9 +4,9 @@ class Users extends CORE_Controller
 {
     function __construct()
     {
-
+        
         //$this->custom_token();
-     
+        
         parent::__construct('');
         $this->load->model(array(
             'User_account_model'
@@ -163,7 +163,7 @@ class Users extends CORE_Controller
                 $user_id        = $this->input->post('user_account_id', TRUE);
                 $m_user_account->begin();
                 $m_user_account->is_deleted = 1;
-             
+                
                 $m_user_account->modify($user_id);
                 
                 // make sure to update status of the user
@@ -250,4 +250,37 @@ class Users extends CORE_Controller
         $m_user_account = $this->User_account_model;
         return $m_user_account->get_list();
     }
+    
+    
+    public function auth_user()
+    {
+        $user_uname = $this->input->post('user_uname');
+        $user_pword = sha1($this->input->post('user_pword'));
+        
+        $m_user_account = $this->User_account_model;
+        $result         = $m_user_account->get_list(array(
+            'user_accounts.user_uname' => $user_uname,
+            'user_accounts.user_pword' => $user_pword
+        ));
+        
+        if (count($result) > 0) { //valid username and pword
+            
+            
+            $response['title'] = 'Success';
+            $response['stat']  = 'success';
+            $response['msg']   = 'Login successfully';
+            
+            echo json_encode($response);
+        } else {
+            
+            
+            
+            $response['title'] = 'Failed';
+            $response['stat']  = 'error';
+            $response['msg']   = 'Error Login';
+            echo json_encode($response);
+        }
+    }
+    
+    
 }
