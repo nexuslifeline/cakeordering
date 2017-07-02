@@ -5,12 +5,13 @@ class Users extends CORE_Controller
     function __construct()
     {
 
-         $this->validate_token();
-         
+        //$this->custom_token();
+     
         parent::__construct('');
         $this->load->model(array(
             'User_account_model'
         ));
+        
     }
     
     public function index()
