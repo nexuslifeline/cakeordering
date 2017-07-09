@@ -91,13 +91,13 @@ class Users extends CORE_Controller
                 // auditing purposes
                 
                 $m_user_account->save();
-                $user_id = $m_user_account->last_insert_id();
+                $user_account_id = $m_user_account->last_insert_id();
                 $m_user_account->commit();
                 if ($m_user_account->status() === TRUE) {
                     $response['title']     = 'Success!';
                     $response['stat']      = 'success';
                     $response['msg']       = 'User successfully registered.';
-                    $response['row_added'] = $this->get_response_rows($user_id);
+                    $response['row_added'] = $this->get_response_rows($user_account_id);
                 } else {
                     $response['title'] = 'Error!';
                     $response['stat']  = 'error';
@@ -109,7 +109,7 @@ class Users extends CORE_Controller
             
             case 'update':
                 $m_user_account = $this->User_account_model;
-                $user_id        = $this->input->post('user_account_id', TRUE);
+                $user_account_id        = $this->input->post('user_account_id', TRUE);
                 if ($this->input->post('user_pword') != null) { //if password is provide, user wanted to update the password so it must be validated
                     if ($this->input->post('user_cpword') != $this->input->post('user_pword')) {
                         $response['title'] = 'Error!';
@@ -127,7 +127,7 @@ class Users extends CORE_Controller
                 }
                 
                 $m_user_account->user_uname = $this->input->post('user_uname', TRUE);
-                $m_user_account->user_pword = sha1($this->input->post('user_pword', TRUE));
+               
                 $m_user_account->user_email = $this->input->post('user_email', TRUE);
                 $m_user_account->user_fname = $this->input->post('user_fname', TRUE);
                 $m_user_account->user_lname = $this->input->post('user_lname', TRUE);
@@ -138,13 +138,13 @@ class Users extends CORE_Controller
                 
                 // auditing purposes
                 
-                $m_user_account->modify($user_id);
+                $m_user_account->modify($user_account_id);
                 $m_user_account->commit();
                 if ($m_user_account->status() === TRUE) {
                     $response['title']       = 'Success!';
                     $response['stat']        = 'success';
                     $response['msg']         = 'User information successfully updated.';
-                    $response['row_updated'] = $this->get_response_rows($user_id);
+                    $response['row_updated'] = $this->get_response_rows($user_account_id);
                 } else {
                     $response['title'] = 'Error!';
                     $response['stat']  = 'error';
@@ -156,16 +156,16 @@ class Users extends CORE_Controller
             
             case 'delete':
                 $m_user_account = $this->User_account_model;
-                $user_id        = $this->input->post('user_account_id', TRUE);
+                $user_account_id        = $this->input->post('user_account_id', TRUE);
                 $m_user_account->begin();
                 $m_user_account->is_deleted = 1;
                 
-                $m_user_account->modify($user_id);
+                $m_user_account->modify($user_account_id);
                 
                 // make sure to update status of the user
                 
                 $m_user_account->is_active = 0;
-                $m_user_account->modify($user_id);
+                $m_user_account->modify($user_account_id);
                 $m_user_account->commit();
                 if ($m_user_account->status() === TRUE) {
                     $response['title'] = 'Success!';
@@ -222,7 +222,7 @@ class Users extends CORE_Controller
                 }
                 
                 $m_user_account->user_uname = $this->input->post('user_uname', TRUE);
-                $m_user_account->user_pword = sha1($this->input->post('user_pword', TRUE));
+          
                 $m_user_account->user_email = $this->input->post('user_email', TRUE);
                 $m_user_account->user_fname = $this->input->post('user_fname', TRUE);
                 $m_user_account->user_lname = $this->input->post('user_lname', TRUE);
