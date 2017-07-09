@@ -14,11 +14,7 @@ class Users extends CORE_Controller
         
     }
     
-    public function index()
-    {
-        echo "Test";
-    }
-    
+   
     public function transaction($txn = null)
     {
         switch ($txn) {
@@ -245,10 +241,24 @@ class Users extends CORE_Controller
         }
     }
     
-    private function get_response_rows($id = null)
-    {
-        $m_user_account = $this->User_account_model;
-        return $m_user_account->get_list();
+    
+      private  function get_response_rows($id=null){
+        $m_user_account=$this->User_account_model;
+
+        return  $m_user_account->get_list(
+
+            //send the parameter for filtering
+            'user_accounts.is_active=1 AND user_accounts.is_deleted=0'.($id==null?'':' AND user_accounts.user_account_id='.$id),
+
+            //send array parameter for fields required
+            array(
+                'user_accounts.*',
+          
+                'DATE_FORMAT(user_accounts.user_bdate,"%m/%d/%Y")as user_bdate',
+                'CONCAT_WS(" ",user_accounts.user_fname,user_accounts.user_mname,user_accounts.user_lname) as user_fullname'
+            )
+        );
+
     }
     
     

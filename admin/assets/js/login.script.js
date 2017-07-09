@@ -1,5 +1,5 @@
 
-var ctrl_url = 'http://localhost:8012/cakeordering/backend/';
+
 
             $('#btn_login').click(function(){
                 var btn=$(this);
@@ -14,7 +14,7 @@ var ctrl_url = 'http://localhost:8012/cakeordering/backend/';
                         $.ajax({
                             "dataType":"json",
                             "type":"POST",
-                            "url":ctrl_url+"Users/auth_user",
+                            "url":http+"Users/auth_user",
                             "data":_data,
                             "beforeSend" : function(){
                                showSpinningProgress(btn);
