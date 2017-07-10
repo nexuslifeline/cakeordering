@@ -1,3 +1,6 @@
+var http = 'http://localhost:8012/cakeordering/backend/';
+
+
     var validateRequiredFields=function(f){
         var stat=true;
 

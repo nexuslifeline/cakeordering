@@ -54,7 +54,7 @@ class Customers extends CORE_Controller
                 // validate if cust_email is already registered
                 
                 $cust_email_exists = $m_cust_account->get_list(array(
-                    'cust_accounts.cust_email' => $cust_email
+                    'customers.cust_email' => $cust_email
                 ));
                 if (count($cust_email_exists) > 0) {
                     $response['title'] = 'Error!';
@@ -92,13 +92,13 @@ class Customers extends CORE_Controller
                 // auditing purposes
                 
                 $m_cust_account->save();
-                $cust_id = $m_cust_account->last_insert_id();
+                $customer_id = $m_cust_account->last_insert_id();
                 $m_cust_account->commit();
                 if ($m_cust_account->status() === TRUE) {
                     $response['title']     = 'Success!';
                     $response['stat']      = 'success';
-                    $response['msg']       = 'cust successfully registered.';
-                    $response['row_added'] = $this->get_response_rows($cust_id);
+                    $response['msg']       = 'Customers successfully registered.';
+                    $response['row_added'] = $this->get_response_rows($customer_id);
                 } else {
                     $response['title'] = 'Error!';
                     $response['stat']  = 'error';
@@ -110,7 +110,7 @@ class Customers extends CORE_Controller
             
             case 'update':
                 $m_cust_account = $this->Customer_model;
-                $cust_id        = $this->input->post('cust_account_id', TRUE);
+                $customer_id        = $this->input->post('customer_id', TRUE);
                 if ($this->input->post('cust_pword') != null) { //if password is provide, cust wanted to update the password so it must be validated
                     if ($this->input->post('cust_cpword') != $this->input->post('cust_pword')) {
                         $response['title'] = 'Error!';
@@ -128,7 +128,7 @@ class Customers extends CORE_Controller
                 }
                 
                 $m_cust_account->cust_uname = $this->input->post('cust_uname', TRUE);
-                $m_cust_account->cust_pword = sha1($this->input->post('cust_pword', TRUE));
+               
                 $m_cust_account->cust_email = $this->input->post('cust_email', TRUE);
                 $m_cust_account->cust_fname = $this->input->post('cust_fname', TRUE);
                 $m_cust_account->cust_lname = $this->input->post('cust_lname', TRUE);
@@ -139,13 +139,13 @@ class Customers extends CORE_Controller
                 
                 // auditing purposes
                 
-                $m_cust_account->modify($cust_id);
+                $m_cust_account->modify($customer_id);
                 $m_cust_account->commit();
                 if ($m_cust_account->status() === TRUE) {
                     $response['title']       = 'Success!';
                     $response['stat']        = 'success';
-                    $response['msg']         = 'cust information successfully updated.';
-                    $response['row_updated'] = $this->get_response_rows($cust_id);
+                    $response['msg']         = 'Customers information successfully updated.';
+                    $response['row_updated'] = $this->get_response_rows($customer_id);
                 } else {
                     $response['title'] = 'Error!';
                     $response['stat']  = 'error';
@@ -157,21 +157,21 @@ class Customers extends CORE_Controller
             
             case 'delete':
                 $m_cust_account = $this->Customer_model;
-                $cust_id        = $this->input->post('cust_account_id', TRUE);
+                $customer_id        = $this->input->post('customer_id', TRUE);
                 $m_cust_account->begin();
                 $m_cust_account->is_deleted = 1;
                 
-                $m_cust_account->modify($cust_id);
+                $m_cust_account->modify($customer_id);
                 
                 // make sure to update status of the cust
                 
                 $m_cust_account->is_active = 0;
-                $m_cust_account->modify($cust_id);
+                $m_cust_account->modify($customer_id);
                 $m_cust_account->commit();
                 if ($m_cust_account->status() === TRUE) {
                     $response['title'] = 'Success!';
                     $response['stat']  = 'success';
-                    $response['msg']   = 'cust information successfully deleted.';
+                    $response['msg']   = 'Customers information successfully deleted.';
                 } else {
                     $response['title'] = 'Error!';
                     $response['stat']  = 'error';
@@ -216,14 +216,14 @@ class Customers extends CORE_Controller
             
             case 'update-profile':
                 $m_custs                    = $this->Customer_model;
-                $cust_account_id            = 1; // Active cust
+                $customer_id            = 1; // Active cust
                 $m_cust_account->cust_uname = $this->input->post('cust_uname', TRUE);
                 if ($this->input->post('cust_pword') != null) { //if not provided, do not updated password
                     $m_cust_account->cust_pword = sha1($this->input->post('cust_pword', TRUE));
                 }
                 
                 $m_cust_account->cust_uname = $this->input->post('cust_uname', TRUE);
-                $m_cust_account->cust_pword = sha1($this->input->post('cust_pword', TRUE));
+             
                 $m_cust_account->cust_email = $this->input->post('cust_email', TRUE);
                 $m_cust_account->cust_fname = $this->input->post('cust_fname', TRUE);
                 $m_cust_account->cust_lname = $this->input->post('cust_lname', TRUE);
@@ -233,7 +233,7 @@ class Customers extends CORE_Controller
                 $m_cust_account->cust_bdate = date('Y-m-d', strtotime($this->input->post('cust_bdate', TRUE)));
                 $m_custs->cust_photo        = $this->input->post('cust_photo');
                 
-                $m_custs->modify($cust_account_id);
+                $m_custs->modify($customer_id);
                 $response['title'] = 'Success!';
                 $response['stat']  = 'success';
                 $response['msg']   = 'Profile successfully updated.';
@@ -242,12 +242,24 @@ class Customers extends CORE_Controller
         }
     }
     
-    private function get_response_rows($id = null)
-    {
-        $m_cust_account = $this->Customer_model;
-        return $m_cust_account->get_list();
+   private  function get_response_rows($id=null){
+        $m_cust_account=$this->Customer_model;
+
+        return  $m_cust_account->get_list(
+
+            //send the parameter for filtering
+            'customers.is_active=1 AND customers.is_deleted=0'.($id==null?'':' AND customers.customer_id='.$id),
+
+            //send array parameter for fields required
+            array(
+                'customers.*',
+          
+                'DATE_FORMAT(customers.cust_bdate,"%m/%d/%Y")as cust_bdate',
+                'CONCAT_WS(" ",customers.cust_fname,customers.cust_mname,customers.cust_lname) as cust_fullname'
+            )
+        );
+
     }
-    
     
     public function auth_cust()
     {
