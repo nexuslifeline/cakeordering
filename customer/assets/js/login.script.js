@@ -1,5 +1,5 @@
 
-var ctrl_url = 'http://localhost:8012/cakeordering/backend/';
+var ctrl_url = 'http://localhost:8082/cakeordering/backend/';
 
             $('#btn_login').click(function(){
                 var btn=$(this);

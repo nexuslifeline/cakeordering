@@ -1,11 +1,13 @@
 <?php
+
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Users extends CORE_Controller
 {
     function __construct()
     {
         
-        //$this->custom_token();
+      /*  $this->custom_token();*/
         
         parent::__construct('');
         $this->load->model(array(
@@ -254,9 +256,9 @@ class Users extends CORE_Controller
     
     public function auth_user()
     {
+
         $user_uname = $this->input->post('user_uname');
         $user_pword = sha1($this->input->post('user_pword'));
-        
         $m_user_account = $this->User_account_model;
         $result         = $m_user_account->get_list(array(
             'user_accounts.user_uname' => $user_uname,
@@ -284,3 +286,5 @@ class Users extends CORE_Controller
     
     
 }
+
+
