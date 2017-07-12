@@ -28,9 +28,15 @@
                         
                            
                             if(response.stat=="success"){
+
+                                 localStorage.setItem("token", "nexuslifelisne");
+
+                                 
                                 setTimeout(function(){
                                 window.location.href = 'dashboard';
                             },600);
+
+                        
                             }
 
                         }).always(function(){

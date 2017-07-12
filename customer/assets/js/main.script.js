@@ -34,7 +34,7 @@
         $('input,textarea',f).val('');
         $(f).find('input:first').focus();
 
-        $('.date-picker').val("<?php echo date('m/d/Y'); ?>");
+        $('.date-picker').val("");
     };
     
     var showNotification=function(obj){

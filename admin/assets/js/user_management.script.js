@@ -1,4 +1,6 @@
   $(document).ready(function() {
+
+    
              var _txnMode;
              var oTable;
              var oSelectedRow;

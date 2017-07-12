@@ -37,7 +37,7 @@ var http = 'http://localhost:8012/cakeordering/backend/';
         $('input,textarea',f).val('');
         $(f).find('input:first').focus();
 
-        $('.date-picker').val("<?php echo date('m/d/Y'); ?>");
+        $('.date-picker').val("");
     };
     
     var showNotification=function(obj){
@@ -53,3 +53,7 @@ var http = 'http://localhost:8012/cakeordering/backend/';
     var showSpinningProgress=function(e){
         $(e).find('span').toggleClass('glyphicon glyphicon-refresh spinning');
     };
+
+
+
+
