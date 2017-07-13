@@ -31,20 +31,49 @@
                         <button type="button" class="btn btn-block btn-social btn-facebook"><i class="fa fa-facebook icon icon-left"></i> Facebook</button>
                       </div>
                       <div class="col-xs-6">
-                        <button type="button" class="btn btn-block btn-social btn-twitter"><i class="fa fa-twitter icon icon-left"></i> Twitter</button>
+                        <button type="button" class="btn btn-block btn-social btn-google-plus"><i class="fa fa-google icon icon-left"></i> Google</button>
                       </div>
                     </div>
                     <div class="title"><span class="title">Or</span></div>
-                    <div class="form-group">
-                      <div id="nick-handler" class="input-group"><span class="input-group-addon"><i class="icon s7-user"></i></span>
-                        <input type="text" name="nick" data-parsley-trigger="change" data-parsley-errors-messages-disabled="true" data-parsley-class-handler="#nick-handler" required="" placeholder="Username" autocomplete="off" class="form-control">
+                      
+                      
+                      
+                    <div class="form-group row">
+                      <div class="col-xs-6">
+                         <div id="first_name" class="input-group"><span class="input-group-addon"><i class="icon s7-info"></i></span>
+                            <input type="text" name="firstname" data-parsley-trigger="change" data-parsley-errors-messages-disabled="true" data-parsley-class-handler="#first_name" required="" placeholder="First Name" autocomplete="off" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-xs-6">
+                         <div id="last_name" class="input-group"><span class="input-group-addon"><i class="icon s7-info"></i></span>
+                            <input type="text" name="lastname" data-parsley-trigger="change" data-parsley-errors-messages-disabled="true" data-parsley-class-handler="#last_name" required="" placeholder="Last Name" autocomplete="off" class="form-control">
+                        </div>
                       </div>
                     </div>
+                      
+                      
+                      
                     <div class="form-group">
                       <div id="email-handler" class="input-group"><span class="input-group-addon"><i class="icon s7-mail"></i></span>
                         <input type="email" name="email" data-parsley-trigger="change" data-parsley-errors-messages-disabled="true" data-parsley-class-handler="#email-handler" required="" placeholder="E-mail" autocomplete="off" class="form-control">
                       </div>
                     </div>
+                      
+                    <div class="form-group">
+                      <div id="contact-handler" class="input-group"><span class="input-group-addon"><i class="icon s7-phone"></i></span>
+                        <input type="number" name="contact" data-parsley-trigger="change" data-parsley-errors-messages-disabled="true" data-parsley-class-handler="#contact-handler" required="" placeholder="Contact #" autocomplete="off" class="form-control">
+                      </div>
+                    </div>
+                      
+                    <div class="form-group">
+                      <div id="user-handler" class="input-group"><span class="input-group-addon"><i class="icon s7-user"></i></span>
+                        <input type="text" name="nick" data-parsley-trigger="change" data-parsley-errors-messages-disabled="true" data-parsley-class-handler="#user-handler" required="" placeholder="Username" autocomplete="off" class="form-control">
+                      </div>
+                    </div>
+                      
+           
+                      
+                      
                     <div class="form-group row">
                       <div class="col-xs-6">
                         <div id="password-handler" class="input-group"><span class="input-group-addon"><i class="icon s7-lock"></i></span>
@@ -58,12 +87,23 @@
                       </div>
                     </div>
                   </div>
+                    
+                          <input type="checkbox" id="remember" class="needsclick">
+                          <label class="conditions"  for="remember">Send SMS Verification Code</label>
+                       
+                    
+                    
                   <p class="conditions">By creating an account, you agree with the <a href="#">Terms and Conditions</a>.</p>
-                  <button type="submit" class="btn btn-block btn-primary btn-lg">Sign Up</button>
+                 
+                    <!--color for border f49090-->
+                    <!--submit-->
+                    <button type="submit" class="btn btn-block btn-primary btn-lg">Sign Up</button>
+                    
                 </form>
+                  
               </div>
             </div>
-            <div class="text-center out-links"><a href="#">© 2015 Your Company</a></div>
+            <div class="text-center out-links"><a href="http://cake-system.jdevsolution.com/">@ Cake System</a></div>
           </div>
         </div>
       </div>
@@ -74,22 +114,18 @@
     <script src="../assets/lib/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="../assets/lib/theme-switcher/theme-switcher.min.js" type="text/javascript"></script>
     <script src="../assets/lib/parsley/parsley.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-      $(document).ready(function(){
-      	//initialize the javascript
-      	App.init();
-      	
-      	$('form').parsley();
-      	
-      });
-    </script>
-    <script type="text/javascript">
-      $(document).ready(function(){
-      	App.livePreview();
-      });
       
+    <!--EL JEI JS-->
+    <script src="../assets/js/signup.script.js" type="text/javascript"></script>
+  
+      
+    <script type="text/javascript">
+      $(document).ready(function(){
+        //initialize the javascript
+      	SignUpCustomer.init();
+      });
     </script>
-
+      
     
   </body>
 

@@ -1,4 +1,4 @@
-var http = 'http://localhost:8012/cakeordering/backend/';
+var http = 'http://localhost:8082/cakeordering/backend/';
 
 
     var validateRequiredFields=function(f){

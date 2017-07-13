@@ -173,7 +173,7 @@
 
 
 
-                  <li data-transition="random"> 
+               <!--    <li data-transition="random"> 
                         <img src="assets/images/gluten-free-custom-cake-4.jpg"  alt=""  width="1920" height="1000" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg">
                         <div class="tp-caption tp-resizeme slider-title" 
                              data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
@@ -206,7 +206,7 @@
                              data-transform_in="opacity:0;s:1500;e:Power3.easeInOut;" 
                              data-transform_out="auto:auto;s:300;" 
                             data-start="1500"><a href="#modal" class="modal_trigger btn btn-xl btn-dark custom-button main-nav"">Sign In / Customer Registration </a></div>
-                    </li> 
+                    </li>  -->
 
                 </ul> 
             </div><!-- END REVOLUTION SLIDER -->
@@ -544,24 +544,47 @@
                         <!-- Register Form -->
                         <div class="user_register">
                                 <form>
-                                        <label>Full Name</label>
-                                        <input type="text" />
-                                        <br />
-
-                                        <label>Email Address</label>
-                                        <input type="email" />
-                                        <br />
-
-                                        <label>Password</label>
-                                        <input type="password" />
-                                        <br />
-
-                                        <div class="checkbox">
-                                                <input id="send_updates" type="checkbox" />
-                                                <label for="send_updates">Send me occasional email updates</label>
+                                        <div class = "row">
+                                            <div class = "col-sm-6">
+                                                <label>First Name</label>
+                                                <input type="text" class= "signup-text-height" />
+                                            </div>
+                                            <div class = "col-sm-6">
+                                                <label>Last Name</label>
+                                                <input type="text" class= "signup-text-height" />
+                                            </div>
                                         </div>
-
-                                        <div class="action_btns">
+                                    <div class = "row">
+                                            <div class = "col-sm-6">
+                                                <label>Email</label>
+                                                <input type="email" class= "signup-text-height"/>
+                                            </div>
+                                            <div class = "col-sm-6">
+                                                <label>Contact #</label>
+                                                <input type="text" class= "signup-text-height" />
+                                            </div>
+                                    </div>
+                                    <div class = "row">
+                                            <div class = "col-sm-12">
+                                                <label>Username</label>
+                                                <input type="text" class= "signup-text-height"/>
+                                            </div>
+                                            <div class = "col-sm-12">
+                                                <label>Passwords</label>
+                                                <input type="password" class= "signup-text-height password-css"/>
+                                            </div>
+                                            <div class = "col-sm-12 margin-password-css">
+                                                <label>Confirm Password</label>
+                                                <input type="password" class= "signup-text-height password-css"/>
+                                            </div>
+                                    </div>
+                                      
+                                        <div class="checkbox css-style">
+                                                <input id="send_updates" type="checkbox" />
+                                                <label for="send_updates" style= "color :red">Send me SMS registration code</label><br />
+                                        </div>
+                                       
+                                        <div class="action_btns css-style">
                                                 <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
                                                 <div class="one_half last"><a href="#" class="btn btn_red">Register</a></div>
                                         </div>
