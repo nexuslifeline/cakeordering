@@ -15,7 +15,7 @@ var ctrl_url = 'http://localhost:8082/cakeordering/backend/';
                         $.ajax({
                             "dataType":"json",
                             "type":"POST",
-                            "url":ctrl_url+"Users/auth_user",
+                            "url":http+"Users/auth_user",
                             "data":_data,
                             "beforeSend" : function(){
                                showSpinningProgress(btn);
@@ -29,9 +29,15 @@ var ctrl_url = 'http://localhost:8082/cakeordering/backend/';
                         
                            
                             if(response.stat=="success"){
+
+                                 localStorage.setItem("token", "nexuslifelisne");
+
+                                 
                                 setTimeout(function(){
                                 window.location.href = 'dashboard';
                             },600);
+
+                        
                             }
 
                         }).always(function(){
