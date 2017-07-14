@@ -1,13 +1,16 @@
 SignUpCustomer = {
     
-    
+    http : 'http://localhost:8082/cakeordering/backend/',
+
     init : function(){
-    
+        
+        var self = this;
         //Validation
         $('form').parsley();
         
         /*Sign Up Customer*/
-        
+        self.btnHandlers();
+            
         
         
     },
@@ -15,82 +18,49 @@ SignUpCustomer = {
     
     btnHandlers : function(){
         
+        var self = this;
                  //save
-                 $('#btn_save_record').click(function() {
+                 $('#btn_sign_up').click(function() {
                      var btn = $(this);
-                     var f = $('#frm_data');
-         
+                     var f = $('#form_signup');
+                     
+                     console.log('YOu CLick me');
+                     console.log(f);
+                     
+                     
                      if (Main.validateRequiredFields(f)) {
          
                          var _data = f.serializeArray(); //serialize data in array format
+                         
+                             console.log('Game');
          
-                         if (_txnMode == "new") {
                              //save new card info
                              $.ajax({
                                  "dataType": "json",
                                  "type": "POST",
-                                 "url": http+"Customers/transaction/create",
+                                 "url": self.http+"Customers/transaction/create",
                                  "data": _data,
                                  "beforeSend": function() {
-                                     showSpinningProgress(btn);
+                                     Main.showSpinningProgress(btn);
                                  },
                                  error: function(xhr, status, error) {
                                      // check status && error
                                      console.log(xhr);
                                  }
                              }).done(function(response) {
-                                 showNotification(response);
-                                 if (response.stat == "success") {
-                                     //oTable.row(oSelectedRow).data(response.row_added[0]).draw();
-                                     oTable.row.add(response.row_added[0]).draw(); //add new data to user table
-                                     clearFields(f); //clear all form fields
-                                    $('.date-picker').val("");
-                                 }
+                                 console.log("Done");
+                                 Main.showNotification(response);
          
                              }).always(function() {
-                                 showSpinningProgress(btn);
+                                  console.log("Done2");
+                                 Main.showSpinningProgress(btn);
                              });
-                         } else {
-         
-                             var c = oTable.row(oSelectedRow).data();
-                             _data.push({
-                                 name: "customer_id",
-                                 value: c.customer_id
-                             });
-                             $.ajax({
-                                 "dataType": "json",
-                                 "type": "POST",
-                                 "url": http+"Customers/transaction/update",
-                                 "data": _data,
-                                 "beforeSend": function() {
-                                         showSpinningProgress(btn);
-                                     }
-         
-                                     ,
-                                 error: function(xhr, status, error) {
-                                     // check status && error
-                                     console.log(xhr);
-                                 }
-         
-                             }).done(function(response) {
-                                 showNotification(response);
-                                 if (response.stat == "success") {
-                                     oTable.row(oSelectedRow).data(response.row_updated[0]).draw();
-                                     clearFields(f); //clear all form fields
-                                     $('#modal_form').modal('hide');
-                                 }
-         
-                             }).always(function() {
-                                 showSpinningProgress(btn);
-                             });
-                         }
-         
          
                      }
                  });
         
         
-    }
+    },
     
     
     

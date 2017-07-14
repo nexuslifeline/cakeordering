@@ -13,8 +13,10 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+     <link href="../assets/plugins/notify/pnotify.core.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../assets/lib/theme-switcher/theme-switcher.min.css"/>
-    <link rel="stylesheet" type="text/css" href="../assets/lib/font-awesome/css/font-awesome.min.css"/><link type="text/css" href="../assets/css/style.css" rel="stylesheet">  </head>
+    <link rel="stylesheet" type="text/css" href="../assets/lib/font-awesome/css/font-awesome.min.css"/>
+    <link type="text/css" href="../assets/css/style.css" rel="stylesheet">  </head>
   <body class="am-splash-screen">
     <div class="am-wrapper am-login am-signup">
       <div class="am-content">
@@ -23,7 +25,8 @@
             <div class="panel panel-default">
               <div class="panel-heading"><img src="../assets/img/logo-full-retina.png" alt="logo" width="150px" height="39px" class="logo-img"><span>Please enter your user information.</span></div>
               <div class="panel-body">
-                <form action="https://foxythemes.net/preview/products/amaretti/index.php" parsley-validate="" novalidate="" method="get" class="form-horizontal">
+               
+                  <form id="form_signup" action="https://foxythemes.net/preview/products/amaretti/index.php" parsley-validate="" novalidate="" method="get" class="form-horizontal">
                   <div class="title"><span>Sign up with</span></div>
                   <div class="sign-up-form"> 
                     <div class="form-group row social-signup">
@@ -40,13 +43,13 @@
                       
                     <div class="form-group row">
                       <div class="col-xs-6">
-                         <div id="first_name" class="input-group"><span class="input-group-addon"><i class="icon s7-info"></i></span>
-                            <input type="text" name="firstname" data-parsley-trigger="change" data-parsley-errors-messages-disabled="true" data-parsley-class-handler="#first_name" required="" placeholder="First Name" autocomplete="off" class="form-control">
+                         <div id="cust_fname_handler" class="input-group"><span class="input-group-addon"><i class="icon s7-info"></i></span>
+                            <input type="text" id="cust_fname" name="cust_fname" data-parsley-trigger="change" data-parsley-errors-messages-disabled="true" data-parsley-class-handler="#cust_fname_handler" required placeholder="First Name" autocomplete="off" class="form-control"  data-error-msg="Firstname is required.">
                         </div>
                       </div>
-                      <div class="col-xs-6">
-                         <div id="last_name" class="input-group"><span class="input-group-addon"><i class="icon s7-info"></i></span>
-                            <input type="text" name="lastname" data-parsley-trigger="change" data-parsley-errors-messages-disabled="true" data-parsley-class-handler="#last_name" required="" placeholder="Last Name" autocomplete="off" class="form-control">
+                      <div class="col-xs-6 ">
+                         <div id="cust_lname_handler" class="input-group"><span class="input-group-addon"><i class="icon s7-info"></i></span>
+                            <input type="text" id="cust_lname" name="cust_lname" data-parsley-trigger="change" data-parsley-errors-messages-disabled="true" data-parsley-class-handler="#cust_lname_handler" required placeholder="Last Name" autocomplete="off" class="form-control" data-error-msg="Lastname is required.">
                         </div>
                       </div>
                     </div>
@@ -54,35 +57,33 @@
                       
                       
                     <div class="form-group">
-                      <div id="email-handler" class="input-group"><span class="input-group-addon"><i class="icon s7-mail"></i></span>
-                        <input type="email" name="email" data-parsley-trigger="change" data-parsley-errors-messages-disabled="true" data-parsley-class-handler="#email-handler" required="" placeholder="E-mail" autocomplete="off" class="form-control">
+                      <div id="cust_email_handler" class="input-group"><span class="input-group-addon"><i class="icon s7-mail"></i></span>
+                        <input type="email" id="cust_email" name="cust_email" data-parsley-trigger="change" data-parsley-errors-messages-disabled="true" data-parsley-class-handler="#cust_email_handler" required placeholder="E-mail" autocomplete="off" class="form-control" data-error-msg="Email is required."   >
                       </div>
                     </div>
                       
                     <div class="form-group">
-                      <div id="contact-handler" class="input-group"><span class="input-group-addon"><i class="icon s7-phone"></i></span>
-                        <input type="number" name="contact" data-parsley-trigger="change" data-parsley-errors-messages-disabled="true" data-parsley-class-handler="#contact-handler" required="" placeholder="Contact #" autocomplete="off" class="form-control">
+                      <div id="contact_no_handler" class="input-group"><span class="input-group-addon"><i class="icon s7-phone"></i></span>
+                        <input type="number"  id="contact_no" name="contact_no" data-parsley-trigger="change" data-parsley-errors-messages-disabled="true" data-parsley-class-handler="#contact_no_handler" required placeholder="Contact #" autocomplete="off" class="form-control" data-error-msg="Contact is required.">
                       </div>
                     </div>
                       
                     <div class="form-group">
-                      <div id="user-handler" class="input-group"><span class="input-group-addon"><i class="icon s7-user"></i></span>
-                        <input type="text" name="nick" data-parsley-trigger="change" data-parsley-errors-messages-disabled="true" data-parsley-class-handler="#user-handler" required="" placeholder="Username" autocomplete="off" class="form-control">
+                      <div id="cust_uname_handler" class="input-group"><span class="input-group-addon"><i class="icon s7-user"></i></span>
+                        <input type="text" id="cust_uname" name="cust_uname" data-parsley-trigger="change" data-parsley-errors-messages-disabled="true" data-parsley-class-handler="#cust_uname_handler" required placeholder="Username" autocomplete="off" class="form-control" data-error-msg="Username is required.">
                       </div>
                     </div>
-                      
-           
                       
                       
                     <div class="form-group row">
                       <div class="col-xs-6">
-                        <div id="password-handler" class="input-group"><span class="input-group-addon"><i class="icon s7-lock"></i></span>
-                          <input id="pass1" type="password" data-parsley-errors-messages-disabled="true" placeholder="Password" data-parsley-class-handler="#password-handler" required="" class="form-control">
+                        <div id="cust_pword_handler" class="input-group"><span class="input-group-addon"><i class="icon s7-lock"></i></span>
+                          <input type="password" id="cust_pword" name = "cust_pword"  data-parsley-errors-messages-disabled="true" placeholder="Password" data-parsley-class-handler="#cust_pword_handler" required class="form-control">
                         </div>
                       </div>
                       <div class="col-xs-6">
                         <div id="confirm-handler" class="input-group"><span class="input-group-addon"><i class="icon s7-lock"></i></span>
-                          <input parsley-equalto="#pass1" type="password" data-parsley-errors-messages-disabled="true" data-parsley-class-handler="#confirm-handler" required="" placeholder="Confirm" class="form-control">
+                          <input type="password" id="cust_cpword" name="cust_cpword"parsley-equalto="#pass1"  data-parsley-errors-messages-disabled="true" data-parsley-class-handler="#confirm-handler" required placeholder="Confirm" class="form-control">
                         </div>
                       </div>
                     </div>
@@ -97,9 +98,13 @@
                  
                     <!--color for border f49090-->
                     <!--submit-->
-                    <button type="submit" class="btn btn-block btn-primary btn-lg">Sign Up</button>
-                    
+                    <button id = "btn_sign_up" type="button" class="btn btn-block btn-primary btn-lg">Sign Up</button>
+                      
+                      
+                     
                 </form>
+                  
+                  
                   
               </div>
             </div>
@@ -117,11 +122,18 @@
       
     <!--EL JEI JS-->
     <script src="../assets/js/signup.script.js" type="text/javascript"></script>
-  
+    <script src="../assets/js/main.script.js" type="text/javascript"></script>
+      
+    <!-- PNotify -->
+    <script type="text/javascript" src="../assets/plugins/notify/pnotify.core.js"></script>
+    <script type="text/javascript" src="../assets/plugins/notify/pnotify.buttons.js"></script>
+    <script type="text/javascript" src="../assets/plugins/notify/pnotify.nonblock.js"></script>
+
       
     <script type="text/javascript">
       $(document).ready(function(){
         //initialize the javascript
+       // Main.init();
       	SignUpCustomer.init();
       });
     </script>

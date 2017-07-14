@@ -26,6 +26,7 @@ class Customers extends CORE_Controller
             
             case 'create':
                 $m_cust_account= $this->Customer_model;
+                
                 $cust_email     = $this->input->post('cust_email', TRUE);
                 if ($this->input->post('cust_email') == null) {
                     $response['title'] = 'Error!';
@@ -78,9 +79,12 @@ class Customers extends CORE_Controller
                     exit;
                 }
                 
+                
+                $random = md5(uniqid(rand(),true));
                 $m_cust_account->begin();
                 $m_cust_account->cust_uname = $this->input->post('cust_uname', TRUE);
                 $m_cust_account->cust_pword = sha1($this->input->post('cust_pword', TRUE));
+                $m_cust_account->cust_vcode =  substr($random, 0, 5);
                 $m_cust_account->cust_email = $this->input->post('cust_email', TRUE);
                 $m_cust_account->cust_fname = $this->input->post('cust_fname', TRUE);
                 $m_cust_account->cust_lname = $this->input->post('cust_lname', TRUE);
@@ -92,8 +96,11 @@ class Customers extends CORE_Controller
                 // auditing purposes
                 
                 $m_cust_account->save();
+                
                 $customer_id = $m_cust_account->last_insert_id();
+                
                 $m_cust_account->commit();
+                
                 if ($m_cust_account->status() === TRUE) {
                     $response['title']     = 'Success!';
                     $response['stat']      = 'success';
@@ -136,6 +143,7 @@ class Customers extends CORE_Controller
                 $m_cust_account->contact_no = $this->input->post('contact_no', TRUE);
                 $m_cust_account->address    = $this->input->post('address', TRUE);
                 $m_cust_account->cust_bdate = date('Y-m-d', strtotime($this->input->post('cust_bdate', TRUE)));
+                
                 
                 // auditing purposes
                 

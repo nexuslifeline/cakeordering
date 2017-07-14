@@ -16,7 +16,14 @@ var http = 'http://localhost:8082/cakeordering/backend/';
                     return false;
                 }
             }else{
+                
+                  
+                    console.log($(this).val());
+                    console.log("Error");
+                
                 if($(this).val()==""){
+                  
+                    
                     showNotification({title:"Error!",stat:"error",msg:$(this).data('error-msg')});
                     $(this).closest('div.form-group').addClass('has-error');
                     $(this).focus();

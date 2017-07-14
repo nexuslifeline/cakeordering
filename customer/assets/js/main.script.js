@@ -14,21 +14,25 @@ Main = {
         var stat=true;
        
 
-        $('div.form-group').removeClass('has-error');
+        $('div.input-group').removeClass('parsley-error');
         $('input[required],textarea[required],select[required]',f).each(function(){
 
             if($(this).is('select')){
                 if($(this).select2('val')==0||$(this).select2('val')==null){
                     self.showNotification({title:"Error!",stat:"error",msg:$(this).data('error-msg')});
-                    $(this).closest('div.form-group').addClass('has-error');
+                    $(this).closest('div.input-group').addClass('parsley-error');
                     $(this).focus();
                     stat=false;
                     return false;
                 }
             }else{
+                
+                console.log($(this).val());
+                console.log("Error");
+                
                 if($(this).val()==""){
                     self.showNotification({title:"Error!",stat:"error",msg:$(this).data('error-msg')});
-                    $(this).closest('div.form-group').addClass('has-error');
+                    $(this).closest('div.input-group').addClass('parsley-error');
                     $(this).focus();
                     stat=false;
                     return false;
