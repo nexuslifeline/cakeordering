@@ -300,4 +300,38 @@ class Customers extends CORE_Controller
     }
     
     
+   
+    public function send(){
+        
+            $this->load->library('email');
+          
+            $config['protocol']='smtp';
+            $config['smtp_host']='ssl://smtp.gmail.com';
+            $config['smtp_port']=465;
+            $config['smtp_user']='andpajarillo@gmail.com';
+            $config['smtp_pass']='sample';
+            $config['mailtype'] = 'html';
+            $config['charset'] = 'iso-8859-1';
+            $config['wordwrap'] = TRUE;
+            $this->email->initialize($config);
+            $this->email->from('andpajarillo@gmail.com', 'Site name');
+            $this->email->to('andpajarillo@gmail.com');
+            $this->email->subject('Notification Mail');
+            $this->email->message('Your message');
+            $this->email->send();
+        
+       /* var_dump($this->email->send());
+            exit();*/
+        
+        if($this->email->send()){
+            echo "Email has been send";
+        }else{
+            echo $this->email->print_debugger();
+        } 
+    }
+            
+        
+        
+    
+    
 }
