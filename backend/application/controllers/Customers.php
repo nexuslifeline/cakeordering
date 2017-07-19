@@ -16,7 +16,7 @@ class Customers extends CORE_Controller
     
 
     
-    public function transaction($txn = null)
+    public function transaction($txn = null,$sms = null)
     {
         switch ($txn) {
             case 'list':
@@ -26,6 +26,21 @@ class Customers extends CORE_Controller
             
             case 'create':
                 $m_cust_account= $this->Customer_model;
+                
+                
+              /*  if($sms == 'go'){
+                    $response['title'] = 'Error!';
+                    $response['stat']  = 'error';
+                    $response['msg']   = 'Password GO!!';
+                    echo json_encode($response);
+                    exit;
+                }else{
+                    $response['title'] = 'Error!';
+                    $response['stat']  = 'error';
+                    $response['msg']   = ' Password No!!';
+                    echo json_encode($response);
+                    exit;
+                }*/
                 
                 $cust_email     = $this->input->post('cust_email', TRUE);
                 if ($this->input->post('cust_email') == null) {
@@ -81,10 +96,11 @@ class Customers extends CORE_Controller
                 
                 
                 $random = md5(uniqid(rand(),true));
+                $vcode =  substr($random, 0, 5);
                 $m_cust_account->begin();
                 $m_cust_account->cust_uname = $this->input->post('cust_uname', TRUE);
                 $m_cust_account->cust_pword = sha1($this->input->post('cust_pword', TRUE));
-                $m_cust_account->cust_vcode =  substr($random, 0, 5);
+                $m_cust_account->cust_vcode = $vcode;
                 $m_cust_account->cust_email = $this->input->post('cust_email', TRUE);
                 $m_cust_account->cust_fname = $this->input->post('cust_fname', TRUE);
                 $m_cust_account->cust_lname = $this->input->post('cust_lname', TRUE);
@@ -102,10 +118,22 @@ class Customers extends CORE_Controller
                 $m_cust_account->commit();
                 
                 if ($m_cust_account->status() === TRUE) {
+                    
+                    $this->send($vcode);
+                    
+                    if($sms == 'go'){
+                       $this->sendsms($vcode);
+                    }else{
+                        
+                    }
+                  
                     $response['title']     = 'Success!';
                     $response['stat']      = 'success';
                     $response['msg']       = 'Customers successfully registered.';
+                    $response['vcode']     =  $vcode;
                     $response['row_added'] = $this->get_response_rows($customer_id);
+                    
+                   
                 } else {
                     $response['title'] = 'Error!';
                     $response['stat']  = 'error';
@@ -301,7 +329,9 @@ class Customers extends CORE_Controller
     
     
    
-    public function send(){
+    public function send($vcode =null,$fromEmail = null){
+        
+       
         
         //Load email library
         $this->load->library('email');
@@ -322,16 +352,32 @@ class Customers extends CORE_Controller
 
         //Email content
         $htmlContent = '<h1>Sending email via SMTP server</h1>';
-        $htmlContent .= '<p>This email has sent via SMTP server from CodeIgniter application EXD!!!.</p>';
+        $htmlContent .= '<p>Your Verification is : </p>' . $vcode ;
 
         $this->email->to('eljei.delrio@gmail.com');
-        $this->email->from('eljei.delrio@gmail.com','MyWebsite');
-        $this->email->subject('How to send email via SMTP server in CodeIgniter');
+        $this->email->from('exd.dev.sol@gmail.com','Sweet Thumbs Cakes and Cupcakes');
+        $this->email->subject('Verification Code');
         $this->email->message($htmlContent);
 
         //Send email
         $this->email->send();
+       // return  $vcode;
+       
+    }
+    
+    
+    public function sendsms($vcode =null){
         
+        include "smsGateway.php";
+       
+        $smsGateway = new SmsGateway('exd.dev.sol@gmail.com', 'w3sTern03');
+        $deviceID = 52751;
+        $number = '+639368121870';
+        $message = 'Your 5 digit Verification Code is :'.$vcode ;
+
+        //Please note options is no required and can be left out
+        $result = $smsGateway->sendMessageToNumber($number, $message, $deviceID);
+
     }
     
 

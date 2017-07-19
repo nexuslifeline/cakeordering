@@ -3,17 +3,14 @@ Main = {
     init : function(){
     
         var self = this;
-        
         /* Login Object */
         LogIn.init();
         
     },
-
     validateRequiredFields : function(f){
         var self = this;
         var stat=true;
        
-
         $('div.input-group').removeClass('parsley-error');
         $('input[required],textarea[required],select[required]',f).each(function(){
 
@@ -26,10 +23,6 @@ Main = {
                     return false;
                 }
             }else{
-                
-                console.log($(this).val());
-                console.log("Error");
-                
                 if($(this).val()==""){
                     self.showNotification({title:"Error!",stat:"error",msg:$(this).data('error-msg')});
                     $(this).closest('div.input-group').addClass('parsley-error');
