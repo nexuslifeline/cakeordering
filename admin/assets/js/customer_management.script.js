@@ -150,6 +150,10 @@
          
                          var _data = f.serializeArray(); //serialize data in array format
          
+                         console.log("YOw Here");
+                         console.log(_data);
+                         
+                       
                          if (_txnMode == "new") {
                              //save new card info
                              $.ajax({
@@ -209,7 +213,7 @@
                              }).always(function() {
                                  showSpinningProgress(btn);
                              });
-                         }
+                         }    
          
          
                      }

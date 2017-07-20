@@ -218,7 +218,7 @@ small {
   background-color: #fff;
   border: 1px solid #e0e0e0;
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.03);
-  min-height: 45px; }
+  min-height: 27px; }
   .form-control:focus, input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
@@ -1732,11 +1732,12 @@ label.error {
 
 .popupContainer {
     position: absolute;
-    width: 330px;
+    width: 465px;
     height: auto;
     left: 45%;
     top: 60px;
     background: #FFF;
+    margin-left: -225px !important;
 }
 
 .modal_trigger {
@@ -1936,7 +1937,7 @@ a.btn_red {
 .user_register input[type="email"],
 .user_register input[type="password"] {
     display: block;
-    width: 90%;
+    width: 100%;
     padding: 10px;
     border: 1px solid #DDD;
     color: #666;
@@ -1945,6 +1946,7 @@ a.btn_red {
 .user_register input[type="checkbox"] {
     float: left;
     margin-right: 5px;
+    margin-top: 7px;
 }
 
 .user_register input[type="checkbox"]+label {
@@ -1955,4 +1957,21 @@ a.btn_red {
     margin-bottom: 10px;
     clear: both;
     overflow: hidden;
+}
+
+/*Customer Signup CSs*/
+
+.signup-text-height{
+    height: 0px !important;
+}
+.css-style{
+    padding-top: 4px
+}
+.password-css{
+    border-radius: 4px !important;
+    min-height: 7px !important;
+    height: 38% !important;
+}
+.margin-password-css{
+    margin-top: -11px;
 }
