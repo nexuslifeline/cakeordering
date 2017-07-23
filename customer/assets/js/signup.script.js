@@ -1,6 +1,6 @@
 SignUpCustomer = {
     
-    http : 'http://localhost:8082/cakeordering/backend/',
+    http : 'http://localhost:8012/cakeordering/backend/',
     globalVcode : '',
     
     init : function(){

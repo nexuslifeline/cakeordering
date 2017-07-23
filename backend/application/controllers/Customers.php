@@ -14,9 +14,9 @@ class Customers extends CORE_Controller
         
     }
     
-
     
-    public function transaction($txn = null,$sms = null)
+    
+    public function transaction($txn = null, $sms = null)
     {
         switch ($txn) {
             case 'list':
@@ -25,24 +25,24 @@ class Customers extends CORE_Controller
                 break;
             
             case 'create':
-                $m_cust_account= $this->Customer_model;
+                $m_cust_account = $this->Customer_model;
                 
                 
-              /*  if($sms == 'go'){
-                    $response['title'] = 'Error!';
-                    $response['stat']  = 'error';
-                    $response['msg']   = 'Password GO!!';
-                    echo json_encode($response);
-                    exit;
+                /*  if($sms == 'go'){
+                $response['title'] = 'Error!';
+                $response['stat']  = 'error';
+                $response['msg']   = 'Password GO!!';
+                echo json_encode($response);
+                exit;
                 }else{
-                    $response['title'] = 'Error!';
-                    $response['stat']  = 'error';
-                    $response['msg']   = ' Password No!!';
-                    echo json_encode($response);
-                    exit;
+                $response['title'] = 'Error!';
+                $response['stat']  = 'error';
+                $response['msg']   = ' Password No!!';
+                echo json_encode($response);
+                exit;
                 }*/
                 
-                $cust_email     = $this->input->post('cust_email', TRUE);
+                $cust_email = $this->input->post('cust_email', TRUE);
                 if ($this->input->post('cust_email') == null) {
                     $response['title'] = 'Error!';
                     $response['stat']  = 'error';
@@ -51,21 +51,7 @@ class Customers extends CORE_Controller
                     exit;
                 }
                 
-                if ($this->input->post('cust_pword') == null) {
-                    $response['title'] = 'Error!';
-                    $response['stat']  = 'error';
-                    $response['msg']   = 'Sorry, Invalid  password!';
-                    echo json_encode($response);
-                    exit;
-                }
                 
-                if ($this->input->post('cust_cpword') != $this->input->post('cust_pword')) {
-                    $response['title'] = 'Error!';
-                    $response['stat']  = 'error';
-                    $response['msg']   = 'Sorry, Password did not match!';
-                    echo json_encode($response);
-                    exit;
-                }
                 
                 // validate if cust_email is already registered
                 
@@ -95,8 +81,25 @@ class Customers extends CORE_Controller
                 }
                 
                 
-                $random = md5(uniqid(rand(),true));
-                $vcode =  substr($random, 0, 5);
+                
+                
+                if ($this->input->post('cust_pword') == null) {
+                    $response['title'] = 'Error!';
+                    $response['stat']  = 'error';
+                    $response['msg']   = 'Sorry, Invalid  password!';
+                    echo json_encode($response);
+                    exit;
+                }
+                
+                if ($this->input->post('cust_cpword') != $this->input->post('cust_pword')) {
+                    $response['title'] = 'Error!';
+                    $response['stat']  = 'error';
+                    $response['msg']   = 'Sorry, Password did not match!';
+                    echo json_encode($response);
+                    exit;
+                }
+                $random = md5(uniqid(rand(), true));
+                $vcode  = substr($random, 0, 5);
                 $m_cust_account->begin();
                 $m_cust_account->cust_uname = $this->input->post('cust_uname', TRUE);
                 $m_cust_account->cust_pword = sha1($this->input->post('cust_pword', TRUE));
@@ -121,19 +124,19 @@ class Customers extends CORE_Controller
                     
                     $this->send($vcode);
                     
-                    if($sms == 'go'){
-                       $this->sendsms($vcode);
-                    }else{
+                    if ($sms == 'go') {
+                        $this->sendsms($vcode);
+                    } else {
                         
                     }
-                  
+                    
                     $response['title']     = 'Success!';
                     $response['stat']      = 'success';
                     $response['msg']       = 'Customers successfully registered.';
-                    $response['vcode']     =  $vcode;
+                    $response['vcode']     = $vcode;
                     $response['row_added'] = $this->get_response_rows($customer_id);
                     
-                   
+                    
                 } else {
                     $response['title'] = 'Error!';
                     $response['stat']  = 'error';
@@ -145,7 +148,7 @@ class Customers extends CORE_Controller
             
             case 'update':
                 $m_cust_account = $this->Customer_model;
-                $customer_id        = $this->input->post('customer_id', TRUE);
+                $customer_id    = $this->input->post('customer_id', TRUE);
                 if ($this->input->post('cust_pword') != null) { //if password is provide, cust wanted to update the password so it must be validated
                     if ($this->input->post('cust_cpword') != $this->input->post('cust_pword')) {
                         $response['title'] = 'Error!';
@@ -163,7 +166,7 @@ class Customers extends CORE_Controller
                 }
                 
                 $m_cust_account->cust_uname = $this->input->post('cust_uname', TRUE);
-               
+                
                 $m_cust_account->cust_email = $this->input->post('cust_email', TRUE);
                 $m_cust_account->cust_fname = $this->input->post('cust_fname', TRUE);
                 $m_cust_account->cust_lname = $this->input->post('cust_lname', TRUE);
@@ -193,7 +196,7 @@ class Customers extends CORE_Controller
             
             case 'delete':
                 $m_cust_account = $this->Customer_model;
-                $customer_id        = $this->input->post('customer_id', TRUE);
+                $customer_id    = $this->input->post('customer_id', TRUE);
                 $m_cust_account->begin();
                 $m_cust_account->is_deleted = 1;
                 
@@ -252,14 +255,14 @@ class Customers extends CORE_Controller
             
             case 'update-profile':
                 $m_custs                    = $this->Customer_model;
-                $customer_id            = 1; // Active cust
+                $customer_id                = 1; // Active cust
                 $m_cust_account->cust_uname = $this->input->post('cust_uname', TRUE);
                 if ($this->input->post('cust_pword') != null) { //if not provided, do not updated password
                     $m_cust_account->cust_pword = sha1($this->input->post('cust_pword', TRUE));
                 }
                 
                 $m_cust_account->cust_uname = $this->input->post('cust_uname', TRUE);
-             
+                
                 $m_cust_account->cust_email = $this->input->post('cust_email', TRUE);
                 $m_cust_account->cust_fname = $this->input->post('cust_fname', TRUE);
                 $m_cust_account->cust_lname = $this->input->post('cust_lname', TRUE);
@@ -278,23 +281,21 @@ class Customers extends CORE_Controller
         }
     }
     
-   private  function get_response_rows($id=null){
-        $m_cust_account=$this->Customer_model;
-
-        return  $m_cust_account->get_list(
-
-            //send the parameter for filtering
-            'customers.is_active=1 AND customers.is_deleted=0'.($id==null?'':' AND customers.customer_id='.$id),
-
-            //send array parameter for fields required
+    private function get_response_rows($id = null)
+    {
+        $m_cust_account = $this->Customer_model;
+        
+        return $m_cust_account->get_list(
+        //send the parameter for filtering
+            'customers.is_active=1 AND customers.is_deleted=0' . ($id == null ? '' : ' AND customers.customer_id=' . $id), 
+        //send array parameter for fields required
             array(
-                'customers.*',
-          
-                'DATE_FORMAT(customers.cust_bdate,"%m/%d/%Y")as cust_bdate',
-                'CONCAT_WS(" ",customers.cust_fname,customers.cust_mname,customers.cust_lname) as cust_fullname'
-            )
-        );
-
+            'customers.*',
+            
+            'DATE_FORMAT(customers.cust_bdate,"%m/%d/%Y")as cust_bdate',
+            'CONCAT_WS(" ",customers.cust_fname,customers.cust_mname,customers.cust_lname) as cust_fullname'
+        ));
+        
     }
     
     public function auth_cust()
@@ -314,6 +315,7 @@ class Customers extends CORE_Controller
             $response['title'] = 'Success';
             $response['stat']  = 'success';
             $response['msg']   = 'Login successfully';
+            $response['result']   =$result;
             
             echo json_encode($response);
         } else {
@@ -328,61 +330,63 @@ class Customers extends CORE_Controller
     }
     
     
-   
-    public function send($vcode =null,$fromEmail = null){
+    
+    public function send($vcode = null, $fromEmail = null)
+    {
         
-       
+        
         
         //Load email library
         $this->load->library('email');
-
+        
         //SMTP & mail configuration
         $config = array(
-            'protocol'  => 'smtp',
+            'protocol' => 'smtp',
             'smtp_host' => 'ssl://smtp.googlemail.com',
             'smtp_port' => 465,
             'smtp_user' => 'exd.dev.sol@gmail.com',
             'smtp_pass' => 'QWERTY!@#',
-            'mailtype'  => 'html',
-            'charset'   => 'utf-8'
+            'mailtype' => 'html',
+            'charset' => 'utf-8'
         );
         $this->email->initialize($config);
         $this->email->set_mailtype("html");
         $this->email->set_newline("\r\n");
-
+        
         //Email content
         $htmlContent = '<h1>Sending email via SMTP server</h1>';
-        $htmlContent .= '<p>Your Verification is : </p>' . $vcode ;
-
+        $htmlContent .= '<p>Your Verification is : </p>' . $vcode;
+        
         $this->email->to('eljei.delrio@gmail.com');
-        $this->email->from('exd.dev.sol@gmail.com','Sweet Thumbs Cakes and Cupcakes');
+        $this->email->from('exd.dev.sol@gmail.com', 'Sweet Thumbs Cakes and Cupcakes');
         $this->email->subject('Verification Code');
         $this->email->message($htmlContent);
-
+        
         //Send email
         $this->email->send();
-       // return  $vcode;
-       
+        // return  $vcode;
+        
     }
     
     
-    public function sendsms($vcode =null){
+    public function sendsms($vcode = null)
+    {
         
         include "smsGateway.php";
-       
+        
         $smsGateway = new SmsGateway('exd.dev.sol@gmail.com', 'w3sTern03');
-        $deviceID = 52751;
-        $number = '+639368121870';
-        $message = 'Your 5 digit Verification Code is :'.$vcode ;
-
+        $deviceID   = 52751;
+        $number     = '+639368121870';
+        $message    = 'Your 5 digit Verification Code is :' . $vcode;
+        
         //Please note options is no required and can be left out
         $result = $smsGateway->sendMessageToNumber($number, $message, $deviceID);
-
+        
     }
     
-
-        
-        
+    
+    
+    
     
     
 }
