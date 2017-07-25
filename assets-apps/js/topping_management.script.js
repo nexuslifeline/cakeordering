@@ -255,7 +255,7 @@
 
       $('#btn_remove_photo').click(function(event) {
           event.preventDefault();
-          $('#image_path').attr('src', '../assets/img/loader/ajax-loader-sm.gif');
+          $('#image_path').attr('src', '../../assets-apps/img/loader/ajax-loader-sm.gif');
       });
 
 

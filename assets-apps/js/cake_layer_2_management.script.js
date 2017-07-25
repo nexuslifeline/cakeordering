@@ -266,9 +266,11 @@
       });
 
 
+   
+
       $('#btn_remove_photo').click(function(event) {
           event.preventDefault();
-          $('#image_path').attr('src', '../assets/img/loader/ajax-loader-sm.gif');
+          $('#image_path').attr('src', '../../assets-apps/img/loader/ajax-loader-sm.gif');
       });
 
 
@@ -281,7 +283,7 @@
 
       $('#btn_remove_photo2').click(function(event) {
           event.preventDefault();
-          $('#top_view').attr('src', '../assets/img/loader/ajax-loader-sm.gif');
+          $('#top_view').attr('src', '../../assets-apps/img/loader/ajax-loader-sm.gif');
       });
 
 

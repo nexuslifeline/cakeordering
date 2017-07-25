@@ -1,22 +1,28 @@
 $(function() {
 
 
-  $('#main-fullname').html(localStorage.user_fname +" "+localStorage.user_mname +" "+localStorage.user_lname );
-
- //$('#main-photo').attr('src',http)
 
 
 
+if (localStorage.type == 'admin') {
 
-//Logout ad Clear all localStorage
+   $('#main-fullname').html(localStorage.user_fname +" "+localStorage.user_mname +" "+localStorage.user_lname );
 
 
+
+} else {
+
+  $('#main-fullname').html(localStorage.cust_fname +" "+localStorage.cust_mname +" "+localStorage.cust_lname );
+
+}
+
+
+ 
     $(document).on('click', '#btn-sign-out', function() {
 
 
         localStorage.clear();
-        // localStorage.removeItem("token");
-
+    
        
         window.location.href = '../';
 
@@ -133,8 +139,28 @@ localStorage.setItem("user_email",obj.user_email);
 localStorage.setItem("contact_no",obj.contact_no);
 localStorage.setItem("user_bdate",obj.user_bdate);
 localStorage.setItem("user_photo",obj.user_photo);
-
+localStorage.setItem("type","admin");
 
   
+
+};
+
+
+var sessionCustomer = function(obj){
+
+
+localStorage.setItem("token", "nexuslifeline");
+localStorage.setItem("customer_id",obj.customer_id);
+localStorage.setItem("cust_fname",obj.cust_fname);
+localStorage.setItem("cust_mname",obj.cust_mname);
+localStorage.setItem("cust_lname",obj.cust_lname);
+localStorage.setItem("cust_uname",obj.cust_uname);
+localStorage.setItem("address",obj.address);
+localStorage.setItem("cust_email",obj.cust_email);
+localStorage.setItem("contact_no",obj.contact_no);
+localStorage.setItem("cust_bdate",obj.cust_bdate);
+localStorage.setItem("cust_photo",obj.cust_photo);
+localStorage.setItem("type","customer");
+  alert(localStorage.cust_lname);
 
 };

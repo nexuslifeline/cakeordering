@@ -1,3 +1,5 @@
+
+
 // Check Static Token Generate from login!
 if (localStorage.token != 'nexuslifeline') {
 
@@ -9,6 +11,3 @@ if (localStorage.token != 'nexuslifeline') {
 
 
 }
-
-
-

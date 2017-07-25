@@ -240,7 +240,7 @@ var App = function() {
             })
         }
         var i, j, k, l, m = {
-                assetsPath: "assets",
+                assetsPath: "../assets-apps",
                 imgPath: "img",
                 jsPath: "js",
                 libsPath: "lib",
