@@ -315,7 +315,7 @@ class Customers extends CORE_Controller
             $response['title'] = 'Success';
             $response['stat']  = 'success';
             $response['msg']   = 'Login successfully';
-            $response['result']   =$result;
+            $response['result']   = $result;
             
             echo json_encode($response);
         } else {

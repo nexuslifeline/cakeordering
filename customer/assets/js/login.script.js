@@ -1,6 +1,6 @@
 LogIn = {
     
-    ctrl_url : 'http://localhost:8082/cakeordering/backend/',
+    ctrl_url : 'http://localhost:8012/cakeordering/backend/',
     
     init : function(){
         

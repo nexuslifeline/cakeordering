@@ -43,7 +43,17 @@ var html_header = '<nav class="navbar navbar-default navbar-fixed-top am-top-hea
                '</li>'+
                '<li><a href="../customers">Customer Management</a>'+
                '</li>'+
-               '<li><a href="../cake">Cake Management</a>'+
+               '<li><a href="../cake1">Cake Layer 1 Management</a>'+
+               '</li>'+
+                '<li><a href="../cake2">Cake Layer 2 Management</a>'+
+               '</li>'+
+                '<li><a href="../cake3">Cake Layer 3 Management</a>'+
+               '</li>'+
+                '<li><a href="../cake4">Cake Layer 4 Management</a>'+
+               '</li>'+
+                '<li><a href="../cake5">Cake Layer 5 Management</a>'+
+               '</li>'+
+                '<li><a href="../topping">Toppings Management</a>'+
                '</li>'+
             '</ul>'+
          '</li>'+
