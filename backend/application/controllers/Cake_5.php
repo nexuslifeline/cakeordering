@@ -55,7 +55,7 @@ class Cake_5 extends CORE_Controller
                 break;
             
             case 'update':
-                $m_cake = $this->Other_cake_model;
+                $m_cake = $this->Cake_layer_5_model;
                 $cake_id        = $this->input->post('cake_id', TRUE);
              
                
@@ -82,7 +82,7 @@ class Cake_5 extends CORE_Controller
                 break;
             
             case 'delete':
-                $m_cake = $this->Other_cake_model;
+                $m_cake = $this->Cake_layer_5_model;
                 $cake_id        = $this->input->post('cake_id', TRUE);
                 $m_cake->begin();
         
