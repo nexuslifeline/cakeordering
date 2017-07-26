@@ -13,10 +13,10 @@ var html_header = '<nav class="navbar navbar-default navbar-fixed-top am-top-hea
       '<div id="am-navbar-collapse" class="collapse navbar-collapse">'+
         '<ul class="nav navbar-nav navbar-right am-user-nav">'+
             '<li class="dropdown">'+
-               '<a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="dropdown-toggle"><img src="../assets/img/anonymous-icon.png" id="main-photo"><span class="user-name" id="main-fullname"></span><span class="angle-down s7-angle-down"></span></a>'+
+               '<a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="dropdown-toggle"><img src="../../assets-apps/img/anonymous-icon.png" id="main-photo"><span class="user-name" id="main-fullname"></span><span class="angle-down s7-angle-down"></span></a>'+
                '<ul role="menu" class="dropdown-menu">'+
                   '<li><a href="../profile"> <span class="icon s7-user"></span>My profile</a></li>'+
-                  '<li><a id="btn-sign-out"> <span class="icon s7-power"></span>Sign Out</a></li>'+
+                  '<li><a href="#" id="btn-sign-out"> <span class="icon s7-power"></span>Sign Out</a></li>'+
                '</ul>'+
             '</li>'+
          '</ul>'+

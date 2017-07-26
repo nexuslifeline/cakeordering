@@ -23,7 +23,7 @@ if (localStorage.type == 'admin') {
 
         localStorage.clear();
     
-       
+     
         window.location.href = '../';
 
     })
@@ -161,6 +161,6 @@ localStorage.setItem("contact_no",obj.contact_no);
 localStorage.setItem("cust_bdate",obj.cust_bdate);
 localStorage.setItem("cust_photo",obj.cust_photo);
 localStorage.setItem("type","customer");
-  alert(localStorage.cust_lname);
+
 
 };
