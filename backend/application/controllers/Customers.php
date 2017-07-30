@@ -21,7 +21,7 @@ class Customers extends CORE_Controller
         switch ($txn) {
             case 'list':
                 $response['data'] = $this->get_response_rows();
-                echo json_encode($response);
+                  $this->json_output(json_encode($response));
                 break;
             
             case 'create':
@@ -47,7 +47,7 @@ class Customers extends CORE_Controller
                     $response['title'] = 'Error!';
                     $response['stat']  = 'error';
                     $response['msg']   = 'Sorry, Invalid email address!';
-                    echo json_encode($response);
+                       $this->json_output(json_encode($response));
                     exit;
                 }
                 
@@ -62,7 +62,7 @@ class Customers extends CORE_Controller
                     $response['title'] = 'Error!';
                     $response['stat']  = 'error';
                     $response['msg']   = 'Sorry, This email is already in use.';
-                    echo json_encode($response);
+                      $this->json_output(json_encode($response));
                     exit;
                 }
                 
@@ -76,7 +76,7 @@ class Customers extends CORE_Controller
                     $response['title'] = 'Error!';
                     $response['stat']  = 'error';
                     $response['msg']   = 'Sorry, This custname is already in use.';
-                    echo json_encode($response);
+                      $this->json_output(json_encode($response));
                     exit;
                 }
                 
@@ -87,7 +87,7 @@ class Customers extends CORE_Controller
                     $response['title'] = 'Error!';
                     $response['stat']  = 'error';
                     $response['msg']   = 'Sorry, Invalid  password!';
-                    echo json_encode($response);
+                       $this->json_output(json_encode($response));
                     exit;
                 }
                 
@@ -95,7 +95,7 @@ class Customers extends CORE_Controller
                     $response['title'] = 'Error!';
                     $response['stat']  = 'error';
                     $response['msg']   = 'Sorry, Password did not match!';
-                    echo json_encode($response);
+                       $this->json_output(json_encode($response));
                     exit;
                 }
                 $random = md5(uniqid(rand(), true));
@@ -143,7 +143,7 @@ class Customers extends CORE_Controller
                     $response['msg']   = 'Something went wrong! Please try again.';
                 }
                 
-                echo json_encode($response);
+                  $this->json_output(json_encode($response));
                 break;
             
             case 'update':
@@ -154,7 +154,7 @@ class Customers extends CORE_Controller
                         $response['title'] = 'Error!';
                         $response['stat']  = 'error';
                         $response['msg']   = 'Sorry, Password did not match!';
-                        echo json_encode($response);
+                           $this->json_output(json_encode($response));
                         exit;
                     }
                 }
@@ -191,7 +191,7 @@ class Customers extends CORE_Controller
                     $response['msg']   = 'Something went wrong! Please try again.';
                 }
                 
-                echo json_encode($response);
+                   $this->json_output(json_encode($response));
                 break;
             
             case 'delete':
@@ -217,7 +217,7 @@ class Customers extends CORE_Controller
                     $response['msg']   = 'Something went wrong. Please try again later.';
                 }
                 
-                echo json_encode($response);
+                   $this->json_output(json_encode($response));
                 break;
             
             case 'upload':
@@ -239,7 +239,7 @@ class Customers extends CORE_Controller
                         $response['title'] = 'Invalid!';
                         $response['stat']  = 'error';
                         $response['msg']   = 'Image is invalid. Please select a valid photo!';
-                        die(json_encode($response));
+                        die(   $this->json_output(json_encode($response)));
                     }
                     
                     if (move_uploaded_file($file['tmp_name'], $file_path)) {
@@ -247,7 +247,7 @@ class Customers extends CORE_Controller
                         $response['stat']  = 'success';
                         $response['msg']   = 'Image successfully uploaded.';
                         $response['path']  = $file_path;
-                        echo json_encode($response);
+                           $this->json_output(json_encode($response));
                     }
                 }
                 
@@ -276,7 +276,7 @@ class Customers extends CORE_Controller
                 $response['title'] = 'Success!';
                 $response['stat']  = 'success';
                 $response['msg']   = 'Profile successfully updated.';
-                echo json_encode($response);
+                   $this->json_output(json_encode($response));
                 break;
         }
     }
@@ -325,7 +325,7 @@ class Customers extends CORE_Controller
             $response['title'] = 'Failed';
             $response['stat']  = 'error';
             $response['msg']   = 'Login not successful!';
-            echo json_encode($response);
+              $this->json_output(json_encode($response));
         }
     }
     

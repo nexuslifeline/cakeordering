@@ -12,8 +12,8 @@
           var m = $('#modal_form');
 
           clearFields(m);
-          $('#image_path').attr('src', '')
-          $('#top_view').attr('src', '')
+           $('#image_path').attr('src', '../../assets-apps/img/dummy/image-upload-placeholder.jpg');
+          $('#top_view').attr('src', '../../assets-apps/img/dummy/image-upload-placeholder.jpg');
           m.modal('show');
 
 
@@ -107,8 +107,8 @@
 
                       if (response.stat == "success") {
                           clearFields(f);
-                          $('#image_path').attr('src', '');
-                          $('#top_view').attr('src', '');
+                          $('#image_path').attr('src', '../../assets-apps/img/dummy/image-upload-placeholder.jpg');
+          $('#top_view').attr('src', '../../assets-apps/img/dummy/image-upload-placeholder.jpg');
                           createStructure(response.row_added[0]);
                           console.log(response);
                       }
@@ -146,8 +146,8 @@
                           oSelecteditem.find('[name="image_path"]').attr('src', response.row_updated[0].image_path);
                           oSelecteditem.find('[name="top_view"]').val(response.row_updated[0].top_view);
                           findResponseToHTML(oSelecteditem, response.row_updated[0]);
-                          $('#image_path').attr('src', '')
-                          $('#top_view').attr('src', '')
+                           $('#image_path').attr('src', '../../assets-apps/img/dummy/image-upload-placeholder.jpg');
+           $('#top_view').attr('src', '../../assets-apps/img/dummy/image-upload-placeholder.jpg');
                           clearFields(f);
                           $('#modal_form').modal('hide');
 
@@ -266,11 +266,10 @@
       });
 
 
-   
-
       $('#btn_remove_photo').click(function(event) {
           event.preventDefault();
-          $('#image_path').attr('src', '../../assets-apps/img/loader/ajax-loader-sm.gif');
+            $('#image_path').attr('src', '../../assets-apps/img/dummy/image-upload-placeholder.jpg');
+         
       });
 
 
@@ -283,7 +282,8 @@
 
       $('#btn_remove_photo2').click(function(event) {
           event.preventDefault();
-          $('#top_view').attr('src', '../../assets-apps/img/loader/ajax-loader-sm.gif');
+          
+          $('#top_view').attr('src', '../../assets-apps/img/dummy/image-upload-placeholder.jpg');
       });
 
 

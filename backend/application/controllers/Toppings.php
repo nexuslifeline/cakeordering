@@ -21,7 +21,7 @@ class Toppings extends CORE_Controller
         switch ($txn) {
             case 'list':
                 $response['data'] = $this->get_response_rows();
-                echo json_encode($response);
+                  $this->json_output(json_encode($response));
                 break;
             
             case 'create':
@@ -50,7 +50,7 @@ class Toppings extends CORE_Controller
                     $response['msg']   = 'Something went wrong! Please try again.';
                 }
                 
-                echo json_encode($response);
+                  $this->json_output(json_encode($response));
                 break;
             
             case 'update':
@@ -77,7 +77,7 @@ class Toppings extends CORE_Controller
                     $response['msg']   = 'Something went wrong! Please try again.';
                 }
                 
-                echo json_encode($response);
+                   $this->json_output(json_encode($response));
                 break;
             
             case 'delete':
@@ -99,7 +99,7 @@ class Toppings extends CORE_Controller
                     $response['msg']   = 'Something went wrong. Please try again later.';
                 }
                 
-                echo json_encode($response);
+                   $this->json_output(json_encode($response));
                 break;
             
             case 'upload':
@@ -121,7 +121,7 @@ class Toppings extends CORE_Controller
                         $response['title'] = 'Invalid!';
                         $response['stat']  = 'error';
                         $response['msg']   = 'Image is invalid. Please select a valid photo!';
-                        die(json_encode($response));
+                        die(   $this->json_output(json_encode($response)));
                     }
                     
                     if (move_uploaded_file($file['tmp_name'], $file_path)) {
@@ -129,7 +129,7 @@ class Toppings extends CORE_Controller
                         $response['stat']  = 'success';
                         $response['msg']   = 'Image successfully uploaded.';
                         $response['path']  = $file_path;
-                        echo json_encode($response);
+                          $this->json_output(json_encode($response));
                     }
                 }
                 
