@@ -8,12 +8,13 @@ if (localStorage.type == 'admin') {
 
    $('#main-fullname').html(localStorage.user_fname +" "+localStorage.user_mname +" "+localStorage.user_lname );
 
+$('#main-photo').attr('src',localStorage.user_photo);;
 
 
 } else {
 
   $('#main-fullname').html(localStorage.cust_fname +" "+localStorage.cust_mname +" "+localStorage.cust_lname );
-
+$('#main-photo').attr('src',localStorage.cust_photo);
 }
 
 

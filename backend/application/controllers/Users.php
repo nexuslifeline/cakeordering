@@ -134,6 +134,7 @@ class Users extends CORE_Controller
                 $m_user_account->user_fname = $this->input->post('user_fname', TRUE);
                 $m_user_account->user_lname = $this->input->post('user_lname', TRUE);
                 $m_user_account->user_mname = $this->input->post('user_mname', TRUE);
+                $m_user_account->user_photo = $this->input->post('user_photo', TRUE);
                 $m_user_account->contact_no = $this->input->post('contact_no', TRUE);
                 $m_user_account->address    = $this->input->post('address', TRUE);
                 $m_user_account->user_bdate = date('Y-m-d', strtotime($this->input->post('user_bdate', TRUE)));

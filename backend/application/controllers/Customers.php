@@ -166,11 +166,11 @@ class Customers extends CORE_Controller
                 }
                 
                 $m_cust_account->cust_uname = $this->input->post('cust_uname', TRUE);
-                
                 $m_cust_account->cust_email = $this->input->post('cust_email', TRUE);
                 $m_cust_account->cust_fname = $this->input->post('cust_fname', TRUE);
                 $m_cust_account->cust_lname = $this->input->post('cust_lname', TRUE);
                 $m_cust_account->cust_mname = $this->input->post('cust_mname', TRUE);
+                $m_cust_account->cust_photo = $this->input->post('cust_photo', TRUE);
                 $m_cust_account->contact_no = $this->input->post('contact_no', TRUE);
                 $m_cust_account->address    = $this->input->post('address', TRUE);
                 $m_cust_account->cust_bdate = date('Y-m-d', strtotime($this->input->post('cust_bdate', TRUE)));
@@ -317,7 +317,7 @@ class Customers extends CORE_Controller
             $response['msg']   = 'Login successfully';
             $response['result']   = $result;
             
-            echo json_encode($response);
+           $this->json_output(json_encode($response));
         } else {
             
             

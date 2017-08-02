@@ -18,6 +18,7 @@
       <!-- notification -->
       <link rel="stylesheet"  type="text/css" href="../../assets-apps/plugins/datapicker/datepicker3.css"/>
       <link rel="stylesheet"  type="text/css" href="../../assets-apps/css/style.css"/>
+      <link rel="stylesheet"  type="text/css" href="../../assets-apps/css/custom.css"/>
    </head>
    <body>
       <div class="am-wrapper">
@@ -35,12 +36,10 @@
                   <div class="col-lg-12">
                      <div class="panel panel-default">
                         <div class="panel-body">
-
-                        
                            <h4 ><span ><strong><i class="fa fa-users"></i> User Information</strong></span></h4>
                            <hr />
                            <br />
-                           <form id="frm_users" role="form" class="form-horizontal row-border">
+                           <form id="frm_data" role="form" class="form-horizontal row-border">
                               <div class="form-group">
                                  <label class="col-md-2 col-md-offset-1 control-label">* User Name :</label>
                                  <div class="col-md-7">
@@ -151,11 +150,11 @@
                                     <div class="input-group">
                                        <div class="" style="border:1px solid grey;height: 230px;width: 210px;vertical-align: middle;">
                                           <div id="div_img_user" >
-                                             <img name="img_user" src="" style="object-fit: fill; !important; height: 100%;width: 100%;" />
+                                             <img name="user_photo" id="user_photo" src="../../assets-apps/img/anonymous-icon.png" style="object-fit: fill; !important; height: 100%;width: 100%;" />
                                              <input type="file" name="file_upload[]" class="hidden">
                                           </div>
                                           <div id="div_img_loader" style="display: none;">
-                                             <img name="img_loader" src="assets/img/loader/ajax-loader-sm.gif" />
+                                             <img name="img_loader" src="../../assets-apps/img/loader/ajax-loader-sm.gif" />
                                           </div>
                                        </div>
                                        <button type="button" id="btn_browse" class="btn btn-primary "  >Browse Photo</button>
@@ -165,24 +164,11 @@
                               </div>
                            </form>
                            <br /><br />
-                        
-
-
-
-
-
-
-
-
-
-
-
-
                         </div>
                         <div class="panel-footer">
                            <div class="row">
                               <div class="col-sm-10 col-sm-offset-3">
-                                 <button id="btn_save" class="btn-primary btn" ><i class="glyphicon glyphicon-check"></i> <span class=""></span>  Update Profile</button>
+                                 <button id="btn_update_record" class="btn-primary btn" ><i class="glyphicon glyphicon-check"></i> <span class=""></span>  Update Profile</button>
                               </div>
                            </div>
                         </div>
@@ -208,7 +194,7 @@
       <script type="text/javascript" src="../../assets-apps/lib/datatable/js/datatable-tabletools.js"></script>
       <!-- Data picker -->
       <script type="text/javascript" src="../../assets-apps/plugins/datapicker/bootstrap-datepicker.js"></script>
-      <script type="text/javascript" src="../../assets-apps/js/profile.script.js"></script>
+      <script type="text/javascript" src="../../assets-apps/js/user.profile.script.js"></script>
       <script type="text/javascript" src="../../assets-apps/js/global.script.js"></script>
       <script type="text/javascript">
          $(document).ready(function(){

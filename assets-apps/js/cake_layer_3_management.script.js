@@ -258,6 +258,9 @@
       });
 
 
+}
+
+
 
 
       $('#btn_browse').click(function(event) {
@@ -364,7 +367,7 @@
 
 
 
-  }
+
 
 
 

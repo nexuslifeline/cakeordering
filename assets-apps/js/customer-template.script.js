@@ -33,7 +33,10 @@ var html_header = '<nav class="navbar navbar-default navbar-fixed-top am-top-hea
             '<a href="../cake_builder"><i class="icon s7-graph"></i><span>Cake Builder</span></a>'+
          '</li>'+
           '<li class="parent">'+
-            '<a href="../cake_builder"><i class="icon s7-box2"></i><span>Transaction History</span></a>'+
+            '<a href="../track_orders"><i class="icon s7-box1"></i><span>Track Custom Orders</span></a>'+
+         '</li>'+
+          '<li class="parent">'+
+            '<a href="../profile"><i class="icon s7-box2"></i><span>Profile Setting</span></a>'+
          '</li>'+
 
 
