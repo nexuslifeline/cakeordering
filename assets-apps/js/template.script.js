@@ -55,6 +55,8 @@ var html_header = '<nav class="navbar navbar-default navbar-fixed-top am-top-hea
                '</li>'+
                 '<li><a href="../topping">Toppings Management</a>'+
                '</li>'+
+               '<li><a href="../side_decoration">Decoration Management</a>'+
+               '</li>'+
             '</ul>'+
          '</li>'+
         ' <li class="parent">'+

@@ -19,7 +19,7 @@
       <link rel="stylesheet"  type="text/css" href="../../assets-apps/plugins/datapicker/datepicker3.css"/>
       <link rel="stylesheet"  type="text/css" href="../../assets-apps/css/style.css"/>
       <link rel="stylesheet"  type="text/css" href="../../assets-apps/css/custom.css"/>
-     
+      <link rel="stylesheet"  type="text/css" href="../../assets-apps/css/cake_builder.css"/>
    </head>
    <body>
       <div class="am-wrapper">
@@ -46,9 +46,9 @@
                                  <thead>
                                     <tr>
                                        <th>Order ID#</th>
-                                       <th>Order Status</th>
                                        <th>Cost</th>
                                        <th>Pick Up Date</th>
+                                       <th>Order Status</th>
                                        <th>Action</th>
                                     </tr>
                                  </thead>
@@ -70,117 +70,29 @@
             <div class="modal-content">
                <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><b>&times;</b></button>
-                  <h4 class="modal-title"><b><i class="glyphicon glyphicon-bars"></i> User Registration</b></h4>
+                  <h4 class="modal-title"><b><i class="glyphicon glyphicon-bars"></i> Order Details</b></h4>
                </div>
                <div class="modal-body">
-                  <form id="frm_data" class="form-horizontal">
-                     <div class="row">
-                        <div class="col-lg-6">
-                           <div class="form-group">
-                              <div class="col-sm-12">
-                                 <div class="input-group">
-                                    <span class="input-group-addon">
-                                    <i class="glyphicon glyphicon-user"></i>
-                                    </span>
-                                    <input type="text" class="form-control" name="user_fname" id="user_fname" placeholder="Firstname" data-error-msg="Firstname is required." required>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="form-group">
-                              <div class="col-sm-12">
-                                 <div class="input-group">
-                                    <span class="input-group-addon">
-                                    <i class="glyphicon glyphicon-user"></i>
-                                    </span>
-                                    <input type="text" class="form-control" name="user_lname" id="user_lname" placeholder="Lastname" data-error-msg="Lastname is required." required>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="form-group">
-                              <div class="col-sm-12">
-                                 <div class="input-group">
-                                    <span class="input-group-addon">
-                                    <i class="glyphicon glyphicon-user"></i>
-                                    </span>
-                                    <input type="text" class="form-control" name="user_mname" id="user_mname" placeholder="Middlename" data-error-msg="Middlename is required." required>
-                                 </div>
-                              </div>
-                           </div>
-                         
-                           <div class="form-group">
-                              <div class="col-sm-12">
-                                 <div class="input-group">
-                                    <span class="input-group-addon">
-                                    <i class="glyphicon glyphicon-send"></i>
-                                    </span>
-                                    <input type="text" class="form-control" name="contact_no" id="contact_no" placeholder="Mobile">
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="form-group">
-                              <div class="col-sm-12">
-                                 <div class="input-group date">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>  <input type="text" class="form-control date-picker" name="user_bdate" id="user_bdate" placeholder="Date of Birth">
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="form-group">
-                              <div class="col-sm-12">
-                                 Address:
-                              </div>
-                              <div class="col-sm-12">
-                                 <textarea type="text" class="form-control"   name="address" id="address" placeholder=""></textarea>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-lg-6">
-                          <div class="form-group">
-                              <div class="col-sm-12">
-                                 <div class="input-group">
-                                    <span class="input-group-addon">
-                                    <i class="glyphicon glyphicon-envelope"></i>
-                                    </span>
-                                    <input type="text" class="form-control" name="user_email" id="user_email" placeholder="Email Address" data-error-msg="Email is required." required>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="form-group">
-                              <div class="col-sm-12">
-                                 <div class="input-group">
-                                    <span class="input-group-addon">
-                                    <i class="glyphicon glyphicon-user"></i>
-                                    </span>
-                                    <input type="text" class="form-control" name="user_uname" id="user_uname" placeholder="Username"  data-error-msg="Username is required." required>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="form-group">
-                              <div class="col-sm-12">
-                                 <div class="input-group">
-                                    <span class="input-group-addon">
-                                    <i class="glyphicon glyphicon-lock"></i>
-                                    </span>
-                                    <input type="password" class="form-control" name="user_pword" id="user_pword" placeholder="Password">
-                                 </div>
-                                 <span id="span_note" class="help-block m-b-none" style="display: none;">Leave it blank if you do not want to update the password.</span>
-                              </div>
-                           </div>
-                           <div class="form-group">
-                              <div class="col-sm-12">
-                                 <div class="input-group">
-                                    <span class="input-group-addon">
-                                    <i class="glyphicon glyphicon-lock"></i>
-                                    </span>
-                                    <input type="password" class="form-control"  name="user_cpword" id="user_cpword" placeholder="Confirm Password">
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </form>
+                  <div class="row">
+                  
+                  <div class="col-lg-12">
+                      <div id="cake_structure"></div>
+                  </div>   
+
+                  <div>
+                  <table class="table table-responsive">
+                  <tr><td>Cost</td><td id="cost">Cost</td></tr>
+                   <tr><td>Date Ordered</td><td id="date_ordered"></td></tr>
+                   <tr><td>Estimated Pick Up Date</td><td id="estimated_pickedup"></td></tr>
+                       <tr><td>Date Pickup</td><td id="date_pickedup"></td></tr>
+                   <tr><td>Order Status</td><td id="order_status"></td></tr>            
+                  </table></div>
+                  </div>
+                 
+
                </div>
                <div class="modal-footer">
-                  <button id="btn_save_record" type="button" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> Record</button>
+               
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                </div>
             </div>

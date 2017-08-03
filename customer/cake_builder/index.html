@@ -21,12 +21,7 @@
       <link rel="stylesheet" type="text/css" href="../../assets-apps/lib/bootstrap-slider/css/bootstrap-slider.css"/>
       <link rel="stylesheet"  type="text/css" href="../../assets-apps/css/style.css"/>
       <link rel="stylesheet"  type="text/css" href="../../assets-apps/css/custom.css"/>
-
-
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">/
-
-
+      <link rel="stylesheet"  type="text/css" href="../../assets-apps/css/cake_builder.css"/>
       <style type="text/css">
          .carousel-control {
          padding-top:10%;
@@ -36,94 +31,6 @@
          background-image: none !important ;
          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
          }
-         .cake-canvas-box{
-        
-         border:solid red 1px;
-         margin-top: 10px;
-         }
-         #cake-canvas-1{
-            position: relative;
-            top:-260px;
-            height: 370px;
-         }
-        
-         #cake-canvas-layer-5 img,#cake-canvas-layer-4 img,#cake-canvas-layer-3 img,#cake-canvas-layer-2 img,#cake-canvas-layer-1 img{
-         margin-left: auto;
-         margin-right: auto;
-         height: 120px;
-         }
-         .cake-layers  {
-         height: 50px;
-         }
-
-
-          #cake-canvas-layer-5 ,#cake-canvas-layer-4 ,#cake-canvas-layer-3 ,#cake-canvas-layer-2 ,#cake-canvas-layer-1{
-         position: relative;
-         }
-
-
-
-         #cake-canvas-layer-2 {
-            top: 60px;
-            z-index: 10;
-         }
-
-        
-            #cake-canvas-layer-3 {
-            top: 125px;
-            z-index: 11;
-         }
-
-           #cake-canvas-layer-4 {
-            top: 190px;
-            z-index: 12;
-         }
-
-           #cake-canvas-layer-5 {
-            top: 255px;
-            z-index: 13;
-         }
-
-
-
-          #cake-canvas-layer-2 img {
-          padding: 5px 0px ;
-         }
-           #cake-canvas-layer-3 img {
-          padding: 10px  0px;
-         }
-
-           #cake-canvas-layer-4 img {
-          padding: 15px  0px;
-         }
-
-           #cake-canvas-layer-5 img {
-          padding: 20px  0px;
-         }
-
-         .tools>a .icon {
-         display: inline-block;
-         font-size: 10px;
-         margin-right: 10px;
-         vertical-align: middle;
-         }
-
-
-      #item-container{
-         height:200px;overflow: scroll;
-      }
-
-
-      .tools-step-1{
-         list-style: none;margin-top: 50px;
-         display: inline;
-      }
-      .tools-step-1 li{
-         display: inline;
-      }
-
-      .cake-layer-box{ margin: 5px; }
-
       </style>
    </head>
    <body>
@@ -150,149 +57,60 @@
                            </div>
                            <div class="step-content">
                               <div data-step="1" class="step-pane active">
-                                
-                                    <div class="form-group no-padding">
-                                       <div class="col-sm-12">
-                                          <h3 class="wizard-title">Customize Cake Layer</h3>
-                                       </div>
+                                 <div class="form-group no-padding">
+                                    <div class="col-sm-12">
+                                       <h3 class="wizard-title" 
+                                       Customize Cake Layer</h3>
                                     </div>
-                                
-                              
-                             
-                                    <div class="col-sm-12 cake-canvas-box">
-                                       <div id='cake-canvas-1'>
-                                          <div id="cake-canvas-layer-5" ><img data-layer-price=0 src="http://localhost:8012/cakeordering/backend/assets/images/topping/597f1e3d4c90a.png"  class="img-responsive"></div>
-                                          <div id="cake-canvas-layer-4" ><img data-layer-price=0 src="http://localhost:8012/cakeordering/backend/assets/images/topping/597f1e3d4c90a.png"  class="img-responsive"></div>
-                                          <div id="cake-canvas-layer-3" ><img data-layer-price=0 src="http://localhost:8012/cakeordering/backend/assets/images/topping/597f1e3d4c90a.png"  class="img-responsive"></div>
-                                          <div id="cake-canvas-layer-2" ><img data-layer-price=0  src="http://localhost:8012/cakeordering/backend/assets/images/topping/597f1e3d4c90a.png"  class="img-responsive"></div>
-                                          <div id="cake-canvas-layer-1" ><img data-layer-price=0 src="http://localhost:8012/cakeordering/backend/assets/images/topping/597f1e3d4c90a.png"  class="img-responsive"></div>
-                                       </div>
+                                 </div>
+                                 <div class="col-sm-12 cake-canvas-box">
+                                    <div id='cake-canvas-1'>
+                                       <div id="cake-canvas-layer-5"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
+                                       <div id="cake-canvas-layer-4"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
+                                       <div id="cake-canvas-layer-3"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
+                                       <div id="cake-canvas-layer-2"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
+                                       <div id="cake-canvas-layer-1"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
                                     </div>
-
-
-                                              <div class="col-sm-8">
-                                       <div class="info-block panel panel-default">
-                                          <div class="panel-heading">
-                                             <h4 style="display: inline;">Tool Bar</h4>  <ul class="tools-step-1">
-
-                                              <li> <a  class="btn btn-primary tool-1" title="Layer 1" data-layer="1"> <span class="icon s7-graph"></span> </a></li>
-                                          <li> <a  class="btn btn-primary tool-2" title="Layer 2" data-layer="2"> <span class="icon s7-graph"></span> </a></li>
-
-                                          <li> <a  class="btn btn-primary tool-3" title="Layer 3" data-layer="3"> <span class="icon s7-graph"></span> </a></li>
-                                                                                    <li> <a  class="btn btn-primary tool-4" title="Layer 4" data-layer="4"> <span class="icon s7-graph"></span> </a></li>
-                                          <li> <a  class="btn btn-primary tool-5" title="Layer 5" data-layer="5"> <span class="icon s7-graph"></span> </a></li>
-
-                                          
-                                          
-                                         
-
-                                           <li> <a  class="btn btn-success tool-add" title="Add Layer" > <span class="glyphicon glyphicon-plus"></span> </a></li>
-
-
-                                            <li> <a  class="btn btn-info tool-remove" title="Remove Layer" > <span class="glyphicon glyphicon-minus"></span> </a></li>
+                                 </div>
+                                 <div class="col-sm-12">
+                                    <div class="info-block panel panel-default" >
+                                       <div class="panel-heading">
+                                          <h4 style="display: inline;"><span class="btn icon s7-edit"></span> Toolbar</h4>
+                                          <ul class="tools-step-1">
+                                             <li> <a  class="btn btn-sm btn-success tool-add" title="Add Layer" > <span class="glyphicon glyphicon-plus"></span>Add Layer</a></li>
+                                             <li> <a  class="btn btn-sm btn-info tool-remove" title="Remove Layer" > <span class="glyphicon glyphicon-minus"></span>Remove Layer </a></li>
+                                             <li> <a  class="btn btn-sm btn-primary c-tool-1 ab btn-cb" title="Layer 1" data-layer="1"> <span class="icon s7-graph"></span> Layer 1</a></li>
+                                             <li> <a  class="btn btn-sm btn-primary c-tool-2 ab btn-cb" title="Layer 2" data-layer="2"> <span class="icon s7-graph"></span> Layer 2</a></li>
+                                             <li> <a  class="btn btn-sm btn-primary c-tool-3 ab btn-cb" title="Layer 3" data-layer="3"> <span class="icon s7-graph"></span> Layer 3</a></li>
+                                             <li> <a  class="btn btn-sm btn-primary c-tool-4 ab btn-cb" title="Layer 4" data-layer="4"> <span class="icon s7-graph"></span> Layer 4</a></li>
+                                             <li> <a  class="btn btn-sm btn-primary c-tool-5 ab btn-cb" title="Layer 5" data-layer="5"> <span class="icon s7-graph"></span> Layer 5</a></li>
                                           </ul>
                                        </div>
-                                    </div>
-                                          
-                                    </div>
-                                       <div class="col-sm-4">
-                                             <table class="table table-responsive" style="width: 50%">
-                                    <tr>
-                                       <td>Price :</td>
-                                       <td> <span id="step-1-total-price"> 0</span></td>
-                                    </tr>
-                                 </table>
-                                       </div>
-
-                                         <div class="col-sm-12">
-
-                                   
-                                      <div id="item-container" ></div>
-                                      
-                                    </div>
-
-                                    <div class="form-group">
-                                       <div class="col-sm-12">
-                                          <button data-wizard="#wizard1" class="btn btn-default btn-space wizard-previous"><i class="icon s7-angle-left"></i> Previous</button>
-                                          <button data-wizard="#wizard1" class="btn btn-primary btn-space wizard-next">Next Step <i class="icon s7-angle-right"></i></button>
+                                       <div class="panel-body">
+                                          <table class="table table-responsive" style="width: 100%">
+                                             <tr style="display: none;">
+                                                <td>No of Layers</td>
+                                                <td> <span class="step-total-layers">0</span></td>
+                                             </tr>
+                                             <tr>
+                                                <td>Cost :</td>
+                                                <td> <span class="step-total-price"> 0</span></td>
+                                             </tr>
+                                          </table>
                                        </div>
                                     </div>
-                                
-                              </div>
-                              <div data-step="2" class="step-pane">
-                               
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                    <div class="form-group">
-                                       <div class="col-sm-12">
-                                          <button data-wizard="#wizard1" class="btn btn-default btn-space wizard-previous"><i class="icon s7-angle-left"></i> Previous</button>
-                                          <button data-wizard="#wizard1" class="btn btn-primary btn-space wizard-next">Next Step <i class="icon s7-angle-right"></i></button>
-                                       </div>
+                                 </div>
+                                 <div class="col-sm-12">
+                                    <div id="item-container1" ></div>
+                                 </div>
+                                 <div class="form-group">
+                                    <div class="col-sm-12">
+                                       <button data-wizard="#wizard1" class="btn btn-default btn-space wizard-previous"><i class="icon s7-angle-left"></i> Previous</button>
+                                       <button data-wizard="#wizard1" class="btn btn-primary btn-space wizard-next">Next Step <i class="icon s7-angle-right"></i></button>
                                     </div>
-                                
-                              </div>
-                              <div data-step="3" class="step-pane">
-                                 
-                                      <div class="form-group">
-                                       <div class="col-sm-12">
-                                          <button data-wizard="#wizard1" class="btn btn-default btn-space wizard-previous"><i class="icon s7-angle-left"></i> Previous</button>
-                                          <button data-wizard="#wizard1" class="btn btn-primary btn-space wizard-next">Next Step <i class="icon s7-angle-right"></i></button>
-                                       </div>
-                                    </div>
-                              </div>
-                              <div data-step="4" class="step-pane">
-                           
-
-                                 <form id="frm_data" class="form-horizontal">
-                     <div class="row">
-                       
-
-                        <div class="col-lg-6">
-                            <div class="form-group no-padding">
-                                       <div class="col-sm-12">
-                                          <h3 class="wizard-title">Customize Cake Layer</h3>
-                                       </div>
-                                    </div>
-
-                        </div>
-               <div class="col-lg-6">
-                     <div class="form-group">
-                              <div class="col-sm-12">
-                                 <div class="input-group date">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>  <input type="text" class="form-control date-picker" name="estimated_pickedup" id="estimated_pickedup" placeholder="Pick Up Date">
                                  </div>
                               </div>
-                           </div>
-                           <div class="form-group">
-                              <div class="col-sm-12">
-                                 Suggestion Box
-                              </div>
-                              <div class="col-sm-12">
-                                 <textarea type="text" class="form-control"   name="suggestion_box" id="suggestion_box" placeholder=""></textarea>
-                              </div>
-                           </div>
-                        </div>
-                      
-                     </div>
-                  </form>
+                           
 
 
 
@@ -304,13 +122,177 @@
 
 
 
-                                    <div class="form-group">
-                                       <div class="col-sm-12">
-                                          <button data-wizard="#wizard1" class="btn btn-default btn-space wizard-previous"><i class="icon s7-angle-left"></i> Previous</button>
-                                          <button data-wizard="#wizard1" class="btn btn-success btn-space wizard-next"><i class="icon s7-check"></i> Complete</button>
+
+
+   <div data-step="2" class="step-pane">
+                                 <div class="form-group no-padding">
+                                    <div class="col-sm-12">
+                                       <h3 class="wizard-title" 
+                                       Customize Cake Layer</h3>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-12 cake-canvas-box">
+                                    <div id='cake-canvas-1'>
+                                       <div id="cake-canvas-layer-5"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
+                                       <div id="cake-canvas-layer-4"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
+                                       <div id="cake-canvas-layer-3"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
+                                       <div id="cake-canvas-layer-2"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
+                                       <div id="cake-canvas-layer-1"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-12">
+                                    <div class="info-block panel panel-default" >
+                                       <div class="panel-heading">
+                                          <h4 style="display: inline;"><span class="btn icon s7-edit"></span> Decoration Layer Controls</h4>
+                                          <ul class="tools-step-1">
+                                             
+                                             <li> <a  class="btn btn-sm btn-info btn-cb c2-tool-1 ab" title="Layer 1" data-layer="1"> <span class="icon s7-graph"></span> Layer 1</a></li>
+                                             <li> <a  class="btn btn-sm btn-info btn-cb c2-tool-2 ab" title="Layer 2" data-layer="2"> <span class="icon s7-graph"></span> Layer 2</a></li>
+                                             <li> <a  class="btn btn-sm btn-info btn-cb c2-tool-3 ab" title="Layer 3" data-layer="3"> <span class="icon s7-graph"></span> Layer 3</a></li>
+                                             <li> <a  class="btn btn-sm btn-info btn-cb c2-tool-4 ab" title="Layer 4" data-layer="4"> <span class="icon s7-graph"></span> Layer 4</a></li>
+                                             <li> <a  class="btn btn-sm btn-info btn-cb c2-tool-5 ab" title="Layer 5" data-layer="5"> <span class="icon s7-graph"></span> Layer 5</a></li>
+                                          </ul>
+                                       </div>
+                                       <div class="panel-body">
+                                          <table class="table table-responsive" style="width: 100%">
+                                             <tr style="display: none;">
+                                                <td>No of Layers</td>
+                                                <td> <span class="step-total-layers">0</span></td>
+                                             </tr>
+                                             <tr>
+                                                <td>Cost :</td>
+                                                <td> <span class="step-total-price"> 0</span></td>
+                                             </tr>
+                                          </table>
                                        </div>
                                     </div>
-                                 
+                                 </div>
+                                 <div class="col-sm-12">
+                                    <div id="item-container2" ></div>
+                                 </div>
+                                 <div class="form-group">
+                                    <div class="col-sm-12">
+                                       <button data-wizard="#wizard1" class="btn btn-default btn-space wizard-previous"><i class="icon s7-angle-left"></i> Previous</button>
+                                       <button data-wizard="#wizard1" class="btn btn-primary btn-space wizard-next">Next Step <i class="icon s7-angle-right"></i></button>
+                                    </div>
+                                 </div>
+                              </div>
+                           
+
+
+
+
+
+
+
+
+
+
+
+
+   <div data-step="3" class="step-pane">
+                                 <div class="form-group no-padding">
+                                    <div class="col-sm-12">
+                                       <h3 class="wizard-title" 
+                                       Customize Cake Layer</h3>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-12 cake-canvas-box">
+                                    <div id='cake-canvas-1'>
+                                       <div id="cake-canvas-layer-5"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
+                                       <div id="cake-canvas-layer-4"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
+                                       <div id="cake-canvas-layer-3"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
+                                       <div id="cake-canvas-layer-2"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
+                                       <div id="cake-canvas-layer-1"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-12">
+                                    <div class="info-block panel panel-default" >
+                                       <div class="panel-heading">
+                                          <h4 style="display: inline;"><span class="btn icon s7-edit"></span> Toppings</h4>
+                                          <ul class="tools-step-1">
+                                             
+                                             <li> <a  class="btn btn-sm btn-warning btn-cb c3-tool-1"> <span class="glyphicon glyphicon-save"></span> Add Topping</a></li>
+                                            
+                                          </ul>
+                                       </div>
+                                       <div class="panel-body">
+                                          <table class="table table-responsive" style="width: 100%">
+                                             <tr style="display: none;">
+                                                <td>No of Layers</td>
+                                                <td> <span class="step-total-layers">0</span></td>
+                                             </tr>
+                                             <tr>
+                                                <td>Cost :</td>
+                                                <td> <span class="step-total-price"> 0</span></td>
+                                             </tr>
+                                          </table>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-12">
+                                    <div id="item-container3"></div>
+                                 </div>
+                                 <div class="form-group">
+                                    <div class="col-sm-12">
+                                       <button data-wizard="#wizard1" class="btn btn-default btn-space wizard-previous"><i class="icon s7-angle-left"></i> Previous</button>
+                                       <button data-wizard="#wizard1" class="btn btn-primary btn-space wizard-next">Next Step <i class="icon s7-angle-right"></i></button>
+                                    </div>
+                                 </div>
+                              </div>
+                           
+
+
+
+
+
+
+
+
+
+                      
+
+
+
+
+
+
+
+                              <div data-step="4" class="step-pane">
+                                 <form id="frm_data" class="form-horizontal">
+                                    <div class="row">
+                                       <div class="col-lg-6">
+                                          <div class="form-group no-padding">
+                                             <div class="col-sm-12">
+                                                <h3 class="wizard-title">Customize Cake Layer</h3>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="col-lg-6">
+                                          <div class="form-group">
+                                             <div class="col-sm-12">
+                                                <div class="input-group date">
+                                                   <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>  <input type="text" class="form-control date-picker" name="estimated_pickedup" id="estimated_pickedup" placeholder="Pick Up Date">
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="form-group">
+                                             <div class="col-sm-12">
+                                                Suggestion Box
+                                             </div>
+                                             <div class="col-sm-12">
+                                                <textarea type="text" class="form-control"   name="suggestion_box" id="suggestion_box" placeholder=""></textarea>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </form>
+                                 <div class="form-group">
+                                    <div class="col-sm-12">
+                                       <button data-wizard="#wizard1" class="btn btn-default btn-space wizard-previous"><i class="icon s7-angle-left"></i> Previous</button>
+                                       <button id="btn_save_record" data-wizard="#wizard1" class="btn btn-success btn-space wizard-next"><i class="icon s7-check"></i> Complete</button>
+                                    </div>
+                                 </div>
                               </div>
                            </div>
                         </div>
@@ -478,23 +460,18 @@
       <script type="text/javascript" src="../../assets-apps/plugins/datapicker/bootstrap-datepicker.js"></script>
       <script type="text/javascript" src="../../assets-apps/js/cake_builder.script.js"></script>
       <script type="text/javascript" src="../../assets-apps/js/global.script.js"></script>
-
-
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
       <script type="text/javascript">
-
-
          $(document).ready(function(){
           //initialize the javascript
-          App.init();
+             App.init();
            
             App.wizard();
          
          
          
-
-   
-
+         
+         
+         
          
          
              $('#myCarousel').carousel({
@@ -507,20 +484,20 @@
          
          });
       </script>
-
-       <script>
- $( function() {
-    $( ".thumb-layer-1,.thumb-layer-2,.thumb-layer-3,.thumb-layer-4,.thumb-layer-5" ).draggable();
-    $( "cake-canvas-1" ).droppable({
-      drop: function( event, ui ) {
-        $( this )
-          .addClass( "ui-state-highlight" )
-          .find( "p" )
-            .html( "Dropped!" );
-      }
-    });
-  } );
-  </script>
-  </script>
+      <script>
+         $( function() {
+            $( ".thumb-layer-1,.thumb-layer-2,.thumb-layer-3,.thumb-layer-4,.thumb-layer-5" ).draggable();
+            $( "cake-canvas-1" ).droppable({
+              drop: function( event, ui ) {
+                $( this )
+                  .addClass( "ui-state-highlight" )
+                  .find( "p" )
+                    .html( "Dropped!" );
+              }
+            });
+          } );
+          
+      </script>
+      </script>
    </body>
 </html>

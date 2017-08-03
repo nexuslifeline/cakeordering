@@ -10,7 +10,8 @@ class Orders extends CORE_Controller
         
         parent::__construct('');
         $this->load->model(array(
-            'Cake_order_model'
+            'Cake_order_model',
+            'Payment_model'
         ));
         
     }
@@ -30,9 +31,9 @@ class Orders extends CORE_Controller
                 $m_order->cake_structure     = $this->input->post('cake_structure', TRUE);
                 $m_order->suggestion_box     = $this->input->post('suggestion_box', TRUE);
                 $m_order->customer_id        = $this->input->post('customer_id', TRUE);
-                $m_order->cost        = $this->input->post('cost', TRUE);
+                $m_order->cost               = $this->input->post('cost', TRUE);
+                   $m_order->order_status         = 'pending';
                 $m_order->estimated_pickedup = date('Y-m-d', strtotime($this->input->post('estimated_pickedup', TRUE)));
-                $m_order->date_pickedup  = $this->input->post('date_pickedup', TRUE);
                 $m_order->save();
                 $cake_order_id = $m_order->last_insert_id();
                 $m_order->commit();
@@ -58,10 +59,10 @@ class Orders extends CORE_Controller
                 $m_order->cake_structure     = $this->input->post('cake_structure', TRUE);
                 $m_order->suggestion_box     = $this->input->post('suggestion_box', TRUE);
                 $m_order->customer_id        = $this->input->post('customer_id', TRUE);
-                $m_order->cost        = $this->input->post('cost', TRUE);
+                $m_order->cost               = $this->input->post('cost', TRUE);
                 $m_order->estimated_pickedup = date('Y-m-d', strtotime($this->input->post('estimated_pickedup', TRUE)));
                 
-             
+                
                 $m_order->date_finalized = $this->input->post('date_finalized', TRUE);
                 $m_order->finalized_by   = $this->input->post('finalized_by', TRUE);
                 $m_order->is_finalized   = $this->input->post('is_finalized', TRUE);
@@ -163,14 +164,13 @@ class Orders extends CORE_Controller
     }
     
     
-       
+    
     public function get_customer_orders($id)
     {
-
         
-       
-            $m_order = $this->Cake_order_model;
-            $response['data']  =   $m_order->get_list('cake_orders.is_active=TRUE AND cake_orders.is_deleted=FALSE ' . ($id == null ? '' : ' AND cake_orders.customer_id=' . $id), array(
+        
+        $m_order          = $this->Cake_order_model;
+        $response['data'] = $m_order->get_list('cake_orders.is_active=TRUE AND cake_orders.is_deleted=FALSE ' . ($id == null ? '' : ' AND cake_orders.customer_id=' . $id), array(
             'cake_orders.*',
             'c.*',
             'DATE_FORMAT(c.cust_bdate,"%m/%d/%Y")as cust_bdate',
@@ -182,10 +182,73 @@ class Orders extends CORE_Controller
                 'inner'
             )
         ));
-   
-    
-            $this->json_output(json_encode($response));
-      
+        
+        
+        $this->json_output(json_encode($response));
+        
     }
+    
+    
+    
+    public function cancel_order()
+    {
+        
+        $m_order       = $this->Cake_order_model;
+        $cake_order_id = $this->input->post('cake_order_id', TRUE);
+        $m_order->begin();
+        $m_order->order_status = $this->input->post('order_status', TRUE);
+        $m_order->modify($cake_order_id);
+        $m_order->commit();
+        if ($m_order->status() === TRUE) {
+            $response['title']       = 'Success!';
+            $response['stat']        = 'success';
+            $response['msg']         = 'Order Updated successfully!';
+            $response['row_updated'] = $this->get_response_rows($cake_order_id);
+        } else {
+            $response['title'] = 'Error!';
+            $response['stat']  = 'error';
+            $response['msg']   = 'Something went wrong. Please try again later.';
+        }
+        
+        $this->json_output(json_encode($response));
+        
+        
+    }
+    
+    
+    
+    
+    public function process_order()
+    {
+        
+        $m_order       = $this->Cake_order_model;
+        $cake_order_id = $this->input->post('cake_order_id', TRUE);
+        
+        $m_order->begin();
+        $m_order->date_pickedup = date('Y-m-d', strtotime($this->input->post('date_pickedup', TRUE)));
+        $m_order->order_status  = $this->input->post('order_status', TRUE);
+        $m_order->modify($cake_order_id);        
+        $m_order->commit();
+        if ($m_order->status() === TRUE) {
+
+
+
+      
+            $response['title']       = 'Success!';
+            $response['stat']        = 'success';
+            $response['msg']         = 'Order Updated successfully!';
+            $response['row_updated'] = $this->get_response_rows($cake_order_id);
+        } else {
+            $response['title'] = 'Error!';
+            $response['stat']  = 'error';
+            $response['msg']   = 'Something went wrong. Please try again later.';
+        }
+        
+        $this->json_output(json_encode($response));
+        
+        
+    }
+    
+    
     
 }

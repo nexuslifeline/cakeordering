@@ -1,6 +1,5 @@
 SignUpCustomer = {
     
-    http : 'http://localhost:8012/cakeordering/backend/',
     globalVcode : '',
     
     init : function(){
@@ -40,7 +39,7 @@ SignUpCustomer = {
                              $.ajax({
                                  "dataType": "json",
                                  "type": "POST",
-                                 "url": self.http+"Customers/transaction/create/"+sendSms,
+                                 "url": http+"Customers/transaction/create/"+sendSms,
                                  "data": _data,
                                  "beforeSend": function() {
                                      Main.showSpinningProgress(btn);

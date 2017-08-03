@@ -1,6 +1,6 @@
   $(document).ready(function() {
       loadItem();
-      var _txnMode, cake_id, oSelecteditem;
+      var _txnMode, side_decoration_id, oSelecteditem;
 
 
 
@@ -12,8 +12,7 @@
           var m = $('#modal_form');
 
           clearFields(m);
-           $('#image_path').attr('src', '../../assets-apps/img/dummy/image-upload-placeholder.jpg');
-          $('#top_view').attr('src', '../../assets-apps/img/dummy/image-upload-placeholder.jpg');
+         $('#image_path').attr('src', '../../assets-apps/img/dummy/image-upload-placeholder.jpg');
           m.modal('show');
 
 
@@ -26,11 +25,9 @@
       $(document).on('click', '[name="edit_info"]', function() {
           _txnMode = "edit";
           oSelecteditem = $(this).closest('.item');
-          cake_id = oSelecteditem.find('[name="cake_id"]').val();
+          side_decoration_id = oSelecteditem.find('[name="side_decoration_id"]').val();
           image_path = oSelecteditem.find('[name="image_path"]').attr('src');
-           top_view = oSelecteditem.find('[name="top_view"]').val();
-          $('#image_path').attr('src', image_path);
-          $('#top_view').attr('src', top_view);
+          $('#image_path').attr('src', image_path)
           frm_data = $('#frm_data');
           findHTMLToVal(oSelecteditem, frm_data);
           $('#modal_form').modal('show');
@@ -50,7 +47,7 @@
 
           _txnMode = "delete";
           oSelecteditem = $(this).closest('.item');
-          cake_id = oSelecteditem.find('[name="cake_id"]').val();
+          side_decoration_id = oSelecteditem.find('[name="side_decoration_id"]').val();
 
           $('#modal_confirmation').modal('show');
 
@@ -77,11 +74,6 @@
               });
 
 
-               _data.push({
-                  name: "top_view",
-                  value: $('#top_view').attr('src')
-              });
-
 
 
               console.log(_data);
@@ -92,7 +84,7 @@
                   $.ajax({
                       "dataType": "json",
                       "type": "POST",
-                      "url": http + "Cake_2/transaction/create",
+                      "url": http + "Side_decorations/transaction/create",
                       "data": _data,
                       "beforeSend": function() {
 
@@ -108,7 +100,6 @@
                       if (response.stat == "success") {
                           clearFields(f);
                           $('#image_path').attr('src', '../../assets-apps/img/dummy/image-upload-placeholder.jpg');
-          $('#top_view').attr('src', '../../assets-apps/img/dummy/image-upload-placeholder.jpg');
                           createStructure(response.row_added[0]);
                           console.log(response);
                       }
@@ -119,16 +110,14 @@
               } else {
 
                   _data.push({
-                      name: "cake_id",
-                      value: cake_id
+                      name: "side_decoration_id",
+                      value: side_decoration_id
                   });
-
-
 
                   $.ajax({
                       "dataType": "json",
                       "type": "POST",
-                      "url": http + "Cake_2/transaction/update",
+                      "url": http + "Side_decorations/transaction/update",
                       "data": _data,
                       "beforeSend": function() {
 
@@ -143,11 +132,10 @@
 
                       if (response.stat == "success") {
 
-                          oSelecteditem.find('[name="image_path"]').attr('src', response.row_updated[0].image_path);
-                          oSelecteditem.find('[name="top_view"]').val(response.row_updated[0].top_view);
+                          oSelecteditem.find('[name="image_path"]').attr('src', response.row_updated[0].image_path)
                           findResponseToHTML(oSelecteditem, response.row_updated[0]);
-                           $('#image_path').attr('src', '../../assets-apps/img/dummy/image-upload-placeholder.jpg');
-           $('#top_view').attr('src', '../../assets-apps/img/dummy/image-upload-placeholder.jpg');
+                          $('#image_path').attr('src', '../../assets-apps/img/dummy/image-upload-placeholder.jpg');
+
                           clearFields(f);
                           $('#modal_form').modal('hide');
 
@@ -179,10 +167,10 @@
           $.ajax({
               "dataType": "json",
               "type": "POST",
-              "url": http + "Cake_2/transaction/delete",
+              "url": http + "Side_decorations/transaction/delete",
               "data": [{
-                  name: "cake_id",
-                  value: cake_id
+                  name: "side_decoration_id",
+                  value: side_decoration_id
               }]
           }).done(function(response) {
               showNotification(response);
@@ -201,13 +189,12 @@
   function createStructure(value) {
       var tags =
           '<div  class="item  col-xs-12 col-lg-2">' +
-          '<div class="thumbnail thumbnail-2">' +
-          '<input type="hidden" name="cake_id" value="' + value.cake_id + '" />' +
+          '<div class="thumbnail thumbnail-1">' +
+          '<input type="hidden" name="side_decoration_id" value="' + value.side_decoration_id + '" />' +
           '<img class="group list-group-image img-thumbnail" name="image_path" src="' + value.image_path + '" alt="">' +
-           '<input type="hidden" name="top_view" value="' + value.top_view + '" />' +
           '<div class="caption" style="border: solid #ec4444 1px;"  >' +
-          '<h4 class="group inner list-group-item-heading" name="cake_name">' + value.cake_name + '</h4>' +
-          '<p class="group inner list-group-item-text" name="cake_description">' + value.cake_description +
+          '<h4 class="group inner list-group-item-heading" name="side_decoration_name">' + value.side_decoration_name + '</h4>' +
+          '<p class="group inner list-group-item-text" name="side_decoration_description">' + value.side_decoration_description +
           '<div class="row">' +
           '<div class="col-xs-12 col-md-12">' +
           '<p  > PHP.<span name="price">' + value.price + '</span></p>' +
@@ -236,7 +223,7 @@
       $.ajax({
           dataType: "json",
           type: "POST",
-          url: http + 'Cake_2/transaction/list', //call controller class/function to execute
+          url: http + 'Side_decorations/transaction/list', //call controller class/function to execute
 
           success: function(response) {
 
@@ -268,22 +255,7 @@
 
       $('#btn_remove_photo').click(function(event) {
           event.preventDefault();
-            $('#image_path').attr('src', '../../assets-apps/img/dummy/image-upload-placeholder.jpg');
-         
-      });
-
-
-
-      $('#btn_browse2').click(function(event) {
-          event.preventDefault();
-          $('input[name="file_upload2[]"]').click();
-      });
-
-
-      $('#btn_remove_photo2').click(function(event) {
-          event.preventDefault();
-          
-          $('#top_view').attr('src', '../../assets-apps/img/dummy/image-upload-placeholder.jpg');
+         $('#image_path').attr('src', '../../assets-apps/img/dummy/image-upload-placeholder.jpg');
       });
 
 
@@ -303,7 +275,7 @@
 
 
           $.ajax({
-              url: http + 'Cake_2/transaction/upload',
+              url: http + 'Side_decorations/transaction/upload',
               type: "POST",
               data: data,
               cache: false,
@@ -323,44 +295,6 @@
           });
 
       });
-
-
-
-       $('input[name="file_upload2[]"]').change(function(event) {
-          var _files = event.target.files;
-
-          $('#div_img_user2').hide();
-          $('#div_img_loader2').show();
-
-
-          var data = new FormData();
-          $.each(_files, function(key, value) {
-              data.append(key, value);
-          });
-
-
-          $.ajax({
-              url: http + 'Cake_2/transaction/upload',
-              type: "POST",
-              data: data,
-              cache: false,
-              dataType: 'json',
-              processData: false,
-              contentType: false,
-              success: function(response) {
-                  //console.log(response);
-
-                  $('#div_img_loader2').hide();
-                  $('#div_img_user2').show();
-                  $('#top_view').attr('src', http + response.path);
-
-
-                  console.log(http + response.path);
-              }
-          });
-
-      });
-
 
 
 

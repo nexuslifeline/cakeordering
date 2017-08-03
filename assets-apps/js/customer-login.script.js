@@ -1,9 +1,6 @@
 
 
         
-
-
-
 $('#btn_login').click(function() {
     var btn = $(this);
     var f = $('#frm_login');

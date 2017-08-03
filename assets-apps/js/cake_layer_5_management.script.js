@@ -303,7 +303,7 @@
 
 
           $.ajax({
-              url: http + 'Toppings/transaction/upload',
+              url: http + 'Cake_5/transaction/upload',
               type: "POST",
               data: data,
               cache: false,
