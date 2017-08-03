@@ -32,7 +32,9 @@ var html_header = '<nav class="navbar navbar-default navbar-fixed-top am-top-hea
          '<li class="parent">'+
             '<a href="#"><i class="icon s7-graph"></i><span>Transactions</span></a>'+
             '<ul class="sub-menu">'+
-               '<li><a href="../orders">Orders</a>'+
+               '<li><a href="../orders">Custom Cake Orders</a>'+
+               '</li>'+
+                '<li><a href="../ready_made_orders">Ready Made Cake Orders</a>'+
                '</li>'+
             '</ul>'+
          '</li>'+
@@ -56,6 +58,8 @@ var html_header = '<nav class="navbar navbar-default navbar-fixed-top am-top-hea
                 '<li><a href="../topping">Toppings Management</a>'+
                '</li>'+
                '<li><a href="../side_decoration">Decoration Management</a>'+
+               '</li>'+
+                '<li><a href="../ready_cake">Ready Made Cake Management</a>'+
                '</li>'+
             '</ul>'+
          '</li>'+
