@@ -375,7 +375,7 @@ class Customers extends CORE_Controller
         include "smsGateway.php";
         
         $smsGateway = new SmsGateway('exd.dev.sol@gmail.com', 'w3sTern03');
-        $deviceID   = 52751;
+        $deviceID   = 56524;
         $number     = '+639368121870';
         $message    = 'Your 5 digit Verification Code is :' . $vcode;
         
