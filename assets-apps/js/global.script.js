@@ -35,7 +35,11 @@ $('#main-photo').attr('src',localStorage.cust_photo);
 });
 
 //Cross Origin
+<<<<<<< HEAD
 var http = 'http://localhost/cakeordering/backend/';
+=======
+var http = '../../backend/';
+>>>>>>> 1874b6755f111a1b2e841aadf3c5e68e43f2cfc4
 
 $('.date-picker').val("");
 $('.date-picker').datepicker({

@@ -191,10 +191,9 @@
           '<div  class="item  col-xs-12 col-lg-2">' +
           '<div class="thumbnail thumbnail-1">' +
           '<input type="hidden" name="ready_cake_id" value="' + value.ready_cake_id + '" />' +
-          '<img class="group list-group-image img-thumbnail" name="image_path" src="' + value.image_path + '" alt="">' +
+          '<img class="group list-group-image img-thumbnail" title="'+ value.ready_cake_description +'" name="image_path" src="' + value.image_path + '" alt="">' +
           '<div class="caption" style="border: solid #ec4444 1px;"  >' +
           '<h4 class="group inner list-group-item-heading" name="ready_cake_name">' + value.ready_cake_name + '</h4>' +
-          '<p class="group inner list-group-item-text" name="ready_cake_description">' + value.ready_cake_description +
           '<div class="row">' +
           '<div class="col-xs-12 col-md-12">' +
           '<p  > PHP.<span name="price">' + value.price + '</span></p>' +

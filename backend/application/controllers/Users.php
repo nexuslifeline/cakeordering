@@ -16,6 +16,9 @@ class Users extends CORE_Controller
         
     }
     
+    public function index(){
+      
+    }
    
     public function transaction($txn = null)
     {
