@@ -203,11 +203,11 @@
           '<div  class="item  col-xs-12 col-lg-2">' +
           '<div class="thumbnail thumbnail-2">' +
           '<input type="hidden" name="cake_id" value="' + value.cake_id + '" />' +
-          '<img class="group list-group-image img-thumbnail" name="image_path" src="' + value.image_path + '" alt="">' +
+          '<img class="group list-group-image img-thumbnail" name="image_path"  title="'+ value.cake_description +'"  src="' + value.image_path + '" alt="">' +
            '<input type="hidden" name="top_view" value="' + value.top_view + '" />' +
           '<div class="caption" style="border: solid #ec4444 1px;"  >' +
           '<h4 class="group inner list-group-item-heading" name="cake_name">' + value.cake_name + '</h4>' +
-          '<p class="group inner list-group-item-text" name="cake_description">' + value.cake_description +
+         
           '<div class="row">' +
           '<div class="col-xs-12 col-md-12">' +
           '<p  > PHP.<span name="price">' + value.price + '</span></p>' +
