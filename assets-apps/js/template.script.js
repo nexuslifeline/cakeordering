@@ -61,12 +61,14 @@ var html_header = '<nav class="navbar navbar-default navbar-fixed-top am-top-hea
                '</li>'+
                '<li><a href="../side_decoration">Decoration Management</a>'+
                '</li>'+
-                '<li><a href="../ready_cake">Ready Made Cake Management</a>'+
+                '<li><a href="../flavors">Flavor Management</a>'+
                '</li>'+
+                '<li><a href="../ready_cake">Existing Cake Design Management</a>'+
+               '</li>'+
+
                '<li><a href="../agreement">Agreement Management</a>'+
                '</li>'+
-                 '<li><a href="../flavors">Flavor Management</a>'+
-               '</li>'+
+                
             '</ul>'+
          '</li>'+
         ' <li class="parent">'+

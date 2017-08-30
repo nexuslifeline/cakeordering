@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
       <meta name="description" content="">
       <meta name="author" content="">
-      <title>Cake Ordering - Cake Builder</title>
+      <title>Cake Ordering - Cake Assessment</title>
       <script src="../../assets-apps/js/validate_token.js"></script>
       <link rel="stylesheet" type="text/css" href="../../assets-apps/lib/stroke-7/style.css"/>
       <link rel="stylesheet" type="text/css" href="../../assets-apps/lib/jquery.nanoscroller/css/nanoscroller.css"/>
@@ -27,8 +27,12 @@
       <div class="am-wrapper">
          <div id="template"></div>
          <div class="am-content">
-            <div class="page-head">
-               <h2>Cake Builder</h2>
+              <div class="page-head">
+               <h2>Cake Assessment</h2>
+               <ol class="breadcrumb">
+                  <li><a href="#">Transaction</a></li>
+                  <li class="active">Cake Assessment</li>
+               </ol>
             </div>
             <div class="main-content">
                <div class="row">
@@ -38,7 +42,7 @@
                            <div class="panel-heading">
                               <h4 class="panel-title">
                                  <span>
-                                 <b><i class="icon s7-graph"></i> Cake Builder Template List</b>
+                                 <b><i class="icon s7-graph"></i> Cake Assessment List</b>
                                  </span>
                               </h4>
                            </div>
@@ -47,6 +51,7 @@
                                  <thead>
                                     <tr>
                                        <th>Cake Template ID#</th>
+                                       <th>Customer Name</th>
                                        <th>Cake Name</th>
                                        <th>Estimated Price</th>
                                        <th>Actutal Price</th>
@@ -164,10 +169,10 @@
                                     <div class="row">
                                        <div class="col-lg-6">
                                           <table class="table table-responsive tbl-gen-info">
-                                             <tr>
+                                            <!-- <tr>
                                                 <td>Cake ID</td>
                                                 <td  colspan ="2" id="c-id">0</td>
-                                             </tr>
+                                             </tr>-->
                                              <tr>
                                                 <td>Cake Name :</td>
                                                 <td  colspan ="2" id="c-cn"></td>
@@ -334,151 +339,26 @@
                         </div>
                      </div>
                      <div class="col-lg-4">
-                        <ul class="nav nav-tabs">
-                           <li class="active"><a data-toggle="tab" href="#step1">Step 1</a></li>
-                           <li><a data-toggle="tab" href="#step2">Step 2</a></li>
-                           <li><a data-toggle="tab" href="#step3">Step 3</a></li>
-                           <li><a data-toggle="tab" href="#step4">Step 4</a></li>
-                           <li><a data-toggle="tab" href="#step5">Step 5</a></li>
-                        </ul>
-                        <div class="tab-content">
-                           <div id="step1" class="tab-pane fade in active">
-                              <div class="col-lg-12">
-                                 <h3>Cake Setup</h3>
-                                 <div class="form-group">
-                                    <label>Sizes & Servings : </label> 
-                                    <select id="serving_details" class="form-control">
-                                    </select>
-                                 </div>
-                                 <div class="form-group">
-                                    <label>Cake Flavor : </label> 
-                                    <select id="flavor_details" class="form-control">
-                                    </select>
-                                 </div>
-                              </div>
-                           </div>
-                           <div id="step2" class="tab-pane fade">
-                              <div class="col-lg-12">
-                                 <h3>Cake Layer Style</h3>
-                                 <div class="col-lg-12"  style="padding:0px">
-                                    <div class="tool" style="padding: 0px">
-                                       <strong style="color: #333">Layer Selector</strong>
-                                       <ul class="front-view-layer-selector" style="padding:0px">
-                                          <li> <a  class="btn btn-sm btn-success tool-1 layer1-selector" title="Layer 1 Selector"> <span class="icon s7-graph"></span> L-1 </a></li>
-                                          <li> <a  class="btn btn-sm btn-success tool-2 layer2-selector" title="Layer 2 Selector"> <span class="icon s7-graph"></span> L-2 </a></li>
-                                          <li> <a  class="btn btn-sm btn-success tool-3 layer3-selector" title="Layer 3 Selector"> <span class="icon s7-graph"></span> L-3 </a></li>
-                                          <li> <a  class="btn btn-sm btn-success tool-4 layer4-selector" title="Layer 4 Selector"> <span class="icon s7-graph"></span> L-4 </a></li>
-                                          <li> <a  class="btn btn-sm btn-success tool-5 layer5-selector" title="Layer 5 Selector"> <span class="icon s7-graph"></span> L-5 </a></li>
-                                       </ul>
-                                       <strong style="color: #333">Clear All Selected Layers</strong>
-                                       <ul class="front-view-layer-selector"  style="padding:0px">
-                                          <li> <a  class="btn btn-sm btn-primary clear" title="Layer 5 Selector"> <span class="icon s7-graph"></span> Clear</a></li>
-                                       </ul>
-                                    </div>
-                                 </div>
-                                 <div class="col-lg-12">
-                                    <div id="layer-container">
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div id="step3" class="tab-pane fade">
-                              <div class="col-lg-12">
-                                 <h3>Layer Decoration</h3>
-                                 <div class="tool" style="padding: 0px">
-                                    <strong style="color: #333">Front View Layer Selector</strong>
-                                    <ul class="front-view-layer-selector" style="padding:0px">
-                                       <li> <a  class="btn btn-sm btn-success fvs-layer-1 tool-1" title="Layer 1 Selector"> <span class="icon s7-graph"></span> L-1 </a></li>
-                                       <li> <a  class="btn btn-sm btn-success fvs-layer-2 tool-2" title="Layer 2 Selector"> <span class="icon s7-graph"></span> L-2 </a></li>
-                                       <li> <a  class="btn btn-sm btn-success fvs-layer-3 tool-3" title="Layer 3 Selector"> <span class="icon s7-graph"></span> L-3 </a></li>
-                                       <li> <a  class="btn btn-sm btn-success fvs-layer-4 tool-4" title="Layer 4 Selector"> <span class="icon s7-graph"></span> L-4 </a></li>
-                                       <li> <a  class="btn btn-sm btn-success fvs-layer-5 tool-5" title="Layer 5 Selector"> <span class="icon s7-graph"></span> L-5 </a></li>
-                                    </ul>
-                                    <strong style="color: #333">Rear View Layer Selector</strong>
-                                    <ul class="front-view-layer-selector"  style="padding:0px">
-                                       <li> <a  class="btn btn-sm btn-success rvs-layer-1 tool-1" title="Layer 1 Selector"> <span class="icon s7-graph"></span> L-1</a></li>
-                                       <li> <a  class="btn btn-sm btn-success rvs-layer-2 tool-2" title="Layer 2 Selector"> <span class="icon s7-graph"></span> L-2</a></li>
-                                       <li> <a  class="btn btn-sm btn-success rvs-layer-3 tool-3" title="Layer 3 Selector"> <span class="icon s7-graph"></span> L-3</a></li>
-                                       <li> <a  class="btn btn-sm btn-success rvs-layer-4 tool-4" title="Layer 4 Selector"> <span class="icon s7-graph"></span> L-4</a></li>
-                                       <li> <a  class="btn btn-sm btn-success rvs-layer-5 tool-5" title="Layer 5 Selector"> <span class="icon s7-graph"></span> L-5</a></li>
-                                    </ul>
-                                    <strong style="color: #333">Clear All Selected Layers</strong>
-                                    <ul class="front-view-layer-selector"  style="padding:0px">
-                                       <li> <a  class="btn btn-sm btn-primary clear" title="Layer 5 Selector"> <span class="icon s7-graph"></span> Clear</a></li>
-                                    </ul>
-                                 </div>
-                                 <div class="col-lg-12">
-                                    <div id="decor-container">
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div id="step4" class="tab-pane fade">
-                              <div class="col-lg-12">
-                                 <h3>Toppings</h3>
-                                 <div class="tool">
-                                    <strong>Toppings View Selector</strong>
-                                    <ul class="front-view-layer-selector">
-                                       <li> <a  class="btn btn-sm btn-warning fview-selector" title="Front View" data-parent-selected="front_view"> <span class="icon s7-graph"></span> Front View</a></li>
-                                       <li> <a  class="btn btn-sm btn-warning rview-selector " title="Rear View" data-parent-selected="rear_view"> <span class="icon s7-graph"></span> Rear View</a></li>
-                                       <li> <a  class="btn btn-sm btn-primary remove-top-front" title="Layer 5 Selector"> <span class="glyphicon glyphicon-minus"></span> Remove Front View Toppings</a></li>
-                                       <li> <a  class="btn btn-sm btn-primary remove-top-rear" title="Layer 5 Selector"> <span class="glyphicon glyphicon-minus"></span> Remove Rear View Toppings</a></li>
-                                    </ul>
-                                 </div>
-                                 <select id="select_tops" class="form-control">
-                                    <option value="0">SELECT YOUR GRAPHICS</option>
-                                    <option value="1">System Graphics</option>
-                                    <option value="2">Personalized Graphics</option>
-                                 </select>
-                                 <div class="col-lg-12">
-                                    <div id="topping-container">
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div id="step5" class="tab-pane fade">
-                              <form id="frm_data" class="form-horizontal">
+                    
+
+                    <form id="frm_data" class="form-horizontal">
                                  <div class="row">
                                     <div class="col-lg-12">
+                               
+                                       
                                        <div class="form-group">
-                                          <div class="col-lg-12">
-                                             <div class="input-group date">
-                                                <span class="input-group-addon"><i class="glyphicon glyphicon-cube"></i></span>  <input type="text" class="form-control" name="cake_template_name" id="cake_template_name" placeholder="Cake Template Name" data-error-msg="Cake Template Name is required."  required>
-                                             </div>
-                                          </div>
+                                       <div class="col-lg-12">
+                                       <div class="input-group">
+                                       <span class="input-group-addon">
+                                       <i class="glyphicon glyphicon-list-alt"></i>
+                                       </span>
+                                       <input type="number" class="form-control" name="actual_price" id="actual_price" placeholder="0.00" data-error-msg="Actual Price is required." required>
                                        </div>
-
-                                        <div class="form-group">
-                                          <div class="col-lg-12">
-                                            Cake Description
-                                          </div>
-                                          <div class="col-lg-12">
-                                             <textarea type="text" class="form-control"   name="cake_template_description" id="cake_template_description" placeholder=""></textarea>
-                                          </div>
                                        </div>
-                                       <div class="form-group">
-                                          <div class="col-lg-12">
-                                             <div class="input-group date">
-                                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>  <input type="text" class="form-control date-picker" name="estimated_picktup_date" id="estimated_picktup_date" placeholder="Pick Up Date">
-                                             </div>
-                                          </div>
                                        </div>
-                                       <div class="form-group">
-                                          <div class="col-lg-12">
-                                             Dedication Box
-                                          </div>
-                                          <div class="col-lg-12">
-                                             <textarea type="text" class="form-control"   name="dedication_details" id="dedication_details" placeholder=""></textarea>
-                                          </div>
-                                       </div>
-                                       <div class="form-group">
-                                          <div class="col-lg-12">
-                                             Suggestion Box
-                                          </div>
-                                          <div class="col-lg-12">
-                                             <textarea type="text" class="form-control"   name="suggestion_box" id="suggestion_box" placeholder=""></textarea>
-                                          </div>
-                                       </div>
+                                      
+                                      
+                                       
 
                                          <div class="form-group">
                                           <div class="col-lg-12">
@@ -486,8 +366,9 @@
                                           </div>
                                           <div class="col-lg-12">
                                              <select name="status" id="status" class="form-control">
-                                                <option value="assessment">assessment</option>
-                                                <option value="template">template</option>
+                                             <option value="verified">verified</option>
+                                                <option value="close">close</option>
+                                                
                                              </select>
                                           </div>
                                        </div>
@@ -499,8 +380,6 @@
                                     </div>
                                  </div>
                               </form>
-                           </div>
-                        </div>
                      </div>
                   </div>
                   <!--<div class="row" style="margin-top: 20px">
@@ -560,7 +439,7 @@
          </div>
       </div>
       <script type="text/javascript" src="../../assets-apps/lib/jquery/jquery.min.js" ></script>
-      <script type="text/javascript" src="../../assets-apps/js/customer-template.script.js"></script>
+      <script type="text/javascript" src="../../assets-apps/js/template.script.js"></script>
       <script type="text/javascript" src="../../assets-apps/lib/jquery.nanoscroller/javascripts/jquery.nanoscroller.min.js"></script>
       <script type="text/javascript" src="../../assets-apps/js/main.js" ></script>
       <script type="text/javascript" src="../../assets-apps/lib/bootstrap/dist/js/bootstrap.min.js" ></script>
@@ -576,7 +455,7 @@
       <script type="text/javascript" src="../../assets-apps/lib/datatable/js/datatable-tabletools.js"></script>
       <!-- Data picker -->
       <script type="text/javascript" src="../../assets-apps/plugins/datapicker/bootstrap-datepicker.js"></script>
-      <script type="text/javascript" src="../../assets-apps/js/cake_builder.script.js"></script>
+      <script type="text/javascript" src="../../assets-apps/js/cake_assessment.script.js"></script>
       <script type="text/javascript" src="../../assets-apps/js/global.script.js"></script>
       <script type="text/javascript">
          $(document).ready(function(){
