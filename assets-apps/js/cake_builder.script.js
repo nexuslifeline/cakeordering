@@ -4,10 +4,11 @@
       var oSelectedRow;
       var parent_selected = '';
 
-      var default_cake = '<div class="layer5"><div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive"></div><div class="decor-box"> <img src="" class="img-responsive decors"> </div></div><div class="layer4"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive"></div><div class="decor-box"> <img src="" class="img-responsive decors"> </div></div><div class="layer3"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive"></div><div class="decor-box"> <img src="" class="img-responsive decors"> </div></div><div class="layer2"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive"></div><div class="decor-box"> <img src="" class="img-responsive decors"> </div></div><div class="layer1"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive"></div><div class="decor-box"> <img src="" class="img-responsive decors"> </div></div>';
+      var front_view_default_cake = ' <div class="layer5"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive" id="l-item5" data-price="0" data-itemname=" "></div><div class="decor-box"> <img src="" class="img-responsive decors" id="d-item5" data-price="0" data-itemname=" "> </div></div><div class="layer4"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive" id="l-item4" data-price="0" data-itemname=" "></div><div class="decor-box"> <img src="" class="img-responsive decors" id="d-item4" data-price="0" data-itemname=" "> </div></div><div class="layer3"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive " id="l-item3" data-price="0" data-itemname=" "></div><div class="decor-box"> <img src="" class="img-responsive decors " id="d-item3" data-price="0" data-itemname=" " > </div></div><div class="layer2"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive " id="l-item2" data-price="0" data-itemname=" "></div><div class="decor-box"> <img src="" class="img-responsive decors" id="d-item2" data-price="0" data-itemname=" "> </div></div><div class="layer1"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive" id="l-item1" data-price="0" data-itemname=" "></div><div class="decor-box"> <img src="" class="img-responsive decors" id="d-item1" data-price="0" data-itemname=" "> </div></div>';
+      var rear_view_default = ' <div class="layer5"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive" data-price="0" data-itemname=" "></div><div class="decor-box"> <img src="" class="img-responsive decors" id="d-item10" data-price="0" data-itemname=" "> </div></div><div class="layer4"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive" data-price="0" data-itemname=" "></div><div class="decor-box"> <img src="" class="img-responsive decors " id="d-item9" data-price="0" data-itemname=" "> </div></div><div class="layer3"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive" data-price=0 data-itemname=""></div><div class="decor-box"> <img src="" class="img-responsive decors" id="d-item8" data-price="0" data-itemname=" "> </div></div><div class="layer2"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive" data-price="0" data-itemname=" "></div><div class="decor-box"> <img src="" class="img-responsive decors" id="d-item7" data-price="0" data-itemname=" "> </div></div><div class="layer1"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive" data-price="0" data-itemname=" "></div><div class="decor-box"> <img src="" class="img-responsive decors" id="d-item6" data-price="0" data-itemname=" "> </div></div>';
 
-
-
+      var flavor_price = 0;
+      var size_price = 0;
 
       load_serving_list();
       load_flavor_list();
@@ -80,8 +81,8 @@
               var m = $('#modal_form');
 
               clearFields(m);
-              $('.front_view').html(default_cake);
-              $('.rear_view').html(default_cake);
+              $('.front_view').html(front_view_default_cake);
+              $('.rear_view').html(rear_view_default);
               $('#modal_form').modal('show');
               $('.date-picker').val("");
           });
@@ -133,7 +134,7 @@
 
               $('.front_view').html(data.front_view);
               $('.rear_view').html(data.rear_view);
-
+               $('#tbl_info_main').html(data.tbl_details);
               $('#modal_form').modal('show');
 
           });
@@ -159,7 +160,7 @@
 
           }
 
-
+          compute();
 
       });
 
@@ -206,18 +207,33 @@
           } else {
 
               $('.layer1 img,.layer2 img,.layer3 img,.layer4 img,.layer5 img').hide();
-              $('.tool-1,.tool-2,.tool-3,.tool-4,.tool-5').show();
+              $('.tool-1,.tool-2,.tool-3,.tool-4,.tool-5').hide()
 
           }
+          size_price = parseInt(optionSelected.data('price'));
+
+          $('#c-size').html(valueSelected);
+          $('#c-size-p').html(size_price);
+
+
+          compute();
 
       });
 
+      $('#flavor_details').on('change', function(e) {
+          var optionSelected = $("option:selected", this);
+          var valueSelected = this.value;
+          flavor_price = parseInt(optionSelected.data('price'));
+          $('#c-flav').html(valueSelected);
+          $('#c-flav-p').html(flavor_price);
 
 
+          compute();
+      });
 
       var servingStructure = function(obj) {
 
-          var tags = "<option data-layers=" + obj.layers + ">" + obj.layers + " - Layer | Size :  " + obj.size + " | " + obj.serving_description + "</option";
+          var tags = "<option data-price=" + obj.price + " data-layers=" + obj.layers + ">" + obj.layers + " - Layer | Size :  " + obj.size + " | " + obj.serving_description + "</option";
 
           $('#serving_details').prepend(tags);
       }
@@ -227,7 +243,7 @@
 
       var flavorStructure = function(obj) {
 
-          var tags = "<option value=" + obj.flavor_name + ">" + obj.flavor_name + "</option";
+          var tags = "<option value=" + obj.flavor_name + " data-price=" + obj.price + ">" + obj.flavor_name + "</option";
 
           $('#flavor_details').append(tags);
       }
@@ -235,7 +251,7 @@
 
 
       function layerStructure(value) {
-          var tags = "<div class='col-lg-6 box'><div class='cake-box'><div class='thumb-img-box'><a class='cake-thumbs' title='" + value.cake_description + "'><img  src='" + value.image_path + "'  class='img-responsive'></a></div><div class='details'><h5> " + value.cake_name + "</h5><h6> " + value.price + "</h6></div></div></div>";
+          var tags = "<div class='col-lg-6 box'><div class='cake-box'><div class='thumb-img-box'><a class='cake-thumbs' title='" + value.cake_description + "'><img  src='" + value.image_path + "'  class='img-responsive' data-price=" + value.price + " data-itemname='" + value.cake_name + "'></a></div><div class='details'><h5> " + value.cake_name + "</h5><h6> " + value.price + "</h6></div></div></div>";
           $('#layer-container').append(tags);
 
       }
@@ -243,13 +259,13 @@
 
 
       function decorStructure(value) {
-          var tags = "<div class='col-lg-6 box'><div class='decor-holder'><div class='thumb-img-box'><a class='decor-thumbs' title='" + value.side_decoration_description + "'><img  src='" + value.image_path + "'  class='img-responsive'></a></div><div class='details'><h5> " + value.side_decoration_name + "</h5><h6> " + value.price + "</h6></div></div></div>";
+          var tags = "<div class='col-lg-6 box'><div class='decor-holder'><div class='thumb-img-box'><a class='decor-thumbs' title='" + value.side_decoration_description + "'><img  src='" + value.image_path + "'  class='img-responsive' data-price=" + value.price + " data-itemname='" + value.side_decoration_name + "'></a></div><div class='details'><h5> " + value.side_decoration_name + "</h5><h6> " + value.price + "</h6></div></div></div>";
           $('#decor-container').append(tags);
 
       }
 
       function topStructure(value) {
-          var tags = "<div class='col-lg-6 box'><div class='topping-box'><div class='thumb-img-box'><a class='topping-thumbs' title='" + value.topping_description + "'><img  src='" + value.image_path + "'  class='img-responsive'></a></div><div class='details'><h5> " + value.topping_name + "</h5><h6> " + value.price + "</h6></div></div></div>";
+          var tags = "<div class='col-lg-6 box'><div class='topping-box'><div class='thumb-img-box'><a class='topping-thumbs' title='" + value.topping_description + "'><img  src='" + value.image_path + "'  class='img-responsive' data-price=" + value.price + " data-itemname='" + value.topping_name + "'></a></div><div class='details'><h5> " + value.topping_name + "</h5><h6> " + value.price + "</h6></div></div></div>";
           $('#topping-container').append(tags);
 
       }
@@ -257,7 +273,7 @@
 
 
       function usergrap_Structure(value) {
-          var tags = "<div class='col-lg-6 box'><div class='topping-box'><div class='thumb-img-box'><a class='topping-thumbs' title='" + value.graphic_description + "'><img  src='" + value.image_path + "'  class='img-responsive'></a></div><div class='details'><h5> " + value.graphic_name + "</h5><h6> " + value.price + "</h6></div></div></div>";
+          var tags = "<div class='col-lg-6 box'><div class='topping-box'><div class='thumb-img-box'><a class='topping-thumbs' title='" + value.graphic_description + "'><img  src='" + value.image_path + "'  class='img-responsive' data-price=" + 0 + " data-itemname='" + value.graphic_name + "'></a></div><div class='details'><h5> " + value.graphic_name + "</h5><h6> " + value.price + "</h6></div></div></div>";
           $('#topping-container').append(tags);
 
       }
@@ -459,53 +475,16 @@
 
 
 
-      $(document).on('click', '.cake-thumbs', function() {
 
-          var img = $(this).find('img').attr('src');
-
-
-
-
-          $('.selected  .layer-box img').attr('src', img);
-
-      });
+      $('.remove-top-front').click(function() {
+          $('.front_view .dg').remove();
+      })
 
 
+      $('.remove-top-rear').click(function() {
+          $('.rear_view .dg').remove();
+      })
 
-
-      $(document).on('click', '.decor-thumbs', function() {
-
-          var img = $(this).find('img').attr('src');
-
-
-
-
-          $('.selected .decor-box img').attr('src', img);
-
-      });
-
-
-
-
-      $(document).on('click', '.topping-thumbs', function() {
-
-          var img = $(this).find('img').attr('src');
-
-          var clone = "<a class='dg' style='position:absolution;z-index:999'><img  height='50px' src=" + img + "></a>"
-
-
-          $(parent_selected).prepend(clone);
-          $(".dg").draggable().css("position", "absolute");
-
-
-      });
-
-
-$('[data-toggle="tab"]').click(function(){
-
- $('.clear').click();
-
-});
 
       $('.fview-selector').click(function() {
           parent_selected = ".front_view";
@@ -526,12 +505,6 @@ $('[data-toggle="tab"]').click(function(){
 
 
 
-
-
-
-
-
-
       $('.layer1-selector').click(function() {
 
           $('.layer1, .layer2,.layer3,.layer4, .layer5').removeClass('selected');
@@ -541,24 +514,23 @@ $('[data-toggle="tab"]').click(function(){
 
       });
 
-      
+
 
       $('.layer2-selector').click(function() {
 
-              $('.layer1, .layer2,.layer3,.layer4, .layer5').removeClass('selected');
+          $('.layer1, .layer2,.layer3,.layer4, .layer5').removeClass('selected');
           $('.layer2').addClass('selected');
           $('.btn').removeClass('btn-selected');
           $(this).addClass('btn-selected');
 
       });
 
-      
 
 
 
       $('.layer3-selector').click(function() {
 
-              $('.layer1, .layer2,.layer3,.layer4, .layer5').removeClass('selected');
+          $('.layer1, .layer2,.layer3,.layer4, .layer5').removeClass('selected');
           $('.layer3').addClass('selected');
           $('.btn').removeClass('btn-selected');
           $(this).addClass('btn-selected');
@@ -568,13 +540,9 @@ $('[data-toggle="tab"]').click(function(){
 
 
 
-
-
-
-
       $('.layer3-selector').click(function() {
 
-              $('.layer1, .layer2,.layer3,.layer4, .layer5').removeClass('selected');
+          $('.layer1, .layer2,.layer3,.layer4, .layer5').removeClass('selected');
           $('.layer3').addClass('selected');
           $('.btn').removeClass('btn-selected');
           $(this).addClass('btn-selected');
@@ -586,7 +554,7 @@ $('[data-toggle="tab"]').click(function(){
 
       $('.layer4-selector').click(function() {
 
-              $('.layer1, .layer2,.layer3,.layer4, .layer5').removeClass('selected');
+          $('.layer1, .layer2,.layer3,.layer4, .layer5').removeClass('selected');
           $('.layer4').addClass('selected');
           $('.btn').removeClass('btn-selected');
           $(this).addClass('btn-selected');
@@ -598,7 +566,7 @@ $('[data-toggle="tab"]').click(function(){
 
       $('.layer5-selector').click(function() {
 
-              $('.layer1, .layer2,.layer3,.layer4, .layer5').removeClass('selected');
+          $('.layer1, .layer2,.layer3,.layer4, .layer5').removeClass('selected');
           $('.layer5').addClass('selected');
           $('.btn').removeClass('btn-selected');
           $(this).addClass('btn-selected');
@@ -725,22 +693,6 @@ $('[data-toggle="tab"]').click(function(){
           parent_selected = '';
       });
 
-      /*
-            $('.layer1,.layer2,.layer3,.layer4,.layer5').click(function() {
-                $('.layer1,.layer2,.layer3,.layer4,.layer5').removeClass('selected');
-                $(this).addClass('selected');
-            })
-      */
-      var tabselected = $('.steps').find('.active');
-
-
-      $('.wizard-previous,.wizard-next').click(function() {
-
-
-
-
-      });
-
 
 
 
@@ -776,6 +728,10 @@ $('[data-toggle="tab"]').click(function(){
                   name: "serving_details",
                   value: $('#serving_details option:selected').val()
               });
+_data.push({
+                  name: "tbl_details",
+                  value: $('#tbl_info_main').html()
+              });
 
 
 
@@ -797,11 +753,11 @@ $('[data-toggle="tab"]').click(function(){
                       showNotification(response);
                       if (response.stat == "success") {
                           //oTable.row(oSelectedRow).data(response.row_add_cakeed[0]).draw();
-                         oTable.row.add(response.row_added[0]).draw(); //add new data to user table
+                          oTable.row.add(response.row_added[0]).draw(); //add new data to user table
                           clearFields(f); //clear all form fields
                           $('.date-picker').val("");
-                          $('.front_view').html(default_cake);
-                          $('.rear_view').html(default_cake);
+                          $('.front_view').html(front_view_default_cake);
+                          $('.rear_view').html(rear_view_default);
 
                           $('.clear').click();
                       }
@@ -834,7 +790,7 @@ $('[data-toggle="tab"]').click(function(){
                   }).done(function(response) {
                       showNotification(response);
                       if (response.stat == "success") {
-                            oTable.row(oSelectedRow).data(response.row_updated[0]).draw();
+                          oTable.row(oSelectedRow).data(response.row_updated[0]).draw();
                           clearFields(f); //clear all form fields
                           $('#modal_form').modal('hide');
                       }
@@ -848,6 +804,219 @@ $('[data-toggle="tab"]').click(function(){
           }
       });
 
+
+      $(document).on('click', '.cake-thumbs', function() {
+
+
+          var element = $(this).find('img');
+          var img = element.attr('src');
+          var price = element.attr('data-price');
+          var name = element.attr('data-itemname');
+
+
+
+          $('.selected .layer-box img').attr('src', img);
+          $('.selected  .layer-box   img').data('price', price);
+          $('.selected .layer-box  img').data('itemname', name);
+          checkifSelectedExist();
+          compute();
+
+      });
+
+
+
+
+      $(document).on('click', '.decor-thumbs', function() {
+
+
+
+          var element = $(this).find('img');
+          var img = element.attr('src');
+          var price = element.attr('data-price');
+          var name = element.attr('data-itemname');
+
+
+
+          $('.selected .decor-box img').attr('src', img);
+          $('.selected  .decor-box  img').data('price', price);
+          $('.selected  .decor-box img').data('itemname', name);
+          checkifSelectedExist();
+
+
+
+          compute();
+      });
+
+
+
+
+      $(document).on('click', '.topping-thumbs', function() {
+          checkifSelectedExist();
+
+          var element = $(this).find('img');
+          var img = element.attr('src');
+          var price = element.attr('data-price');
+          var name = element.attr('data-itemname');
+          var clone = "<a class='dg' style='position:absolution;z-index:999'><img  height='50px' src=" + img + " class='get-price' data-price=" + price + " data-itemname='" + name + "'></a>";
+
+
+          $(parent_selected).prepend(clone);
+          $(".dg").draggable().css("position", "absolute");
+
+
+          compute();
+      });
+
+
+      $('[data-toggle="tab"]').click(function() {
+
+          $('.clear').click();
+
+          compute();
+
+      });
+
+
+      function compute() {
+
+
+
+
+          var lp1 = parseInt($('#l-item1').data('price'));
+          var lp2 = parseInt($('#l-item2').data('price'));
+          var lp3 = parseInt($('#l-item3').data('price'));
+          var lp4 = parseInt($('#l-item4').data('price'));
+          var lp5 = parseInt($('#l-item5').data('price'));
+
+
+          var ln1 = $('#l-item1').data('itemname');
+          var ln2 = $('#l-item2').data('itemname');
+          var ln3 = $('#l-item3').data('itemname');
+          var ln4 = $('#l-item4').data('itemname');
+          var ln5 = $('#l-item5').data('itemname');
+
+          $("#c-p1").html(lp1);
+          $("#c-p2").html(lp2);
+          $("#c-p3").html(lp3);
+          $("#c-p4").html(lp4);
+          $("#c-p5").html(lp5);
+
+
+
+
+          $("#c-l1").html(ln1);
+          $("#c-l2").html(ln2);
+          $("#c-l3").html(ln3);
+          $("#c-l4").html(ln4);
+          $("#c-l5").html(ln5);
+
+
+
+
+          var fdp1 = parseInt($('#d-item1').data('price'));
+          var fdp2 = parseInt($('#d-item2').data('price'));
+          var fdp3 = parseInt($('#d-item3').data('price'));
+          var fdp4 = parseInt($('#d-item4').data('price'));
+          var fdp5 = parseInt($('#d-item5').data('price'));
+          var rdp6 = parseInt($('#d-item6').data('price'));
+          var rdp7 = parseInt($('#d-item7').data('price'));
+          var rdp8 = parseInt($('#d-item8').data('price'));
+          var rdp9 = parseInt($('#d-item9').data('price'));
+          var rdp10 = parseInt($('#d-item10').data('price'));
+
+
+
+          $("#c-fdp1").html(fdp1);
+          $("#c-fdp2").html(fdp2);
+          $("#c-fdp3").html(fdp3);
+          $("#c-fdp4").html(fdp4);
+          $("#c-fdp5").html(fdp5);
+          $("#c-rdp1").html(rdp6);
+          $("#c-rdp2").html(rdp7);
+          $("#c-rdp3").html(rdp8);
+          $("#c-rdp4").html(rdp9);
+          $("#c-rdp5").html(rdp10);
+
+
+
+
+          var fd1 = $('#d-item1').data('itemname');
+          var fd2 = $('#d-item2').data('itemname');
+          var fd3 = $('#d-item3').data('itemname');
+          var fd4 = $('#d-item4').data('itemname');
+          var fd5 = $('#d-item5').data('itemname');
+          var rd6 = $('#d-item6').data('itemname');
+          var rd7 = $('#d-item7').data('itemname');
+          var rd8 = $('#d-item8').data('itemname');
+          var rd9 = $('#d-item9').data('itemname');
+          var rd10 = $('#d-item10').data('itemname');
+
+
+
+          $("#c-fd1").html(fd1);
+          $("#c-fd2").html(fd2);
+          $("#c-fd3").html(fd3);
+          $("#c-fd4").html(fd4);
+          $("#c-fd5").html(fd5);
+          $("#c-rd1").html(rd6);
+          $("#c-rd2").html(rd7);
+          $("#c-rd3").html(rd8);
+          $("#c-rd4").html(rd9);
+          $("#c-rd5").html(rd10);
+
+
+
+          var totallayer = lp1 + lp2 + lp3 + lp4 + lp5;
+          var totaldecor = fdp1 + fdp2 + fdp3 + fdp4 + fdp5 + rdp6 + rdp7 + rdp8 + rdp9 + rdp10;
+
+          var totaprice = totallayer + totaldecor;
+
+          var topping_price = 0;
+          var topping_uprice = 0;
+          var itemname = '';
+
+          $('.d-row').remove();
+          $(".front_view .get-price").each(function(index) {
+              topping_uprice = parseInt($(this).data('price'));
+              topping_price += topping_uprice;
+              itemname = $(this).data('itemname');
+              var tags = "<tr class='d-row'><td></td><td >" + itemname + "</td><td>" + topping_uprice + "</td></tr>";
+              $('.tbl-front').append(tags);
+
+
+          });
+
+          $(".rear_view .get-price").each(function(index) {
+              topping_uprice = parseInt($(this).data('price'));
+              topping_price += topping_uprice;
+              itemname = $(this).data('itemname');
+              var tags = "<tr class='d-row'><td></td><td '>" + itemname + "</td><td>" + topping_uprice + "</td></tr>";
+              $('.tbl-rear').append(tags);
+
+
+          });
+
+          var t;
+
+          t = (totaldecor + totallayer + topping_price + flavor_price + size_price);
+
+          console.log(t);
+          $('#c-eprice').text(t);
+      }
+
+
+
+      function checkifSelectedExist() {
+          if ($('.btn-selected').length == 0) {
+
+              PNotify.removeAll(); //remove all notifications
+              new PNotify({
+                  title: 'Error',
+                  text: 'Please select a layer',
+                  type: 'error'
+              });
+          }
+      }
 
 
 

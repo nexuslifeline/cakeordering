@@ -30,10 +30,14 @@ class Cake_templates extends CORE_Controller
             $m_c_template->cake_template_description = $this->input->post('cake_template_description', TRUE);
             $m_c_template->front_view = $this->input->post('front_view',false);
             $m_c_template->rear_view = $this->input->post('rear_view',false);
+            $m_c_template->tbl_details = $this->input->post('tbl_details',false);
             $m_c_template->estimated_price = $this->input->post('estimated_price', TRUE);
             $m_c_template->actual_price = $this->input->post('actual_price', TRUE);
             $m_c_template->customer_id = $this->input->post('customer_id', TRUE);
-
+                $m_c_template->suggestion_box = $this->input->post('suggestion_box', TRUE);
+                       $m_c_template->dedication_details = $this->input->post('dedication_details', TRUE);
+            
+               $m_c_template->estimated_picktup_date = date('Y-m-d', strtotime($this->input->post('estimated_picktup_date', TRUE)));
             // auditing purposes
 
             $m_c_template->save();
@@ -63,9 +67,15 @@ class Cake_templates extends CORE_Controller
             $m_c_template->cake_template_description = $this->input->post('cake_template_description', TRUE);
             $m_c_template->front_view = $this->input->post('front_view',false);
             $m_c_template->rear_view = $this->input->post('rear_view',false);
+             $m_c_template->tbl_details = $this->input->post('tbl_details',false);
             $m_c_template->estimated_price = $this->input->post('estimated_price', TRUE);
             $m_c_template->serving_details = $this->input->post('serving_details', TRUE);
+              $m_c_template->suggestion_box = $this->input->post('suggestion_box', TRUE);
             $m_c_template->customer_id = $this->input->post('customer_id', TRUE);
+   $m_c_template->dedication_details = $this->input->post('dedication_details', TRUE);
+                 $m_c_template->estimated_picktup_date = date('Y-m-d', strtotime($this->input->post('estimated_picktup_date', TRUE)));
+
+
             $m_c_template->modify($cake_template_id);
             $m_c_template->commit();
             if ($m_c_template->status() === TRUE)
