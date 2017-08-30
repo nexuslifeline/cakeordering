@@ -23,9 +23,7 @@ $('#main-photo').attr('src',localStorage.cust_photo);
 
 
         localStorage.clear();
-    
-     
-        window.location.href = '../';
+        window.location.href = '../';   
 
     })
 
@@ -36,6 +34,8 @@ $('#main-photo').attr('src',localStorage.cust_photo);
 
 //Cross Origin
 var http = 'http://localhost:8082/cakeordering/backend/';
+var http = 'http://localhost/cakeordering/backend/';
+var http = '../../backend/';
 
 $('.date-picker').val("");
 $('.date-picker').datepicker({

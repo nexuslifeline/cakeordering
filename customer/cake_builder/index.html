@@ -22,16 +22,7 @@
       <link rel="stylesheet"  type="text/css" href="../../assets-apps/css/style.css"/>
       <link rel="stylesheet"  type="text/css" href="../../assets-apps/css/custom.css"/>
       <link rel="stylesheet"  type="text/css" href="../../assets-apps/css/cake_builder.css"/>
-      <style type="text/css">
-         .carousel-control {
-         padding-top:10%;
-         width:5%;
-         }
-         .carousel-control.left ,.carousel-control.right  {
-         background-image: none !important ;
-         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
-         }
-      </style>
+
    </head>
    <body>
       <div class="am-wrapper">
@@ -41,259 +32,33 @@
                <h2>Cake Builder</h2>
             </div>
             <div class="main-content">
-               <div class="row wizard-row">
-                  <div class="col-md-12 fuelux">
-                     <div class="block-wizard panel panel-default">
-                        <div id="wizard1" class="wizard wizard-ux">
-                           <ul class="steps">
-                              <li data-step="1" class="active">Step 1<span class="chevron"></span></li>
-                              <li data-step="2">Step 2<span class="chevron"></span></li>
-                              <li data-step="3">Step 3<span class="chevron"></span></li>
-                              <li data-step="4">Step 4<span class="chevron"></span></li>
-                           </ul>
-                           <div class="actions">
-                              <button type="button" class="btn btn-xs btn-prev btn-default"><i class="icon s7-angle-left"></i>Prev</button>
-                              <button type="button" data-last="Finish" class="btn btn-xs btn-next btn-default">Next<i class="icon s7-angle-right"></i></button>
+               <div class="row">
+                  <div class="col-lg-12">
+                     <div class="panel-group">
+                        <div class="panel">
+                           <div class="panel-heading">
+                              <h4 class="panel-title">
+                                 <span>
+                                 <b><i class="icon s7-graph"></i> Cake Builder Template List</b>
+                                 </span>
+                              </h4>
                            </div>
-                           <div class="step-content">
-                              <div data-step="1" class="step-pane active">
-                                 <div class="form-group no-padding">
-                                    <div class="col-sm-12">
-                                       <h3 class="wizard-title" 
-                                       Customize Cake Layer</h3>
-                                    </div>
-                                 </div>
-                                 <div class="col-sm-12 cake-canvas-box">
-                                    <div id='cake-canvas-1'>
-                                       <div id="cake-canvas-layer-5"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
-                                       <div id="cake-canvas-layer-4"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
-                                       <div id="cake-canvas-layer-3"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
-                                       <div id="cake-canvas-layer-2"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
-                                       <div id="cake-canvas-layer-1"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
-                                    </div>
-                                 </div>
-                                 <div class="col-sm-12">
-                                    <div class="info-block panel panel-default" >
-                                       <div class="panel-heading">
-                                          <h4 style="display: inline;"><span class="btn icon s7-edit"></span> Toolbar</h4>
-                                          <ul class="tools-step-1">
-                                             <li> <a  class="btn btn-sm btn-success tool-add" title="Add Layer" > <span class="glyphicon glyphicon-plus"></span>Add Layer</a></li>
-                                             <li> <a  class="btn btn-sm btn-info tool-remove" title="Remove Layer" > <span class="glyphicon glyphicon-minus"></span>Remove Layer </a></li>
-                                             <li> <a  class="btn btn-sm btn-primary c-tool-1 ab btn-cb" title="Layer 1" data-layer="1"> <span class="icon s7-graph"></span> Layer 1</a></li>
-                                             <li> <a  class="btn btn-sm btn-primary c-tool-2 ab btn-cb" title="Layer 2" data-layer="2"> <span class="icon s7-graph"></span> Layer 2</a></li>
-                                             <li> <a  class="btn btn-sm btn-primary c-tool-3 ab btn-cb" title="Layer 3" data-layer="3"> <span class="icon s7-graph"></span> Layer 3</a></li>
-                                             <li> <a  class="btn btn-sm btn-primary c-tool-4 ab btn-cb" title="Layer 4" data-layer="4"> <span class="icon s7-graph"></span> Layer 4</a></li>
-                                             <li> <a  class="btn btn-sm btn-primary c-tool-5 ab btn-cb" title="Layer 5" data-layer="5"> <span class="icon s7-graph"></span> Layer 5</a></li>
-                                          </ul>
-                                       </div>
-                                       <div class="panel-body">
-                                          <table class="table table-responsive" style="width: 100%">
-                                             <tr style="display: none;">
-                                                <td>No of Layers</td>
-                                                <td> <span class="step-total-layers">0</span></td>
-                                             </tr>
-                                             <tr>
-                                                <td>Cost :</td>
-                                                <td> <span class="step-total-price"> 0</span></td>
-                                             </tr>
-                                          </table>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="col-sm-12">
-                                    <div id="item-container1" ></div>
-                                 </div>
-                                 <div class="form-group">
-                                    <div class="col-sm-12">
-                                       <button data-wizard="#wizard1" class="btn btn-default btn-space wizard-previous"><i class="icon s7-angle-left"></i> Previous</button>
-                                       <button data-wizard="#wizard1" class="btn btn-primary btn-space wizard-next">Next Step <i class="icon s7-angle-right"></i></button>
-                                    </div>
-                                 </div>
-                              </div>
-                           
-
-
-
-
-
-
-
-
-
-
-
-
-
-   <div data-step="2" class="step-pane">
-                                 <div class="form-group no-padding">
-                                    <div class="col-sm-12">
-                                       <h3 class="wizard-title" 
-                                       Customize Cake Layer</h3>
-                                    </div>
-                                 </div>
-                                 <div class="col-sm-12 cake-canvas-box">
-                                    <div id='cake-canvas-1'>
-                                       <div id="cake-canvas-layer-5"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
-                                       <div id="cake-canvas-layer-4"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
-                                       <div id="cake-canvas-layer-3"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
-                                       <div id="cake-canvas-layer-2"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
-                                       <div id="cake-canvas-layer-1"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
-                                    </div>
-                                 </div>
-                                 <div class="col-sm-12">
-                                    <div class="info-block panel panel-default" >
-                                       <div class="panel-heading">
-                                          <h4 style="display: inline;"><span class="btn icon s7-edit"></span> Decoration Layer Controls</h4>
-                                          <ul class="tools-step-1">
-                                             
-                                             <li> <a  class="btn btn-sm btn-info btn-cb c2-tool-1 ab" title="Layer 1" data-layer="1"> <span class="icon s7-graph"></span> Layer 1</a></li>
-                                             <li> <a  class="btn btn-sm btn-info btn-cb c2-tool-2 ab" title="Layer 2" data-layer="2"> <span class="icon s7-graph"></span> Layer 2</a></li>
-                                             <li> <a  class="btn btn-sm btn-info btn-cb c2-tool-3 ab" title="Layer 3" data-layer="3"> <span class="icon s7-graph"></span> Layer 3</a></li>
-                                             <li> <a  class="btn btn-sm btn-info btn-cb c2-tool-4 ab" title="Layer 4" data-layer="4"> <span class="icon s7-graph"></span> Layer 4</a></li>
-                                             <li> <a  class="btn btn-sm btn-info btn-cb c2-tool-5 ab" title="Layer 5" data-layer="5"> <span class="icon s7-graph"></span> Layer 5</a></li>
-                                          </ul>
-                                       </div>
-                                       <div class="panel-body">
-                                          <table class="table table-responsive" style="width: 100%">
-                                             <tr style="display: none;">
-                                                <td>No of Layers</td>
-                                                <td> <span class="step-total-layers">0</span></td>
-                                             </tr>
-                                             <tr>
-                                                <td>Cost :</td>
-                                                <td> <span class="step-total-price"> 0</span></td>
-                                             </tr>
-                                          </table>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="col-sm-12">
-                                    <div id="item-container2" ></div>
-                                 </div>
-                                 <div class="form-group">
-                                    <div class="col-sm-12">
-                                       <button data-wizard="#wizard1" class="btn btn-default btn-space wizard-previous"><i class="icon s7-angle-left"></i> Previous</button>
-                                       <button data-wizard="#wizard1" class="btn btn-primary btn-space wizard-next">Next Step <i class="icon s7-angle-right"></i></button>
-                                    </div>
-                                 </div>
-                              </div>
-                           
-
-
-
-
-
-
-
-
-
-
-
-
-   <div data-step="3" class="step-pane">
-                                 <div class="form-group no-padding">
-                                    <div class="col-sm-12">
-                                       <h3 class="wizard-title" 
-                                       Customize Cake Layer</h3>
-                                    </div>
-                                 </div>
-                                 <div class="col-sm-12 cake-canvas-box">
-                                    <div id='cake-canvas-1'>
-                                       <div id="cake-canvas-layer-5"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
-                                       <div id="cake-canvas-layer-4"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
-                                       <div id="cake-canvas-layer-3"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
-                                       <div id="cake-canvas-layer-2"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
-                                       <div id="cake-canvas-layer-1"  ><img data-layer-price=0 src="../../assets-apps/img/basecake/base.png"  class="img-responsive img1 ab"><img data-layer-price=0 src="../../assets-apps/img/basecake/RedRoses.png"  class="img-responsive img2 ab"></div>
-                                    </div>
-                                 </div>
-                                 <div class="col-sm-12">
-                                    <div class="info-block panel panel-default" >
-                                       <div class="panel-heading">
-                                          <h4 style="display: inline;"><span class="btn icon s7-edit"></span> Toppings</h4>
-                                          <ul class="tools-step-1">
-                                             
-                                             <li> <a  class="btn btn-sm btn-warning btn-cb c3-tool-1"> <span class="glyphicon glyphicon-save"></span> Add Topping</a></li>
-                                            
-                                          </ul>
-                                       </div>
-                                       <div class="panel-body">
-                                          <table class="table table-responsive" style="width: 100%">
-                                             <tr style="display: none;">
-                                                <td>No of Layers</td>
-                                                <td> <span class="step-total-layers">0</span></td>
-                                             </tr>
-                                             <tr>
-                                                <td>Cost :</td>
-                                                <td> <span class="step-total-price"> 0</span></td>
-                                             </tr>
-                                          </table>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="col-sm-12">
-                                    <div id="item-container3"></div>
-                                 </div>
-                                 <div class="form-group">
-                                    <div class="col-sm-12">
-                                       <button data-wizard="#wizard1" class="btn btn-default btn-space wizard-previous"><i class="icon s7-angle-left"></i> Previous</button>
-                                       <button data-wizard="#wizard1" class="btn btn-primary btn-space wizard-next">Next Step <i class="icon s7-angle-right"></i></button>
-                                    </div>
-                                 </div>
-                              </div>
-                           
-
-
-
-
-
-
-
-
-
-                      
-
-
-
-
-
-
-
-                              <div data-step="4" class="step-pane">
-                                 <form id="frm_data" class="form-horizontal">
-                                    <div class="row">
-                                       <div class="col-lg-6">
-                                          <div class="form-group no-padding">
-                                             <div class="col-sm-12">
-                                                <h3 class="wizard-title">Customize Cake Layer</h3>
-                                             </div>
-                                          </div>
-                                       </div>
-                                       <div class="col-lg-6">
-                                          <div class="form-group">
-                                             <div class="col-sm-12">
-                                                <div class="input-group date">
-                                                   <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>  <input type="text" class="form-control date-picker" name="estimated_pickedup" id="estimated_pickedup" placeholder="Pick Up Date">
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <div class="form-group">
-                                             <div class="col-sm-12">
-                                                Suggestion Box
-                                             </div>
-                                             <div class="col-sm-12">
-                                                <textarea type="text" class="form-control"   name="suggestion_box" id="suggestion_box" placeholder=""></textarea>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </form>
-                                 <div class="form-group">
-                                    <div class="col-sm-12">
-                                       <button data-wizard="#wizard1" class="btn btn-default btn-space wizard-previous"><i class="icon s7-angle-left"></i> Previous</button>
-                                       <button id="btn_save_record" data-wizard="#wizard1" class="btn btn-success btn-space wizard-next"><i class="icon s7-check"></i> Complete</button>
-                                    </div>
-                                 </div>
-                              </div>
+                           <div class="panel-body">
+                              <table id="list" cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
+                                 <thead>
+                                    <tr>
+                                       <th>Cake Template ID#</th>
+                                       <th>Cake Name</th>
+                                       <th>Estimated Price</th>
+                                       <th>Actutal Price</th>
+                                       <th>Verified</th>
+                                       <th>Action</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <!--- Content Goes Here -->
+                                 </tbody>
+                              </table>
                            </div>
                         </div>
                      </div>
@@ -303,121 +68,282 @@
          </div>
       </div>
       <!--modal members-->
-      <div class="modal fade" id="modal_form" tabindex="-1" role="dialog" aria-labelledby="modal_formLabel" aria-hidden="true">
-         <div class="modal-dialog modal-lg" >
+      <div class="modal fade modal-colored-header" id="modal_form" tabindex="-1" role="dialog" aria-labelledby="modal_formLabel" aria-hidden="true">
+         <div class="modal-dialog  modal-full-width" >
             <div class="modal-content">
                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><b>&times;</b></button>
-                  <h4 class="modal-title"><b><i class="glyphicon glyphicon-bars"></i> User Registration</b></h4>
                </div>
                <div class="modal-body">
-                  <form id="frm_data" class="form-horizontal">
-                     <div class="row">
-                        <div class="col-lg-6">
-                           <div class="form-group">
-                              <div class="col-sm-12">
-                                 <div class="input-group">
-                                    <span class="input-group-addon">
-                                    <i class="glyphicon glyphicon-user"></i>
-                                    </span>
-                                    <input type="text" class="form-control" name="user_fname" id="user_fname" placeholder="Firstname" data-error-msg="Firstname is required." required>
+                  <div class="row">
+                     <div class="col-lg-4 cake-canvas-box">
+                        <div class="col-lg-12">
+                           <h4>Front View</h4>
+                           <div class="front_view">
+                              <div class="layer5">
+                                 <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive"></div>
+                                 <div class="decor-box">
+                                    <img src=""  class="img-responsive decors">
                                  </div>
                               </div>
-                           </div>
-                           <div class="form-group">
-                              <div class="col-sm-12">
-                                 <div class="input-group">
-                                    <span class="input-group-addon">
-                                    <i class="glyphicon glyphicon-user"></i>
-                                    </span>
-                                    <input type="text" class="form-control" name="user_lname" id="user_lname" placeholder="Lastname" data-error-msg="Lastname is required." required>
+                              <div class="layer4">
+                                 <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive"></div>
+                                 <div class="decor-box">
+                                    <img src=""  class="img-responsive decors">
                                  </div>
                               </div>
-                           </div>
-                           <div class="form-group">
-                              <div class="col-sm-12">
-                                 <div class="input-group">
-                                    <span class="input-group-addon">
-                                    <i class="glyphicon glyphicon-user"></i>
-                                    </span>
-                                    <input type="text" class="form-control" name="user_mname" id="user_mname" placeholder="Middlename" data-error-msg="Middlename is required." required>
+                              <div class="layer3">
+                                 <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive"></div>
+                                 <div class="decor-box">
+                                    <img src=""  class="img-responsive decors">
                                  </div>
                               </div>
-                           </div>
-                           <div class="form-group">
-                              <div class="col-sm-12">
-                                 <div class="input-group">
-                                    <span class="input-group-addon">
-                                    <i class="glyphicon glyphicon-send"></i>
-                                    </span>
-                                    <input type="text" class="form-control" name="contact_no" id="contact_no" placeholder="Mobile">
+                              <div class="layer2">
+                                 <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive"></div>
+                                 <div class="decor-box">
+                                    <img src=""  class="img-responsive decors">
                                  </div>
                               </div>
-                           </div>
-                           <div class="form-group">
-                              <div class="col-sm-12">
-                                 <div class="input-group date">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>  <input type="text" class="form-control date-picker" name="user_bdate" id="user_bdate" placeholder="Date of Birth">
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="form-group">
-                              <div class="col-sm-12">
-                                 Address:
-                              </div>
-                              <div class="col-sm-12">
-                                 <textarea type="text" class="form-control"   name="address" id="address" placeholder=""></textarea>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-lg-6">
-                           <div class="form-group">
-                              <div class="col-sm-12">
-                                 <div class="input-group">
-                                    <span class="input-group-addon">
-                                    <i class="glyphicon glyphicon-envelope"></i>
-                                    </span>
-                                    <input type="text" class="form-control" name="user_email" id="user_email" placeholder="Email Address" data-error-msg="Email is required." required>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="form-group">
-                              <div class="col-sm-12">
-                                 <div class="input-group">
-                                    <span class="input-group-addon">
-                                    <i class="glyphicon glyphicon-user"></i>
-                                    </span>
-                                    <input type="text" class="form-control" name="user_uname" id="user_uname" placeholder="Username"  data-error-msg="Username is required." required>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="form-group">
-                              <div class="col-sm-12">
-                                 <div class="input-group">
-                                    <span class="input-group-addon">
-                                    <i class="glyphicon glyphicon-lock"></i>
-                                    </span>
-                                    <input type="password" class="form-control" name="user_pword" id="user_pword" placeholder="Password">
-                                 </div>
-                                 <span id="span_note" class="help-block m-b-none" style="display: none;">Leave it blank if you do not want to update the password.</span>
-                              </div>
-                           </div>
-                           <div class="form-group">
-                              <div class="col-sm-12">
-                                 <div class="input-group">
-                                    <span class="input-group-addon">
-                                    <i class="glyphicon glyphicon-lock"></i>
-                                    </span>
-                                    <input type="password" class="form-control"  name="user_cpword" id="user_cpword" placeholder="Confirm Password">
+                              <div class="layer1">
+                                 <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive"></div>
+                                 <div class="decor-box">
+                                    <img src=""  class="img-responsive decors">
                                  </div>
                               </div>
                            </div>
                         </div>
                      </div>
-                  </form>
+                     <div class="col-lg-4 cake-canvas-box">
+                        <div class="col-lg-12">
+                           <h4>Rear View</h4>
+                           <div class="rear_view">
+                              <div class="layer5">
+                                 <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive"></div>
+                                 <div class="decor-box">
+                                    <img src=""  class="img-responsive decors">
+                                 </div>
+                              </div>
+                              <div class="layer4">
+                                 <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive"></div>
+                                 <div class="decor-box">
+                                    <img src=""  class="img-responsive decors">
+                                 </div>
+                              </div>
+                              <div class="layer3">
+                                 <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive"></div>
+                                 <div class="decor-box">
+                                    <img src=""  class="img-responsive decors">
+                                 </div>
+                              </div>
+                              <div class="layer2">
+                                 <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive"></div>
+                                 <div class="decor-box">
+                                    <img src=""  class="img-responsive decors">
+                                 </div>
+                              </div>
+                              <div class="layer1">
+                                 <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive"></div>
+                                 <div class="decor-box">
+                                    <img src=""  class="img-responsive decors">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-lg-4">
+                        <ul class="nav nav-tabs">
+                           <li class="active"><a data-toggle="tab" href="#step1">Step 1</a></li>
+                           <li><a data-toggle="tab" href="#step2">Step 2</a></li>
+                           <li><a data-toggle="tab" href="#step3">Step 3</a></li>
+                           <li><a data-toggle="tab" href="#step4">Step 4</a></li>
+                           <li><a data-toggle="tab" href="#step5">Step 5</a></li>
+                        </ul>
+                        <div class="tab-content">
+                           <div id="step1" class="tab-pane fade in active">
+                              <div class="col-lg-12">
+                                 <h3>Cake Setup</h3>
+                                 <div class="form-group">
+                                    <label>Sizes & Servings : </label> 
+                                    <select id="serving_details" class="form-control">
+                                    </select>
+                                 </div>
+                                 <div class="form-group">
+                                    <label>Cake Flavor : </label> 
+                                    <select id="flavor_details" class="form-control">
+                                    </select>
+                                 </div>
+                              </div>
+                           </div>
+                           <div id="step2" class="tab-pane fade">
+                              <div class="col-lg-12">
+                                 <h3>Cake Layer Style</h3>
+                                 <div class="col-lg-12"  style="padding:0px">
+                                
+                                 <div class="tool" style="padding: 0px">
+                                    <strong style="color: #333">Front View Layer Selector</strong>
+                                    <ul class="front-view-layer-selector" style="padding:0px">
+                                       <li> <a  class="btn btn-sm btn-success fvs-layer-1 tool-1" title="Layer 1 Selector"> <span class="icon s7-graph"></span> L-1 </a></li>
+                                       <li> <a  class="btn btn-sm btn-success fvs-layer-2 tool-2" title="Layer 2 Selector"> <span class="icon s7-graph"></span> L-2 </a></li>
+                                       <li> <a  class="btn btn-sm btn-success fvs-layer-3 tool-3" title="Layer 3 Selector"> <span class="icon s7-graph"></span> L-3 </a></li>
+                                       <li> <a  class="btn btn-sm btn-success fvs-layer-4 tool-4" title="Layer 4 Selector"> <span class="icon s7-graph"></span> L-4 </a></li>
+                                       <li> <a  class="btn btn-sm btn-success fvs-layer-5 tool-5" title="Layer 5 Selector"> <span class="icon s7-graph"></span> L-5 </a></li>
+                                     
+                                    </ul>
+                                    <strong style="color: #333">Rear View Layer Selector</strong>
+                                    <ul class="front-view-layer-selector"  style="padding:0px">
+                                      <li> <a  class="btn btn-sm btn-success rvs-layer-1 tool-1" title="Layer 1 Selector"> <span class="icon s7-graph"></span> L-1</a></li>
+                                       <li> <a  class="btn btn-sm btn-success rvs-layer-2 tool-2" title="Layer 2 Selector"> <span class="icon s7-graph"></span> L-2</a></li>
+                                       <li> <a  class="btn btn-sm btn-success rvs-layer-3 tool-3" title="Layer 3 Selector"> <span class="icon s7-graph"></span> L-3</a></li>
+                                       <li> <a  class="btn btn-sm btn-success rvs-layer-4 tool-4" title="Layer 4 Selector"> <span class="icon s7-graph"></span> L-4</a></li>
+                                       <li> <a  class="btn btn-sm btn-success rvs-layer-5 tool-5" title="Layer 5 Selector"> <span class="icon s7-graph"></span> L-5</a></li>
+                                      
+                                    </ul>
+
+                                    <strong style="color: #333">Clear All Selected Layers</strong>
+                                      <ul class="front-view-layer-selector"  style="padding:0px">
+                                         <li> <a  class="btn btn-sm btn-primary clear" title="Layer 5 Selector"> <span class="icon s7-graph"></span> Clear</a></li>
+                                    </ul>
+                                 </div>
+                                  
+                              </div>
+                                 <div class="col-lg-12">
+                                    <div id="layer-container">
+                                    </div>
+                                 </div>
+                              
+                              </div>
+                           </div>
+                           <div id="step3" class="tab-pane fade">
+                              <div class="col-lg-12">
+                                 <h3>Layer Decoration</h3>
+                                       <div class="tool" style="padding: 0px">
+                                    <strong style="color: #333">Front View Layer Selector</strong>
+                                    <ul class="front-view-layer-selector" style="padding:0px">
+                                       <li> <a  class="btn btn-sm btn-success fvs-layer-1 tool-1" title="Layer 1 Selector"> <span class="icon s7-graph"></span> L-1 </a></li>
+                                       <li> <a  class="btn btn-sm btn-success fvs-layer-2 tool-2" title="Layer 2 Selector"> <span class="icon s7-graph"></span> L-2 </a></li>
+                                       <li> <a  class="btn btn-sm btn-success fvs-layer-3 tool-3" title="Layer 3 Selector"> <span class="icon s7-graph"></span> L-3 </a></li>
+                                       <li> <a  class="btn btn-sm btn-success fvs-layer-4 tool-4" title="Layer 4 Selector"> <span class="icon s7-graph"></span> L-4 </a></li>
+                                       <li> <a  class="btn btn-sm btn-success fvs-layer-5 tool-5" title="Layer 5 Selector"> <span class="icon s7-graph"></span> L-5 </a></li>
+                                     
+                                    </ul>
+                                    <strong style="color: #333">Rear View Layer Selector</strong>
+                                    <ul class="front-view-layer-selector"  style="padding:0px">
+                                      <li> <a  class="btn btn-sm btn-success rvs-layer-1 tool-1" title="Layer 1 Selector"> <span class="icon s7-graph"></span> L-1</a></li>
+                                       <li> <a  class="btn btn-sm btn-success rvs-layer-2 tool-2" title="Layer 2 Selector"> <span class="icon s7-graph"></span> L-2</a></li>
+                                       <li> <a  class="btn btn-sm btn-success rvs-layer-3 tool-3" title="Layer 3 Selector"> <span class="icon s7-graph"></span> L-3</a></li>
+                                       <li> <a  class="btn btn-sm btn-success rvs-layer-4 tool-4" title="Layer 4 Selector"> <span class="icon s7-graph"></span> L-4</a></li>
+                                       <li> <a  class="btn btn-sm btn-success rvs-layer-5 tool-5" title="Layer 5 Selector"> <span class="icon s7-graph"></span> L-5</a></li>
+                                      
+                                    </ul>
+
+                                    <strong style="color: #333">Clear All Selected Layers</strong>
+                                      <ul class="front-view-layer-selector"  style="padding:0px">
+                                         <li> <a  class="btn btn-sm btn-primary clear" title="Layer 5 Selector"> <span class="icon s7-graph"></span> Clear</a></li>
+                                    </ul>
+                                 </div>
+                                 <div class="col-lg-12">
+                                    <div id="decor-container">
+                                    </div>
+                                 </div>
+                               
+                              </div>
+                           </div>
+                           <div id="step4" class="tab-pane fade">
+                         
+                              <div class="col-lg-12">
+                                 <h3>Toppings</h3>
+                                   <div class="tool">
+                                    <strong>Toppings View Selector</strong>
+                                    <ul class="front-view-layer-selector">
+                                       <li> <a  class="btn btn-sm btn-warning fview-selector" title="Front View" data-parent-selected="front_view"> <span class="icon s7-graph"></span> Front View</a></li>
+                                       <li> <a  class="btn btn-sm btn-warning rview-selector " title="Rear View" data-parent-selected="rear_view"> <span class="icon s7-graph"></span> Rear View</a></li>
+                                         <li> <a  class="btn btn-sm btn-primary clear" title="Layer 5 Selector"> <span class="icon s7-graph"></span>Clear</a></li>
+                                    </ul>
+                                 </div>
+                               
+                                    <select id="select_tops" class="form-control">
+                                    <option value="0">SELECT YOUR GRAPHICS</option>
+                                    <option value="1">System Graphics</option>
+                                     <option value="2">Personalized Graphics</option>
+                                    </select>
+                                 <div class="col-lg-12">
+                                    <div id="topping-container">
+                                    </div>
+                                 </div>
+                                
+                              </div>
+
+                           </div>
+                           <div id="step5" class="tab-pane fade">
+                              <form id="frm_data" class="form-horizontal">
+                                 <div class="row">
+                                 
+                                    <div class="col-lg-12">
+                                      <div class="form-group">
+                                          <div class="col-lg-12">
+                                             <div class="input-group date">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-cube"></i></span>  <input type="text" class="form-control" name="cake_template_name" id="cake_template_name" placeholder="Cake Template Name" data-error-msg="Cake Template Name is required."  required>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="form-group">
+                                          <div class="col-lg-12">
+                                             <div class="input-group date">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>  <input type="text" class="form-control date-picker" name="estimated_pickedup" id="estimated_pickedup" placeholder="Pick Up Date">
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="form-group">
+                                          <div class="col-lg-12">
+                                             Suggestion Box
+                                          </div>
+                                          <div class="col-lg-12">
+                                             <textarea type="text" class="form-control"   name="suggestion_box" id="suggestion_box" placeholder=""></textarea>
+                                             <button id="btn_save_record" data-wizard="#wizard1" class="btn btn-success btn-space wizard-next"><i class="icon s7-check"></i> Complete</button>
+                                          </div>
+
+                                       </div>
+                                    </div>
+                                 </div>
+                              </form>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!--<div class="row" style="margin-top: 20px">
+                       <div class="col-lg-12">
+                                
+                                 <div class="tool">
+                                    <strong style="color: #333">Front View Layer Selector</strong>
+                                    <ul class="front-view-layer-selector">
+                                       <li> <a  class="btn btn-sm btn-success fvs-layer-1 tool-1" title="Layer 1 Selector"> <span class="icon s7-graph"></span> L-1 </a></li>
+                                       <li> <a  class="btn btn-sm btn-success fvs-layer-2 tool-2" title="Layer 2 Selector"> <span class="icon s7-graph"></span> L-2 </a></li>
+                                       <li> <a  class="btn btn-sm btn-success fvs-layer-3 tool-3" title="Layer 3 Selector"> <span class="icon s7-graph"></span> L-3 </a></li>
+                                       <li> <a  class="btn btn-sm btn-success fvs-layer-4 tool-4" title="Layer 4 Selector"> <span class="icon s7-graph"></span> L-4 </a></li>
+                                       <li> <a  class="btn btn-sm btn-success fvs-layer-5 tool-5" title="Layer 5 Selector"> <span class="icon s7-graph"></span> L-5 </a></li>
+                                     
+                                    </ul>
+                                    <strong style="color: #333">Rear View Layer Selector</strong>
+                                    <ul class="front-view-layer-selector">
+                                      <li> <a  class="btn btn-sm btn-success fvs-layer-1 tool-1" title="Layer 1 Selector"> <span class="icon s7-graph"></span> L-1</a></li>
+                                       <li> <a  class="btn btn-sm btn-success fvs-layer-2 tool-2" title="Layer 2 Selector"> <span class="icon s7-graph"></span> L-2</a></li>
+                                       <li> <a  class="btn btn-sm btn-success fvs-layer-3 tool-3" title="Layer 3 Selector"> <span class="icon s7-graph"></span> L-3</a></li>
+                                       <li> <a  class="btn btn-sm btn-success fvs-layer-4 tool-4" title="Layer 4 Selector"> <span class="icon s7-graph"></span> L-4</a></li>
+                                       <li> <a  class="btn btn-sm btn-success fvs-layer-5 tool-5" title="Layer 5 Selector"> <span class="icon s7-graph"></span> L-5</a></li>
+                                      
+                                    </ul>
+                                 </div>
+                                   <div class="tool">
+                                    <strong style="color: #333">Clear All Selected Layers</strong>
+                                      <ul class="front-view-layer-selector">
+                                         <li> <a  class="btn btn-sm btn-primary clear" title="Layer 5 Selector"> <span class="icon s7-graph"></span> Clear</a></li>
+                                    </ul>
+                                 </div>
+                              </div>
+                  </div>-->
+      
+                 
                </div>
                <div class="modal-footer">
-                  <button id="btn_save_record" type="button" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> Record</button>
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                </div>
             </div>
@@ -470,34 +396,12 @@
          
          
          
-         
-         
-         
-         
-             $('#myCarousel').carousel({
-         interval: 10000
-         })
-         
-         $('#myCarousel').on('slid.bs.carousel', function() {
-         //alert("slid");
-         });
-         
          });
       </script>
-      <script>
-         $( function() {
-            $( ".thumb-layer-1,.thumb-layer-2,.thumb-layer-3,.thumb-layer-4,.thumb-layer-5" ).draggable();
-            $( "cake-canvas-1" ).droppable({
-              drop: function( event, ui ) {
-                $( this )
-                  .addClass( "ui-state-highlight" )
-                  .find( "p" )
-                    .html( "Dropped!" );
-              }
-            });
-          } );
-          
-      </script>
-      </script>
+      <script type="text/javascript"></script>
    </body>
 </html>
+
+
+<link rel="stylesheet" href="../../assets-apps/plugins/drag/jquery-ui.css">
+<script type="text/javascript" src="../../assets-apps/plugins/drag/jquery-ui.js"></script>

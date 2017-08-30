@@ -36,6 +36,8 @@ var html_header = '<nav class="navbar navbar-default navbar-fixed-top am-top-hea
                '</li>'+
                 '<li><a href="../ready_made_orders">Ready Made Cake Orders</a>'+
                '</li>'+
+                 '<li><a href="../cake_assessment">Cake Assessment</a>'+
+               '</li>'+
             '</ul>'+
          '</li>'+
          '<li class="parent">'+
@@ -45,21 +47,25 @@ var html_header = '<nav class="navbar navbar-default navbar-fixed-top am-top-hea
                '</li>'+
                '<li><a href="../customers">Customer Management</a>'+
                '</li>'+
-               '<li><a href="../cake1">Cake Layer 1 Management</a>'+
+               '<li><a href="../cake1">Cake Layer  Management</a>'+
                '</li>'+
-                '<li><a href="../cake2">Cake Layer 2 Management</a>'+
+                /*'<li><a href="../cake2">Cake Layer 2 Management</a>'+
                '</li>'+
                 '<li><a href="../cake3">Cake Layer 3 Management</a>'+
                '</li>'+
                 '<li><a href="../cake4">Cake Layer 4 Management</a>'+
                '</li>'+
-                '<li><a href="../cake5">Cake Layer 5 Management</a>'+
+                '<li><a href="../cake5">Cake Layer 5 Management</a>'+*/
                '</li>'+
                 '<li><a href="../topping">Toppings Management</a>'+
                '</li>'+
                '<li><a href="../side_decoration">Decoration Management</a>'+
                '</li>'+
                 '<li><a href="../ready_cake">Ready Made Cake Management</a>'+
+               '</li>'+
+               '<li><a href="../agreement">Agreement Management</a>'+
+               '</li>'+
+                 '<li><a href="../flavors">Flavor Management</a>'+
                '</li>'+
             '</ul>'+
          '</li>'+
@@ -73,6 +79,7 @@ var html_header = '<nav class="navbar navbar-default navbar-fixed-top am-top-hea
          '<li class="parent">'+
             '<a href="#"><i class="icon s7-box2"></i><span>System</span></a>'+
             '<ul class="sub-menu">'+
+             
                '<li><a href="../config">Configuration</a>'+
                '</li>'+
             '</ul>'+
@@ -94,6 +101,9 @@ var html_header = '<nav class="navbar navbar-default navbar-fixed-top am-top-hea
 
 
 $('#template').html(html_header);
+
+
+
 
 
 

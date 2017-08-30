@@ -156,7 +156,7 @@ class Payments extends CORE_Controller
                 'customers as c',
                 'payments.customer_id=c.customer_id',
                 'left'
-            ),
+            )
 
 
         ));

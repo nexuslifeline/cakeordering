@@ -16,7 +16,7 @@ $('#btn_login').click(function() {
         $.ajax({
             "dataType": "json",
             "type": "POST",
-            "url": http + "Users/auth_user",
+            "url": "../backend/Users/auth_user",
             "data": _data,
             "beforeSend": function() {
                 //  showSpinningProgress(btn);
@@ -44,3 +44,8 @@ $('#btn_login').click(function() {
 
     }
 });
+
+
+      $('input').keypress(function(evt){
+                    if(evt.keyCode==13){ $('#btn_login').click(); }
+                });
