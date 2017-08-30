@@ -60,13 +60,22 @@ CakeJS = {
 				closeButton: ".modal_close"
 		});*/
 
+
+		// Calling Login Form
+		$(".modal_close").click(function() {
+
+				console.log("close me");
+            $('#login_modal').css('display','none');
+
+				
+				return false;
+		});
 	
 				// Calling Login Form
 		$("#login_form").click(function() {
 
 				console.log("hello");
 				$('#login_modal').css('display','block');
-
 				$(".social_login").hide();
 				$(".user_login").show();
 				return false;
@@ -74,7 +83,9 @@ CakeJS = {
 
 		// Calling Register Form
 		$("#register_form").click(function() {
+                console.log('Hello');
 				$(".social_login").hide();
+                $(".user_login").hide();
 				$(".user_register").show();
 				$(".header_title").text('Register');
 				return false;
@@ -82,9 +93,9 @@ CakeJS = {
 
 		// Going back to Social Forms
 		$(".back_btn").click(function() {
-				$(".user_login").hide();
-				$(".user_register").hide();
-				$(".social_login").show();
+                $(".user_register").hide();
+                $(".social_login").hide();
+                $(".user_login").show();
 				$(".header_title").text('Login');
 				return false;
 		});

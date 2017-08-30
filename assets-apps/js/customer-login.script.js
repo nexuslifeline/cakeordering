@@ -17,7 +17,7 @@ $('#btn_login').click(function() {
         $.ajax({
             "dataType": "json",
             "type": "POST",
-            "url": "../backend/Customers/auth_cust",
+            "url": "/cakeordering/backend/Customers/auth_cust",
             "data": _data,
             "beforeSend": function() {
                 //  showSpinningProgress(btn);
@@ -33,7 +33,7 @@ $('#btn_login').click(function() {
             if (response.stat == "success") {
                sessionCustomer(response.result[0]);
                 setTimeout(function() {
-                    window.location.href = 'cake_builder';
+                    window.location.href = 'customer/cake_builder';
                 }, 600);
 
             }
