@@ -85,32 +85,56 @@ border: 1px solid grey;
 
 }
 
+.cake-box,.decor-holder,.topping-box{
+  height: 130px !important;
+  overflow: hidden;
+  border: solid 1px #ef6262;
+}
+
+
+}
 .cake-box{
 
-     border: 1px solid grey;
-       background-color: #ef6262;
-    color: #fff;
+    
+  
     margin-bottom: 5px;
 
 }
 
 .decor-holder{
 
-     border: 1px solid grey;
-       background-color: #ef6262;
-    color: #fff;
+   
+
  margin-bottom: 5px;
 
 }
 
 .topping-box{
 
-     border: 1px solid grey;
-       background-color: #ef6262;
-    color: #fff;
+   
+    
  margin-bottom: 5px;
 
 }
+.box img{
+  display: block;
+   
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2px;
+    cursor:pointer;
+}
+
+.thumb-img-box{
+   background-color: #e2e2e2 !important;
+}
+.details{
+  text-align: center;
+    background-color:  #ef6262;
+    color: #fff;
+    padding: 4px;
+
+  }
 
 .front-view-layer-selector{
      list-style: none;

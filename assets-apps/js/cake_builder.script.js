@@ -4,7 +4,7 @@
       var oSelectedRow;
       var parent_selected = '';
 
- var dd = '<div class="layer5"><div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive"></div><div class="decor-box"> <img src="" class="img-responsive decors"> </div></div><div class="layer4"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive"></div><div class="decor-box"> <img src="" class="img-responsive decors"> </div></div><div class="layer3"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive"></div><div class="decor-box"> <img src="" class="img-responsive decors"> </div></div><div class="layer2"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive"></div><div class="decor-box"> <img src="" class="img-responsive decors"> </div></div><div class="layer1"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive"></div><div class="decor-box"> <img src="" class="img-responsive decors"> </div></div>';
+      var default_cake = '<div class="layer5"><div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive"></div><div class="decor-box"> <img src="" class="img-responsive decors"> </div></div><div class="layer4"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive"></div><div class="decor-box"> <img src="" class="img-responsive decors"> </div></div><div class="layer3"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive"></div><div class="decor-box"> <img src="" class="img-responsive decors"> </div></div><div class="layer2"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive"></div><div class="decor-box"> <img src="" class="img-responsive decors"> </div></div><div class="layer1"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive"></div><div class="decor-box"> <img src="" class="img-responsive decors"> </div></div>';
 
 
 
@@ -80,6 +80,8 @@
               var m = $('#modal_form');
 
               clearFields(m);
+              $('.front_view').html(default_cake);
+              $('.rear_view').html(default_cake);
               $('#modal_form').modal('show');
               $('.date-picker').val("");
           });
@@ -129,33 +131,33 @@
                   });
               });
 
-                 $('.front_view').html(data.front_view);
-                              $('.rear_view').html(data.rear_view);
+              $('.front_view').html(data.front_view);
+              $('.rear_view').html(data.rear_view);
 
               $('#modal_form').modal('show');
 
           });
 
 
-      
+
 
       }();
 
 
-$('#select_tops').on('change', function(e) {
+      $('#select_tops').on('change', function(e) {
           var optionSelected = $("option:selected", this);
-             var valueSelected = this.value;
+          var valueSelected = this.value;
 
-             if(valueSelected==1){
-                 $('#topping-container').html('');
-                 load_topping_list();
-
-             }else if(valueSelected==2){
+          if (valueSelected == 1) {
               $('#topping-container').html('');
-                load_user_graphics_list();
-             }else{
+              load_topping_list();
 
-             }  
+          } else if (valueSelected == 2) {
+              $('#topping-container').html('');
+              load_user_graphics_list();
+          } else {
+
+          }
 
 
 
@@ -233,7 +235,7 @@ $('#select_tops').on('change', function(e) {
 
 
       function layerStructure(value) {
-          var tags = "<div class='col-lg-4'><div class='cake-box'><a class='cake-thumbs' title='" + value.cake_description + "'><img  src='" + value.image_path + "'  class='img-responsive'></a><h5> " + value.cake_name + "</h5><h6> " + value.price + "</h6></div></div>";
+          var tags = "<div class='col-lg-6 box'><div class='cake-box'><div class='thumb-img-box'><a class='cake-thumbs' title='" + value.cake_description + "'><img  src='" + value.image_path + "'  class='img-responsive'></a></div><div class='details'><h5> " + value.cake_name + "</h5><h6> " + value.price + "</h6></div></div></div>";
           $('#layer-container').append(tags);
 
       }
@@ -241,13 +243,13 @@ $('#select_tops').on('change', function(e) {
 
 
       function decorStructure(value) {
-          var tags = "<div class='col-lg-4'><div class='decor-holder'><a class='decor-thumbs' title='" + value.side_decoration_description + "'><img  src='" + value.image_path + "'  class='img-responsive'></a><h5> " + value.side_decoration_name + "</h5><h6> " + value.price + "</h6></div></div>";
+          var tags = "<div class='col-lg-6 box'><div class='decor-holder'><div class='thumb-img-box'><a class='decor-thumbs' title='" + value.side_decoration_description + "'><img  src='" + value.image_path + "'  class='img-responsive'></a></div><div class='details'><h5> " + value.side_decoration_name + "</h5><h6> " + value.price + "</h6></div></div></div>";
           $('#decor-container').append(tags);
 
       }
 
-  function topStructure(value) {
-          var tags = "<div class='col-lg-4'><div class='topping-box'><a class='topping-thumbs' title='" + value.topping_description + "'><img  src='" + value.image_path + "'  class='img-responsive'></a><h5> " + value.topping_name + "</h5><h6> " + value.price + "</h6></div></div>";
+      function topStructure(value) {
+          var tags = "<div class='col-lg-6 box'><div class='topping-box'><div class='thumb-img-box'><a class='topping-thumbs' title='" + value.topping_description + "'><img  src='" + value.image_path + "'  class='img-responsive'></a></div><div class='details'><h5> " + value.topping_name + "</h5><h6> " + value.price + "</h6></div></div></div>";
           $('#topping-container').append(tags);
 
       }
@@ -255,13 +257,11 @@ $('#select_tops').on('change', function(e) {
 
 
       function usergrap_Structure(value) {
-          var tags = "<div class='col-lg-4'><div class='topping-box'><a class='topping-thumbs' title='" + value.graphic_description + "'><img  src='" + value.image_path + "'  class='img-responsive'></a><h5> " + value.graphic_name + "</h5><h6> " + value.price + "</h6></div></div>";
+          var tags = "<div class='col-lg-6 box'><div class='topping-box'><div class='thumb-img-box'><a class='topping-thumbs' title='" + value.graphic_description + "'><img  src='" + value.image_path + "'  class='img-responsive'></a></div><div class='details'><h5> " + value.graphic_name + "</h5><h6> " + value.price + "</h6></div></div></div>";
           $('#topping-container').append(tags);
 
       }
 
-
-       
 
 
 
@@ -501,7 +501,11 @@ $('#select_tops').on('change', function(e) {
       });
 
 
+$('[data-toggle="tab"]').click(function(){
 
+ $('.clear').click();
+
+});
 
       $('.fview-selector').click(function() {
           parent_selected = ".front_view";
@@ -515,6 +519,88 @@ $('#select_tops').on('change', function(e) {
           parent_selected = ".rear_view";
           $('.fview-selector').removeClass('btn-selected')
 
+          $(this).addClass('btn-selected');
+
+      });
+
+
+
+
+
+
+
+
+
+
+      $('.layer1-selector').click(function() {
+
+          $('.layer1, .layer2,.layer3,.layer4, .layer5').removeClass('selected');
+          $('.layer1').addClass('selected');
+          $('.btn').removeClass('btn-selected');
+          $(this).addClass('btn-selected');
+
+      });
+
+      
+
+      $('.layer2-selector').click(function() {
+
+              $('.layer1, .layer2,.layer3,.layer4, .layer5').removeClass('selected');
+          $('.layer2').addClass('selected');
+          $('.btn').removeClass('btn-selected');
+          $(this).addClass('btn-selected');
+
+      });
+
+      
+
+
+
+      $('.layer3-selector').click(function() {
+
+              $('.layer1, .layer2,.layer3,.layer4, .layer5').removeClass('selected');
+          $('.layer3').addClass('selected');
+          $('.btn').removeClass('btn-selected');
+          $(this).addClass('btn-selected');
+
+      });
+
+
+
+
+
+
+
+
+      $('.layer3-selector').click(function() {
+
+              $('.layer1, .layer2,.layer3,.layer4, .layer5').removeClass('selected');
+          $('.layer3').addClass('selected');
+          $('.btn').removeClass('btn-selected');
+          $(this).addClass('btn-selected');
+
+      });
+
+
+
+
+      $('.layer4-selector').click(function() {
+
+              $('.layer1, .layer2,.layer3,.layer4, .layer5').removeClass('selected');
+          $('.layer4').addClass('selected');
+          $('.btn').removeClass('btn-selected');
+          $(this).addClass('btn-selected');
+
+      });
+
+
+
+
+      $('.layer5-selector').click(function() {
+
+              $('.layer1, .layer2,.layer3,.layer4, .layer5').removeClass('selected');
+          $('.layer5').addClass('selected');
+          $('.btn').removeClass('btn-selected');
           $(this).addClass('btn-selected');
 
       });
@@ -658,23 +744,14 @@ $('#select_tops').on('change', function(e) {
 
 
 
+      //save
+      $('#btn_save_record').click(function() {
+          var btn = $(this);
+          var f = $('#frm_data');
 
+          if (validateRequiredFields(f)) {
 
-
-
-
-
-
-    //save
-          $('#btn_save_record').click(function() {
-              var btn = $(this);
-              var f = $('#frm_data');
-
-              if (validateRequiredFields(f)) {
-
-                  var _data = f.serializeArray(); //serialize data in array format
-
-
+              var _data = f.serializeArray(); //serialize data in array format
 
 
 
@@ -690,96 +767,86 @@ $('#select_tops').on('change', function(e) {
                   value: $('.front_view').html()
               });
 
-                  _data.push({
+              _data.push({
                   name: "rear_view",
                   value: $('.rear_view').html()
               });
 
-               _data.push({
+              _data.push({
                   name: "serving_details",
                   value: $('#serving_details option:selected').val()
               });
 
 
 
-                  if (_txnMode == "new") {
-                      //save new card info
-                      $.ajax({
-                          "dataType": "json",
-                          "type": "POST",
-                          "url": http + "Cake_templates/transaction/create",
-                          "data": _data,
-                          "beforeSend": function() {
-                              // showSpinningProgress(btn);
-                          },
-                          error: function(xhr, status, error) {
-                              // check status && error
-                              console.log(xhr);
-                          }
-                      }).done(function(response) {
-                          showNotification(response);
-                          if (response.stat == "success") {
-                              //oTable.row(oSelectedRow).data(response.row_added[0]).draw();
-                              oTable.row.add(response.row_added[0]).draw(); //add new data to user table
-                              clearFields(f); //clear all form fields
-                              $('.date-picker').val("");
-                              $('.front_view').html(dd);
-                              $('.rear_view').html(dd);
-
-                               $('.clear').click();
-                          }
-
-                      }).always(function() {
-                          //  showSpinningProgress(btn);
-                      });
-                  } else {
-
-                      var c = oTable.row(oSelectedRow).data();
-                      _data.push({
-                          name: "cake_template_id",
-                          value: c.cake_template_id
-                      });
-                      $.ajax({
-                          "dataType": "json",
-                          "type": "POST",
-                          "url": http + "Cake_templates/transaction/update",
-                          "data": _data,
-                          "beforeSend": function() {
-                                  //showSpinningProgress(btn);
-                              }
-
-                              ,
-                          error: function(xhr, status, error) {
-                              // check status && error
-                              console.log(xhr);
-                          }
-
-                      }).done(function(response) {
-                          showNotification(response);
-                          if (response.stat == "success") {
-                              oTable.row(oSelectedRow).data(response.row_updated[0]).draw();
-                              clearFields(f); //clear all form fields
-                              $('#modal_form').modal('hide');
-                          }
-
-                      }).always(function() {
+              if (_txnMode == "new") {
+                  //save new card info
+                  $.ajax({
+                      "dataType": "json",
+                      "type": "POST",
+                      "url": http + "Cake_templates/transaction/create",
+                      "data": _data,
+                      "beforeSend": function() {
                           // showSpinningProgress(btn);
-                      });
-                  }
+                      },
+                      error: function(xhr, status, error) {
+                          // check status && error
+                          console.log(xhr);
+                      }
+                  }).done(function(response) {
+                      showNotification(response);
+                      if (response.stat == "success") {
+                          //oTable.row(oSelectedRow).data(response.row_add_cakeed[0]).draw();
+                         oTable.row.add(response.row_added[0]).draw(); //add new data to user table
+                          clearFields(f); //clear all form fields
+                          $('.date-picker').val("");
+                          $('.front_view').html(default_cake);
+                          $('.rear_view').html(default_cake);
 
+                          $('.clear').click();
+                      }
 
+                  }).always(function() {
+                      //  showSpinningProgress(btn);
+                  });
+              } else {
+
+                  var c = oTable.row(oSelectedRow).data();
+                  _data.push({
+                      name: "cake_template_id",
+                      value: c.cake_template_id
+                  });
+                  $.ajax({
+                      "dataType": "json",
+                      "type": "POST",
+                      "url": http + "Cake_templates/transaction/update",
+                      "data": _data,
+                      "beforeSend": function() {
+                              //showSpinningProgress(btn);
+                          }
+
+                          ,
+                      error: function(xhr, status, error) {
+                          // check status && error
+                          console.log(xhr);
+                      }
+
+                  }).done(function(response) {
+                      showNotification(response);
+                      if (response.stat == "success") {
+                            oTable.row(oSelectedRow).data(response.row_updated[0]).draw();
+                          clearFields(f); //clear all form fields
+                          $('#modal_form').modal('hide');
+                      }
+
+                  }).always(function() {
+                      // showSpinningProgress(btn);
+                  });
               }
-          });
 
 
-
-
-
-
-
-
-
-
+          }
+      });
 
 
 
