@@ -1732,10 +1732,10 @@ label.error {
 
 .popupContainer {
     position: absolute;
-    width: 465px;
+    width: 38%;
     height: auto;
-    left: 45%;
-    top: 60px;
+    left: 43%;
+    top: 40%;
     background: #FFF;
     margin-left: -225px !important;
 }
@@ -1974,4 +1974,8 @@ a.btn_red {
 }
 .margin-password-css{
     margin-top: -11px;
+}
+
+.cursor-css{
+  cursor: pointer !important;
 }

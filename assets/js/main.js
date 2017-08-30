@@ -54,15 +54,19 @@ CakeJS = {
 
 	initCustomerRegistration : function(){
 		// Plugin options and our code
-		$(".modal_trigger").leanModal({
+		/*$(".modal_trigger").leanModal({
 				top: 100,
 				overlay: 0.6,
 				closeButton: ".modal_close"
-		});
+		});*/
 
 	
 				// Calling Login Form
 		$("#login_form").click(function() {
+
+				console.log("hello");
+				$('#login_modal').css('display','block');
+
 				$(".social_login").hide();
 				$(".user_login").show();
 				return false;
