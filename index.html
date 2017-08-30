@@ -18,6 +18,7 @@
         <link rel="stylesheet" type="text/css" href="assets/revolution/css/layers.css">
         <link rel="stylesheet" type="text/css" href="assets/revolution/css/navigation.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css"  href="assets-apps/plugins/notify/pnotify.core.css" >
         <!--main css file-->
         <link href="assets/css/style.css" rel="stylesheet">
 
@@ -145,6 +146,7 @@
 
                              data-transform_idle="o:1;" 
                              data-transform_in="opacity:0;s:1500;e:Power3.easeInOut;" 
+                             data-transform_in="opacity:0;s:1500;e:Power3.easeInOut;" 
                              data-transform_out="auto:auto;s:300;" 
                              data-start="500">Best Cake</div>
                         <div class="tp-caption tp-resizeme slider-caption" 
@@ -168,14 +170,10 @@
                              data-transform_out="auto:auto;s:300;" 
                              data-start="1500">
 
-                             <!--
+                         
 
-                             <a href="#modal" class=" modal_trigger btn btn-xl btn-dark custom-button main-nav">Sign In / Customer Registration </a>-->
-
-
-
-
-                             <a href="customer/" class=" btn btn-xl btn-dark custom-button main-nav">Sign In / Customer Registration </a>
+                            <!-- <a href="#modal" class=" modal_trigger btn btn-xl btn-dark custom-button main-nav">Sign In / Customer Registration </a>-->
+                            <!-- <a href="customer/" class=" btn btn-xl btn-dark custom-button main-nav">Sign In / Customer Registration </a>-->
                              </div>
                     </li>
 
@@ -519,20 +517,23 @@
                                 </div>
 
                                 <div class="action_btns">
+                                       
                                         <div class="one_half"><a href="#" id="login_form" class="btn">Login</a></div>
-                                        <div class="one_half last"><a href="#" id="register_form" class="btn">Sign Up</a></div>
+                                     
                                 </div>
                         </div>
 
                         <!-- Username & Password Login form -->
                         <div class="user_login">
-                                <form>
-                                        <label>Email / Username</label>
-                                        <input type="text" />
+                                <form id="frm_login">
+                                        <div class="input-group"><span class="input-group-addon"><i class="icon s7-user"></i></span>
+                                        <input name="cust_uname" type="text" placeholder="Username" autocomplete="off" class="form-control"  data-error-msg="Username is required." required>
+                                        </div>
                                         <br />
 
-                                        <label>Password</label>
-                                        <input type="password" />
+                                        <div class="input-group"><span class="input-group-addon"><i class="icon s7-lock"></i></span>
+                                        <input  name="cust_pword"  type="password" placeholder="Password" class="form-control" data-error-msg="Password is required." required>
+                                        </div>
                                         <br />
 
                                         <div class="checkbox">
@@ -541,61 +542,99 @@
                                         </div>
 
                                         <div class="action_btns">
-                                                <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-                                                <div class="one_half last"><a href="#" class="btn btn_red">Login</a></div>
+                                            <div class="one_half last"><a href="#" id="register_form" class="btn">Sign Up</a></div>
+                                            <!--    <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>-->
+                                                <div class="one_half last"><a href="#" id="btn_login" class="btn btn_red">Login</a></div>
                                         </div>
                                 </form>
 
-                                <a href="#" class="forgot_password">Forgot password?</a>
+                               <!-- <a href="#" class="forgot_password">Forgot password?</a>-->
                         </div>
 
                         <!-- Register Form -->
                         <div class="user_register">
-                                <form>
+                               <form id="form_signup" action="https://foxythemes.net/preview/products/amaretti/index.php" parsley-validate="" novalidate="" method="get" class="form-horizontal">
+                                   
+                                    <div id="loader-modal" class=""></div>
+                                   
                                         <div class = "row">
-                                            <div class = "col-sm-6">
-                                                <label>First Name</label>
-                                                <input type="text" class= "signup-text-height" />
+                                            <div class = "col-sm-6 margin-button">
+                                                 <div id="cust_fname_handler" class="input-group"><span class="input-group-addon"><i class="icon s7-info"></i></span>
+                                                   <input type="text" id="cust_fname" name="cust_fname" data-parsley-trigger="change" data-parsley-errors-messages-disabled="true" data-parsley-class-handler="#cust_fname_handler" required placeholder="First Name" autocomplete="off" class="form-control"  data-error-msg="Firstname is required.">
+                                                </div>
                                             </div>
-                                            <div class = "col-sm-6">
-                                                <label>Last Name</label>
-                                                <input type="text" class= "signup-text-height" />
+                                            
+                                            <div class = "col-sm-6 margin-button">
+                                                 <div id="cust_lname_handler" class="input-group"><span class="input-group-addon"><i class="icon s7-info"></i></span>
+                                                <input type="text" id="cust_lname" name="cust_lname" data-parsley-trigger="change" data-parsley-errors-messages-disabled="true" data-parsley-class-handler="#cust_lname_handler" required placeholder="Last Name" autocomplete="off" class="form-control" data-error-msg="Lastname is required.">
+                                                </div>
                                             </div>
                                         </div>
                                     <div class = "row">
-                                            <div class = "col-sm-6">
-                                                <label>Email</label>
-                                                <input type="email" class= "signup-text-height"/>
+                                        
+                                            <div class = "col-sm-6 margin-button">
+                                                
+                                                 <div id="cust_email_handler" class="input-group"><span class="input-group-addon"><i class="icon s7-mail"></i></span>
+                                                        <input type="email" id="cust_email" name="cust_email" data-parsley-trigger="change" data-parsley-errors-messages-disabled="true" data-parsley-class-handler="#cust_email_handler" required placeholder="E-mail" autocomplete="off" class="form-control" data-error-msg="Email is required."   >
+                                                    </div>
                                             </div>
-                                            <div class = "col-sm-6">
-                                                <label>Contact #</label>
-                                                <input type="text" class= "signup-text-height" />
+                                        
+                                            <div class = "col-sm-6 margin-button">
+                                                
+                                                 <div id="contact_no_handler" class="input-group"><span class="input-group-addon"><i class="icon s7-phone"></i></span>
+                                                    <input type="number"  id="contact_no" name="contact_no" data-parsley-trigger="change" data-parsley-errors-messages-disabled="true" data-parsley-class-handler="#contact_no_handler" required placeholder="Contact #" autocomplete="off" class="form-control" data-error-msg="Contact is required.">
+                                                 </div>
+                                                
                                             </div>
+                                        
+                                        
                                     </div>
                                     <div class = "row">
-                                            <div class = "col-sm-12">
-                                                <label>Username</label>
-                                                <input type="text" class= "signup-text-height"/>
+                                            <div class = "col-sm-12 margin-button">
+                                                
+                                                 <div id="cust_uname_handler" class="input-group"><span class="input-group-addon"><i class="icon s7-user"></i></span>
+                                                    <input type="text" id="cust_uname" name="cust_uname" data-parsley-trigger="change" data-parsley-errors-messages-disabled="true" data-parsley-class-handler="#cust_uname_handler" required placeholder="Username" autocomplete="off" class="form-control" data-error-msg="Username is required.">
+                                                 </div>
+                                                
+                                                
                                             </div>
-                                            <div class = "col-sm-12">
-                                                <label>Passwords</label>
-                                                <input type="password" class= "signup-text-height password-css"/>
+                                        
+                                            <div class = "col-sm-12 margin-button">
+                                               
+                                           
+                                                    <div id="cust_pword_handler" class="input-group"><span class="input-group-addon"><i class="icon s7-lock"></i></span>
+                                                       <input type="password" id="cust_pword" name = "cust_pword"  data-parsley-errors-messages-disabled="true" placeholder="Password" data-parsley-class-handler="#cust_pword_handler" required class="form-control">
+                                                    </div>
+                                                
+                                          
+                                                
                                             </div>
-                                            <div class = "col-sm-12 margin-password-css">
-                                                <label>Confirm Password</label>
-                                                <input type="password" class= "signup-text-height password-css"/>
+                                        
+                                        
+                                            <div class = "col-sm-12 margin-button">
+                                                
+                                            <div id="confirm-handler" class="input-group"><span class="input-group-addon"><i class="icon s7-lock"></i></span>
+                                               <input type="password" id="cust_cpword" name="cust_cpword"parsley-equalto="#pass1"  data-parsley-errors-messages-disabled="true" data-parsley-class-handler="#confirm-handler" required placeholder="Confirm" class="form-control">
+                                            </div>
+
+
+                                                
                                             </div>
                                     </div>
                                       
                                         <div class="checkbox css-style">
-                                                <input id="send_updates" type="checkbox" />
-                                                <label for="send_updates" style= "color :red">Send me SMS registration code</label><br />
+                                                <input id="remember" type="checkbox" class="needsclick" />
+                                                <label class="conditions" for="remember" style= "color :red">Send me SMS registration code</label><br />
                                         </div>
                                        
                                         <div class="action_btns css-style">
                                                 <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-                                                <div class="one_half last"><a href="#" class="btn btn_red">Register</a></div>
+                                                <div class="one_half last"><a href="#" id = "btn_sign_up" class="btn btn_red">Sign Up</a></div>
+                                            
+                                              <button id="verification_modal" data-toggle="modal" data-target="#form-bp1" type="button" class="btn btn-space btn-primary hide">Basic Form</button>
+                                            
                                         </div>
+                                   
                                 </form>
                         </div>
                 </section>
@@ -603,7 +642,29 @@
 
 
 
-
+ <div id="form-bp1" tabindex="-1" role="dialog" class="modal fade modal-colored-header">
+         <div class="modal-dialog custom-width">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" data-dismiss="modal" aria-hidden="true" class="close md-close"><i class="icon s7-close"></i></button>
+                  <h3 class="modal-title">Form Modal</h3>
+               </div>
+               <div class="modal-body form">
+                  <p>
+                     Type your 5 letter Verification Code
+                  </p>
+                  <div class="form-group">
+                     <label>Verification Code</label>
+                     <input id= "vcode-text" type="text" placeholder="xxxxx" class="form-control">
+                  </div>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" data-dismiss="modal" class="btn btn-default md-close">Cancel</button>
+                  <button id="btn_modal_proceed"type="button" class="btn btn-primary ">Proceed</button>
+               </div>
+            </div>
+         </div>
+      </div>
 
 
 
@@ -622,6 +683,7 @@
         <script src="assets/js/bootstrap-datepicker.min.js"></script>
         <script src="assets/js/jquery.validate.min.js"></script>
         <script src="assets/js/reservation-custom.js"></script>
+       
         <!--revolution slider-->
         <script type="text/javascript" src="assets/revolution/js/jquery.themepunch.tools.min.js"></script>
         <script type="text/javascript" src="assets/revolution/js/jquery.themepunch.revolution.min.js"></script>
@@ -630,18 +692,33 @@
         <script type="text/javascript" src="assets/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
         <script type="text/javascript" src="assets/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
         <script type="text/javascript" src="assets/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+        
+         <!-- PNotify -->
+        <script type="text/javascript" src="assets-apps/plugins/notify/pnotify.core.js"></script>
+        <script type="text/javascript" src="assets-apps/plugins/notify/pnotify.buttons.js"></script>
+        <script type="text/javascript" src="assets-apps/plugins/notify/pnotify.nonblock.js"></script>
+        
         <script src="assets/js/onepage-custom.js" type="text/javascript"></script> 
         <script src="assets/lightbox-2/js/lightbox.min.js"></script>
         <script src="assets/js/contact.js" type="text/javascript"></script>
         <!-- Google Maps -->
+        
+          <!--EL JEI JS-->
+        <script src="assets-apps/js/customer-signup.script.js" type="text/javascript"></script>
+        <script src="assets-apps/js/customer-main.script.js" type="text/javascript"></script>
+         <script type="text/javascript" src="assets-apps/js/customer-login.script.js"></script>
+
         <script src="https://maps.google.com/maps/api/js?key=AIzaSyBENlIxSKmTEK2fJeKjKo_JMxC9jE2IkL4"></script>
         <script src="assets/js/jquery.gmaps.min.js"></script>
         <script src="https://andwecode.com/wp-content/uploads/2015/10/jquery.leanModal.min_.js"></script>
+        <script type="text/javascript" src="assets-apps/js/global.script.js"></script>
+        <script src="assets-apps/lib/parsley/parsley.min.js" type="text/javascript"></script>
+       
+          <!-- MAIN JS-->
         <script src="assets/js/main.js"></script>
-        
-        <!-- MAIN JS-->
         <script type="text/javascript">
           CakeJS.init();
+          SignUpCustomer.init();
         </script>  
 
     </body>
