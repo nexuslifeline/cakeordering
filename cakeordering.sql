@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 28, 2017 at 02:32 PM
+-- Generation Time: Aug 30, 2017 at 07:48 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -73,15 +73,6 @@ CREATE TABLE `cake_layer_1` (
   `is_active` int(1) DEFAULT '1',
   `is_deleted` int(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
-
---
--- Dumping data for table `cake_layer_1`
---
-
-INSERT INTO `cake_layer_1` (`cake_id`, `cake_name`, `cake_description`, `image_path`, `top_view`, `price`, `is_active`, `is_deleted`) VALUES
-(45, 'Cheese Cake', 'This is a sample description', '../../backend/assets/images/cake/59a3682f9de73.png', '../../backend/assets/images/cake/59a368398f29b.png', 100, 1, 0),
-(46, 'Ube Cake', 'Test', '../../backend/assets/images/cake/59a40512a4ca1.png', '../../backend/assets/images/cake/59a40518cd62f.png', 100, 1, 0),
-(47, 'Pandan Cake', 'Test', '../../backend/assets/images/cake/59a40530bb5ac.png', '../../backend/assets/images/cake/59a40536a6b00.png', 100, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -199,21 +190,18 @@ CREATE TABLE `cake_templates` (
   `cake_template_description` varchar(755) DEFAULT '',
   `front_view` text,
   `rear_view` text,
+  `tbl_details` text,
   `estimated_price` double DEFAULT '0',
+  `estimated_picktup_date` date DEFAULT '0000-00-00',
   `serving_details` text,
+  `suggestion_box` text,
+  `dedication_details` text,
   `actual_price` double DEFAULT '0',
   `customer_id` int(11) DEFAULT '0',
   `is_active` int(1) DEFAULT '1',
   `is_verified` int(11) DEFAULT '0',
   `is_deleted` int(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
-
---
--- Dumping data for table `cake_templates`
---
-
-INSERT INTO `cake_templates` (`cake_template_id`, `cake_template_name`, `cake_template_description`, `front_view`, `rear_view`, `estimated_price`, `serving_details`, `actual_price`, `customer_id`, `is_active`, `is_verified`, `is_deleted`) VALUES
-(1, 'My Cake 1', NULL, '<a class=\"dg ui-draggable ui-draggable-handle\" style=\"z-index: 999; position: absolute; left: 220.111px; top: 69.1111px;\"><img height=\"50px\" src=\"../../backend/assets/images/user_graphics/59a4002fce02f.png\"></a><a class=\"dg ui-draggable ui-draggable-handle\" style=\"z-index: 999; position: absolute; left: 172.111px; top: 227.111px;\"><img height=\"50px\" src=\"../../backend/assets/images/user_graphics/59a4002fce02f.png\"></a><a class=\"dg ui-draggable ui-draggable-handle\" style=\"z-index: 999; position: absolute; left: 258.212px; top: 302.208px;\"><img height=\"50px\" src=\"../../backend/assets/images/user_graphics/59a4002fce02f.png\"></a><a class=\"dg ui-draggable ui-draggable-handle\" style=\"z-index: 999; position: absolute; left: 154.111px; top: 333.111px;\"><img height=\"50px\" src=\"../../backend/assets/images/topping/59a36b5e7213a.png\"></a><a class=\"dg ui-draggable ui-draggable-handle\" style=\"z-index: 999; position: absolute; left: 62.1111px; top: 284.111px;\"><img height=\"50px\" src=\"../../backend/assets/images/topping/59a36b5e7213a.png\"></a><a class=\"dg ui-draggable ui-draggable-handle\" style=\"z-index: 999; position: absolute; left: 141.111px; top: 25.1111px;\"><img height=\"50px\" src=\"../../backend/assets/images/topping/59a36b5e7213a.png\"></a>\n                              <div class=\"layer5\">\n                                 <div class=\"layer-box\"><img src=\"../../backend/assets/images/cake/59a40512a4ca1.png\" class=\"img-responsive\"></div>\n                                 <div class=\"decor-box\">\n                                    <img src=\"\" class=\"img-responsive decors\">\n                                 </div>\n                              </div>\n                              <div class=\"layer4\">\n                                 <div class=\"layer-box\"><img src=\"../../backend/assets/images/cake/59a40512a4ca1.png\" class=\"img-responsive\"></div>\n                                 <div class=\"decor-box\">\n                                    <img src=\"\" class=\"img-responsive decors\">\n                                 </div>\n                              </div>\n                              <div class=\"layer3\">\n                                 <div class=\"layer-box\"><img src=\"../../backend/assets/images/cake/59a40530bb5ac.png\" class=\"img-responsive\"></div>\n                                 <div class=\"decor-box\">\n                                    <img src=\"../../backend/assets/images/side_decoration/59a36b0f5736e.png\" class=\"img-responsive decors\">\n                                 </div>\n                              </div>\n                              <div class=\"layer2\">\n                                 <div class=\"layer-box\"><img src=\"../../backend/assets/images/cake/59a40512a4ca1.png\" class=\"img-responsive\"></div>\n                                 <div class=\"decor-box\">\n                                    <img src=\"\" class=\"img-responsive decors\">\n                                 </div>\n                              </div>\n                              <div class=\"layer1\">\n                                 <div class=\"layer-box\"><img src=\"../../backend/assets/images/cake/59a3682f9de73.png\" class=\"img-responsive\"></div>\n                                 <div class=\"decor-box\">\n                                    <img src=\"\" class=\"img-responsive decors\">\n                                 </div>\n                              </div>\n                           ', '<a class=\"dg ui-draggable ui-draggable-handle\" style=\"z-index: 999; position: absolute; left: 192.111px; top: 107.111px;\"><img height=\"50px\" src=\"../../backend/assets/images/user_graphics/59a4002fce02f.png\"></a><a class=\"dg ui-draggable ui-draggable-handle\" style=\"z-index: 999; position: absolute; left: 113.212px; top: 105.208px;\"><img height=\"50px\" src=\"../../backend/assets/images/user_graphics/59a4002fce02f.png\"></a>\n                              <div class=\"layer5\">\n                                 <div class=\"layer-box\"><img src=\"../../backend/assets/images/cake/59a40512a4ca1.png\" class=\"img-responsive\"></div>\n                                 <div class=\"decor-box\">\n                                    <img src=\"\" class=\"img-responsive decors\">\n                                 </div>\n                              </div>\n                              <div class=\"layer4\">\n                                 <div class=\"layer-box\"><img src=\"../../backend/assets/images/cake/59a40512a4ca1.png\" class=\"img-responsive\"></div>\n                                 <div class=\"decor-box\">\n                                    <img src=\"\" class=\"img-responsive decors\">\n                                 </div>\n                              </div>\n                              <div class=\"layer3\">\n                                 <div class=\"layer-box\"><img src=\"../../backend/assets/images/cake/59a40530bb5ac.png\" class=\"img-responsive\"></div>\n                                 <div class=\"decor-box\">\n                                    <img src=\"\" class=\"img-responsive decors\">\n                                 </div>\n                              </div>\n                              <div class=\"layer2\">\n                                 <div class=\"layer-box\"><img src=\"../../backend/assets/images/cake/59a40512a4ca1.png\" class=\"img-responsive\"></div>\n                                 <div class=\"decor-box\">\n                                    <img src=\"../../backend/assets/images/side_decoration/59a4064d742db.png\" class=\"img-responsive decors\">\n                                 </div>\n                              </div>\n                              <div class=\"layer1\">\n                                 <div class=\"layer-box\"><img src=\"../../backend/assets/images/cake/59a3682f9de73.png\" class=\"img-responsive\"></div>\n                                 <div class=\"decor-box\">\n                                    <img src=\"../../backend/assets/images/side_decoration/59a4066f7fded.png\" class=\"img-responsive decors\">\n                                 </div>\n                              </div>\n                           ', NULL, NULL, NULL, 1, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -262,14 +250,6 @@ CREATE TABLE `flavors` (
   `is_deleted` int(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
---
--- Dumping data for table `flavors`
---
-
-INSERT INTO `flavors` (`flavor_id`, `flavor_name`, `flavor_description`, `image_path`, `price`, `is_active`, `is_deleted`) VALUES
-(5, 'Chocolate Flavor', 'This is a sample description', '../../backend/assets/images/flavors/59a36b7f0a7b1.png', 200, 1, 0),
-(6, 'Cheese', '', '../../backend/assets/images/flavors/59a404b63f27c.png', 30, 1, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -285,14 +265,6 @@ CREATE TABLE `other_toppings` (
   `is_active` int(1) DEFAULT '1',
   `is_deleted` int(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `other_toppings`
---
-
-INSERT INTO `other_toppings` (`topping_id`, `topping_name`, `topping_description`, `image_path`, `price`, `is_active`, `is_deleted`) VALUES
-(18, 'Apple', 'This is a sample description', '../../backend/assets/images/topping/59a36b5e7213a.png', 50, 1, 0),
-(19, 'Rose Candy', 'This is a sample description', '../../backend/assets/images/topping/59a3ff4f9a9b9.png', 10, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -326,13 +298,6 @@ CREATE TABLE `ready_cake` (
   `is_active` int(1) DEFAULT '1',
   `is_deleted` int(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
-
---
--- Dumping data for table `ready_cake`
---
-
-INSERT INTO `ready_cake` (`ready_cake_id`, `ready_cake_name`, `ready_cake_description`, `image_path`, `price`, `is_active`, `is_deleted`) VALUES
-(31, '6th Birthday Cake Style 1', 'This is a sample description', '../../backend/assets/images/ready_cake/59a3689a968b9.jpg', 350, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -415,16 +380,6 @@ CREATE TABLE `side_decorations` (
   `is_deleted` int(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
---
--- Dumping data for table `side_decorations`
---
-
-INSERT INTO `side_decorations` (`side_decoration_id`, `side_decoration_name`, `side_decoration_description`, `image_path`, `price`, `is_active`, `is_deleted`) VALUES
-(24, 'Red Roses', 'This is a sample description', '../../backend/assets/images/side_decoration/59a36b0f5736e.png', 50, 1, 0),
-(25, 'q', 'v', '../../backend/assets/images/side_decoration/59a4064d742db.png', 1, 1, 0),
-(26, '1', '1', '../../backend/assets/images/side_decoration/59a4065b78cd4.png', 1, 1, 0),
-(27, 'q', 'q', '../../backend/assets/images/side_decoration/59a4066f7fded.png', 8, 1, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -470,13 +425,6 @@ CREATE TABLE `user_graphics` (
   `is_active` int(1) DEFAULT '1',
   `is_deleted` int(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user_graphics`
---
-
-INSERT INTO `user_graphics` (`graphic_id`, `graphic_name`, `graphic_description`, `image_path`, `customer_id`, `price`, `is_active`, `is_deleted`) VALUES
-(1, 'Flower', 'Sample', '../../backend/assets/images/user_graphics/59a4002fce02f.png', 1, 10, 1, 0);
 
 --
 -- Indexes for dumped tables
@@ -540,7 +488,7 @@ ALTER TABLE `cake_orders`
 -- Indexes for table `cake_templates`
 --
 ALTER TABLE `cake_templates`
-  ADD PRIMARY KEY (`cake_template_id`) USING BTREE;
+  ADD PRIMARY KEY (`cake_template_id`);
 
 --
 -- Indexes for table `customers`
@@ -620,7 +568,7 @@ ALTER TABLE `cake`
 -- AUTO_INCREMENT for table `cake_layer_1`
 --
 ALTER TABLE `cake_layer_1`
-  MODIFY `cake_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `cake_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `cake_layer_2`
 --
@@ -655,7 +603,7 @@ ALTER TABLE `cake_orders`
 -- AUTO_INCREMENT for table `cake_templates`
 --
 ALTER TABLE `cake_templates`
-  MODIFY `cake_template_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `cake_template_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `customers`
 --
@@ -665,12 +613,12 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `flavors`
 --
 ALTER TABLE `flavors`
-  MODIFY `flavor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `flavor_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `other_toppings`
 --
 ALTER TABLE `other_toppings`
-  MODIFY `topping_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `topping_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `payments`
 --
@@ -680,7 +628,7 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT for table `ready_cake`
 --
 ALTER TABLE `ready_cake`
-  MODIFY `ready_cake_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `ready_cake_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `ready_cake_orders`
 --
@@ -695,7 +643,7 @@ ALTER TABLE `servings`
 -- AUTO_INCREMENT for table `side_decorations`
 --
 ALTER TABLE `side_decorations`
-  MODIFY `side_decoration_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `side_decoration_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `user_accounts`
 --
@@ -705,7 +653,7 @@ ALTER TABLE `user_accounts`
 -- AUTO_INCREMENT for table `user_graphics`
 --
 ALTER TABLE `user_graphics`
-  MODIFY `graphic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `graphic_id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

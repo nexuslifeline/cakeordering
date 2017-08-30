@@ -7,8 +7,11 @@
       var front_view_default_cake = ' <div class="layer5"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive" id="l-item5" data-price="0" data-itemname=" "></div><div class="decor-box"> <img src="" class="img-responsive decors" id="d-item5" data-price="0" data-itemname=" "> </div></div><div class="layer4"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive" id="l-item4" data-price="0" data-itemname=" "></div><div class="decor-box"> <img src="" class="img-responsive decors" id="d-item4" data-price="0" data-itemname=" "> </div></div><div class="layer3"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive " id="l-item3" data-price="0" data-itemname=" "></div><div class="decor-box"> <img src="" class="img-responsive decors " id="d-item3" data-price="0" data-itemname=" " > </div></div><div class="layer2"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive " id="l-item2" data-price="0" data-itemname=" "></div><div class="decor-box"> <img src="" class="img-responsive decors" id="d-item2" data-price="0" data-itemname=" "> </div></div><div class="layer1"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive" id="l-item1" data-price="0" data-itemname=" "></div><div class="decor-box"> <img src="" class="img-responsive decors" id="d-item1" data-price="0" data-itemname=" "> </div></div>';
       var rear_view_default = ' <div class="layer5"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive" data-price="0" data-itemname=" "></div><div class="decor-box"> <img src="" class="img-responsive decors" id="d-item10" data-price="0" data-itemname=" "> </div></div><div class="layer4"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive" data-price="0" data-itemname=" "></div><div class="decor-box"> <img src="" class="img-responsive decors " id="d-item9" data-price="0" data-itemname=" "> </div></div><div class="layer3"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive" data-price=0 data-itemname=""></div><div class="decor-box"> <img src="" class="img-responsive decors" id="d-item8" data-price="0" data-itemname=" "> </div></div><div class="layer2"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive" data-price="0" data-itemname=" "></div><div class="decor-box"> <img src="" class="img-responsive decors" id="d-item7" data-price="0" data-itemname=" "> </div></div><div class="layer1"> <div class="layer-box"><img src="../../assets-apps/img/basecake/base.png" class="img-responsive" data-price="0" data-itemname=" "></div><div class="decor-box"> <img src="" class="img-responsive decors" id="d-item6" data-price="0" data-itemname=" "> </div></div>';
 
+      var tbl_default = ' <div class="row"> <div class="col-lg-6"> <table class="table table-responsive tbl-gen-info"> <tbody><tr> <td>Cake ID</td><td colspan="2" id="c-id">0</td></tr><tr> <td>Cake Name :</td><td colspan="2" id="c-cn"></td></tr><tr> <td>Cake Description :</td><td colspan="2" id="c-desc"></td></tr><tr> <td>Size &amp; Serving :</td><td id="c-size"></td><td id="c-size-p"></td></tr><tr> <td>General Flavor :</td><td id="c-flav"></td><td id="c-flav-p"></td></tr><tr> <td>Dedication Details :</td><td colspan="2" id="c-dedi"></td></tr><tr> <td>Estimated Price :</td><td colspan="2" id="c-eprice">0</td></tr><tr> <td>Actual Price :</td><td colspan="2" id="c-aprice"></td></tr><tr> <td>Estimated Pick up date :</td><td colspan="2" id="c-edate"></td></tr><tr> <td>Suggestion</td><td colspan="2" id="c-suggestion"></td></tr></tbody></table> </div><div class="col-lg-6"> <table class="table table-responsive tbl-front-rear"> <tbody><tr> <td colspan="3">Front View and Rear View Layer Style Details</td></tr><tr> <td>#</td><td>Name</td><td>Price</td></tr><tr class="tool-1"> <td>Layer 1</td><td id="c-l1"> </td><td id="c-p1">0</td></tr><tr class="tool-2"> <td>Layer 2</td><td id="c-l2"> </td><td id="c-p2">0</td></tr><tr class="tool-3"> <td>Layer 3</td><td id="c-l3"> </td><td id="c-p3">0</td></tr><tr class="tool-4"> <td>Layer 4</td><td id="c-l4"> </td><td id="c-p4">0</td></tr><tr class="tool-5"> <td>Layer 5</td><td id="c-l5"> </td><td id="c-p5">0</td></tr></tbody></table> </div></div><div class="row"> <div class="col-lg-6"> <table class="table table-responsive tbl-front"> <tbody><tr> <td colspan="3">Front View Decoration Details</td></tr><tr> <td>#</td><td>Name</td><td>Price</td></tr><tr class="tool-1"> <td>Layer 1</td><td id="c-fd1"> </td><td id="c-fdp1">0</td></tr><tr class="tool-2"> <td>Layer 2</td><td id="c-fd2"> </td><td id="c-fdp2">0</td></tr><tr class="tool-3"> <td>Layer 3</td><td id="c-fd3"> </td><td id="c-fdp3">0</td></tr><tr class="tool-4"> <td>Layer 4</td><td id="c-fd4"> </td><td id="c-fdp4">0</td></tr><tr class="tool-5"> <td>Layer 5</td><td id="c-fd5"> </td><td id="c-fdp5">0</td></tr><tr class="row-top"> <td colspan="3">Toppings</td></tr></tbody></table> </div><div class="col-lg-6"> <table class="table table-responsive tbl-rear"> <tbody><tr> <td colspan="3">Rear View Decoration Details</td></tr><tr> <td>#</td><td>Name</td><td>Price</td></tr><tr class="tool-1"> <td>Layer 1</td><td id="c-rd1"> </td><td id="c-rdp1">0</td></tr><tr class="tool-2"> <td>Layer 2</td><td id="c-rd2"> </td><td id="c-rdp2">0</td></tr><tr class="tool-3"> <td>Layer 3</td><td id="c-rd3"> </td><td id="c-rdp3">0</td></tr><tr class="tool-4"> <td>Layer 4</td><td id="c-rd4"> </td><td id="c-rdp4">0</td></tr><tr class="tool-5"> <td>Layer 5</td><td id="c-rd5"> </td><td id="c-rdp5">0</td></tr><tr class="row-top"> <td colspan="3">Toppings</td></tr></tbody></table> </div></div>';
       var flavor_price = 0;
       var size_price = 0;
+
+      var estimated_price_new = 0;
 
       load_serving_list();
       load_flavor_list();
@@ -44,9 +47,20 @@
                       data: "actual_price"
                   },
 
-                  {
+                     {
                       targets: [5],
-                      data: "is_verified"
+                      render: function(data, type, full, meta) {
+                          if (full.is_verified == 0) {
+                              return '<center>No</center>';
+
+
+                          } else {
+
+                              return '<center>Yes</center>';
+
+
+                          }
+                      }
                   },
 
                   {
@@ -85,6 +99,8 @@
               $('.rear_view').html(rear_view_default);
               $('#modal_form').modal('show');
               $('.date-picker').val("");
+
+              $('#tbl_info_main').html(tbl_default);
           });
 
           //delete
@@ -134,7 +150,7 @@
 
               $('.front_view').html(data.front_view);
               $('.rear_view').html(data.rear_view);
-               $('#tbl_info_main').html(data.tbl_details);
+              $('#tbl_info_main').html(data.tbl_details);
               $('#modal_form').modal('show');
 
           });
@@ -171,13 +187,18 @@
 
           if (no_layer == 1) {
 
+              $('.layer2 img,.layer3 img,.layer4 img,.layer5 img').data('price', 0);
+
               $('.layer2 img,.layer3 img,.layer4 img,.layer5 img').hide();
+
               $('.layer1 img').show()
 
 
               $('.tool-2,.tool-3,.tool-4,.tool-5').hide();
               $('.tool-1').show()
           } else if (no_layer == 2) {
+
+              ('.layer3 img,.layer4 img,.layer5 img').data('price', 0);
               $('.layer3 img,.layer4 img,.layer5 img').hide();
               $('.layer1 img,.layer2 img').show();
 
@@ -186,14 +207,14 @@
               $('.tool-1,.tool-2').show();
 
           } else if (no_layer == 3) {
-
+              $('.layer4 img,.layer5 img').data('price', 0);
               $('.layer4 img,.layer5 img').hide();
               $('.layer1 img,.layer2 img,.layer3 img').show();
 
               $('.tool-4,.tool-5').hide();
               $('.tool-1,.tool-2,.tool-3').show();
           } else if (no_layer == 4) {
-
+              $('.layer5 img').data('price', 0);
               $('.layer5 img').hide();
               $('.layer1 img,.layer2 img,.layer3 img,.layer4 img').show();
 
@@ -728,9 +749,14 @@
                   name: "serving_details",
                   value: $('#serving_details option:selected').val()
               });
-_data.push({
+              _data.push({
                   name: "tbl_details",
                   value: $('#tbl_info_main').html()
+              });
+
+              _data.push({
+                  name: "estimated_price",
+                  value: estimated_price_new
               });
 
 
@@ -758,8 +784,9 @@ _data.push({
                           $('.date-picker').val("");
                           $('.front_view').html(front_view_default_cake);
                           $('.rear_view').html(rear_view_default);
-
+                          $('#tbl_info_main').html(tbl_default);
                           $('.clear').click();
+
                       }
 
                   }).always(function() {
@@ -876,6 +903,42 @@ _data.push({
 
       });
 
+      $('[href="#step5"]').click(function() {
+          $('[href="#tab3-2"]').click();
+      });
+      $('#cake_template_name').on('input', function(e) {
+          var x = $(this).val();
+
+          $('#c-cn').text(x);
+      });
+
+
+      $('#estimated_picktup_date').on('change', function(e) {
+          var x = $(this).val();
+
+          $('#c-edate').text(x);
+      });
+
+      $('#dedication_details').on('input', function(e) {
+          var x = $(this).val();
+
+          $('#c-dedi').text(x);
+      });
+
+
+
+      $('#cake_template_description').on('input', function(e) {
+          var x = $(this).val();
+
+          $('#c-desc').text(x);
+      });
+
+
+      $('#suggestion_box').on('input', function(e) {
+          var x = $(this).val();
+
+          $('#c-suggestion').text(x);
+      });
 
       function compute() {
 
@@ -998,10 +1061,10 @@ _data.push({
 
           var t;
 
-          t = (totaldecor + totallayer + topping_price + flavor_price + size_price);
+          estimated_price_new = (totaldecor + totallayer + topping_price + flavor_price + size_price);
 
           console.log(t);
-          $('#c-eprice').text(t);
+          $('#c-eprice').text(estimated_price_new);
       }
 
 
