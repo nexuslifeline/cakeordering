@@ -28,20 +28,6 @@ class Customers extends CORE_Controller
                 $m_cust_account = $this->Customer_model;
                 
                 
-                /*  if($sms == 'go'){
-                $response['title'] = 'Error!';
-                $response['stat']  = 'error';
-                $response['msg']   = 'Password GO!!';
-                echo json_encode($response);
-                exit;
-                }else{
-                $response['title'] = 'Error!';
-                $response['stat']  = 'error';
-                $response['msg']   = ' Password No!!';
-                echo json_encode($response);
-                exit;
-                }*/
-                
                 $cust_email = $this->input->post('cust_email', TRUE);
                 if ($this->input->post('cust_email') == null) {
                     $response['title'] = 'Error!';
@@ -134,6 +120,7 @@ class Customers extends CORE_Controller
                     $response['stat']      = 'success';
                     $response['msg']       = 'Customers successfully registered.';
                     $response['vcode']     = $vcode;
+                    $response['cid']     = $customer_id;
                     $response['row_added'] = $this->get_response_rows($customer_id);
                     
                     
@@ -194,6 +181,35 @@ class Customers extends CORE_Controller
                    $this->json_output(json_encode($response));
                 break;
             
+            case 'update-isactive':
+                $m_cust_account = $this->Customer_model;
+               
+                $customer_id    = $this->input->post('customer_id', TRUE);
+              
+                $m_cust_account->begin();
+                $m_cust_account->is_active = 1;
+                
+                $m_cust_account->modify($customer_id);
+                
+                // make sure to update status of the cust
+                
+                $m_cust_account->is_active = 1;
+                $m_cust_account->modify($customer_id);
+                $m_cust_account->commit();
+                
+                if ($m_cust_account->status() === TRUE) {
+                    $response['title'] = 'Success!';
+                    $response['stat']  = 'success';
+                    $response['msg']   = 'Customers information successfully updated.';
+                } else {
+                    $response['title'] = 'Error!';
+                    $response['stat']  = 'error';
+                    $response['msg']   = 'Something went wrong. Please try again later.';
+                }
+                
+                   $this->json_output(json_encode($response));
+                break;
+
             case 'delete':
                 $m_cust_account = $this->Customer_model;
                 $customer_id    = $this->input->post('customer_id', TRUE);
@@ -375,7 +391,7 @@ class Customers extends CORE_Controller
         include "smsGateway.php";
         
         $smsGateway = new SmsGateway('exd.dev.sol@gmail.com', 'w3sTern03');
-        $deviceID   = 52751;
+        $deviceID   = 56524;
         $number     = '+639368121870';
         $message    = 'Your 5 digit Verification Code is :' . $vcode;
         
@@ -383,8 +399,6 @@ class Customers extends CORE_Controller
         $result = $smsGateway->sendMessageToNumber($number, $message, $deviceID);
         
     }
-    
-    
     
     
     

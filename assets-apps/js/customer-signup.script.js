@@ -1,6 +1,7 @@
 SignUpCustomer = {
     
     globalVcode : '',
+    globalCustomerId: '',
     
     init : function(){
         
@@ -49,7 +50,10 @@ SignUpCustomer = {
                                 },
                                  success: function (data) {
                                      
+                                     console.log("data");
+                                     console.log(data);
                                      self.globalVcode = data.vcode;
+                                     self.globalCustomerId = data.cid;
                                      
                                      if(data.stat == 'success'){
                                           $("#verification_modal").click();
@@ -83,8 +87,42 @@ SignUpCustomer = {
                       console.log(vcodeText);
                      
                      if(self.globalVcode == vcodeText){
-                         console.log("Proceed");
+                         
+                         console.log("globalCustomerId");
+                         console.log(self.globalCustomerId);
+
+
+                        //update is_active
+                           $.ajax({
+                              "dataType": "json",
+                              "type": "POST",
+                              "url": http + "Customers/transaction/update-isactive",
+                              "data": [{
+
+                                  name: "customer_id",
+                                  value: self.globalCustomerId
+                              }]
+
+                              }).done(function(response) {
+                                 
+                                 console.log("update Successfull");
+
+                              });
+
+
+
+
                          Main.showNotification({title:"Success!",stat:"success",msg:"Register Complete"});
+
+                         $('#cust_fname').val('');
+                         $('#cust_lname').val('');
+                         $('#cust_email').val('');
+                         $('#contact_no').val('');
+                         $('#cust_uname').val('');
+                         $('#cust_uname').val('');
+                         $('#cust_pword').val('');
+                         $('#cust_cpword').val('');
+
                          $("#form-bp1").modal('hide');
                          
                      }else{
