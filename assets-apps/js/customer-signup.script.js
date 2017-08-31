@@ -40,7 +40,7 @@ SignUpCustomer = {
                              $.ajax({
                                  "dataType": "json",
                                  "type": "POST",
-                                 "url": http+"Customers/transaction/create/"+sendSms,
+                                 "url": http+"Customers/transaction/signup/"+sendSms,
                                  "data": _data,
                                  "beforeSend": function() {
                                      Main.showSpinningProgress(btn);
@@ -50,8 +50,6 @@ SignUpCustomer = {
                                 },
                                  success: function (data) {
                                      
-                                     console.log("data");
-                                     console.log(data);
                                      self.globalVcode = data.vcode;
                                      self.globalCustomerId = data.cid;
                                      
@@ -65,10 +63,9 @@ SignUpCustomer = {
                                 },
                                  error: function(xhr, status, error) {
                                      // check status && error
-                                     console.log(xhr);
                                  }
                              }).done(function(response) {
-                                 Main.showNotification(response);
+                                // Main.showNotification(response);
                                // Main.showNotification({title:"Info!",stat:"success",msg:"Check your email for Verification Code"});
                              }).always(function() {
                                  Main.showSpinningProgress(btn);
@@ -79,19 +76,9 @@ SignUpCustomer = {
         
               //save
                  $('#btn_modal_proceed').click(function() {
-                  
-                     console.log("Global");
-                     console.log(self.globalVcode);
-                     
                      var vcodeText = $('#vcode-text').val();
-                      console.log(vcodeText);
-                     
+                    
                      if(self.globalVcode == vcodeText){
-                         
-                         console.log("globalCustomerId");
-                         console.log(self.globalCustomerId);
-
-
                         //update is_active
                            $.ajax({
                               "dataType": "json",
@@ -104,16 +91,9 @@ SignUpCustomer = {
                               }]
 
                               }).done(function(response) {
-                                 
-                                 console.log("update Successfull");
-
                               });
 
-
-
-
                          Main.showNotification({title:"Success!",stat:"success",msg:"Register Complete"});
-
                          $('#cust_fname').val('');
                          $('#cust_lname').val('');
                          $('#cust_email').val('');
@@ -122,34 +102,16 @@ SignUpCustomer = {
                          $('#cust_uname').val('');
                          $('#cust_pword').val('');
                          $('#cust_cpword').val('');
-
                          $("#form-bp1").modal('hide');
                          
                      }else{
-                          console.log("Dont Proceed");
                          Main.showNotification({title:"Error!",stat:"error",msg:"Invalid Verification Code"});
                      }
                      
                  });
-        
-        
-            
-        
-        
     },
-    
-    
     
     saveCustomerDetails : function(){
-    
-        
-        
-        
     },
-    
-    
-    
-    
-    
     
 }

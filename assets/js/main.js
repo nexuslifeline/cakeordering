@@ -63,27 +63,26 @@ CakeJS = {
 
 		// Calling Login Form
 		$(".modal_close").click(function() {
-
-				console.log("close me");
+            $(".social_login").hide();
+            $(".user_register").hide();
+            $(".social_login").hide();
             $('#login_modal').css('display','none');
-
-				
-				return false;
+            return false;
 		});
 	
 				// Calling Login Form
 		$("#login_form").click(function() {
-
-				console.log("hello");
 				$('#login_modal').css('display','block');
 				$(".social_login").hide();
 				$(".user_login").show();
+                $('#uname').val('');
+                $('#pword').val('');
+                $("html, body").animate({ scrollTop: 0 }, "slow");
 				return false;
 		});
 
 		// Calling Register Form
 		$("#register_form").click(function() {
-                console.log('Hello');
 				$(".social_login").hide();
                 $(".user_login").hide();
 				$(".user_register").show();
@@ -101,7 +100,23 @@ CakeJS = {
 		});
 
 
-
+        $('#googlemaps').gMap({
+                        maptype: 'ROADMAP',
+                        scrollwheel: false,
+                        zoom: 13,
+                        markers: [
+                            {
+                                address: 'Santo Rosario, San fernando Pampanga', // Your Adress Here
+                                html: '<strong>Our Office</strong><br>Santo Rosario </br>San fernando, Pampanga',
+                                popup: false,
+                                icon: {
+                                    image: "assets/images/marker.png",
+                                    iconsize: [28, 40],
+                                    iconanchor: [20, 40]
+                                }
+                            }
+                        ]
+                    });
 
 
 	},

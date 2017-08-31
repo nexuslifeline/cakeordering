@@ -24,12 +24,9 @@ $('#btn_login').click(function() {
             },
             error: function(xhr, status, error) {
                 // check status && error
-                console.log(xhr);
             }
         }).done(function(response) {
-            console.log(response)
             showNotification(response);
-           
             if (response.stat == "success") {
                sessionCustomer(response.result[0]);
                 setTimeout(function() {
@@ -49,13 +46,8 @@ $('#btn_login').click(function() {
 
   
             $('#btn_register').click(function(){
-                        
-                console.log("Register");
-                
                 setTimeout(function(){
-                    
                     window.location.href = 'sign-up';
-                    
                  },600);
             });
 

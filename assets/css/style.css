@@ -2103,3 +2103,20 @@ a.btn_red {
     transform: rotate(360deg);
   }
 }
+
+/*for signup*/
+#verification_modal{
+    display: none !important;
+}
+
+#btn_modal_proceed{
+    color:black !important;
+}
+
+.logo-default{
+    width: 15% !important;
+    position: sticky !important;
+}
+
+
+

@@ -42,7 +42,7 @@ Main = {
     clearFields : function(f){
       
         $('input,textarea',f).val('');
-        $(f).find('input:first').focus();
+        $(f).find('input:first').focus( );
         $('.date-picker').val("");
     },
     
