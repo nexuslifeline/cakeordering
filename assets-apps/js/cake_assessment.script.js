@@ -35,22 +35,26 @@
                       targets: [3],
                       data: "cake_template_name"
                   },
-                  {
+                    {
                       targets: [4],
-                      data: "estimated_price"
+                      data: "estimated_picktup_date"
                   },
                   {
                       targets: [5],
+                      data: "estimated_price"
+                  },
+                  {
+                      targets: [6],
                       data: "actual_price"
                   },
 
                    {
-                      targets: [6],
+                      targets: [7],
                       data: "status"
                   },
 
                   {
-                      targets: [7],
+                      targets: [8],
                       render: function(data, type, full, meta) {
                           return '<center><a href="#" id="edit_info" class="btn btn-info"><i class="glyphicon glyphicon-pencil"></i></a> <a href="#" id="delete_info" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a></center>';
                       }
