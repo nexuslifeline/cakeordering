@@ -33,17 +33,27 @@ var html_header = '<nav class="navbar navbar-default navbar-fixed-top am-top-hea
             '<a href="../cake_builder"><i class="icon s7-graph"></i><span>Cake Builder</span></a>'+
          '</li>'+
 
-         '<li class="parent">'+
+          '<li class="parent">'+
+            '<a href="../online_ordering"><i class="icon s7-graph"></i><span>Shop Online</span></a>'+
+         '</li>'+
+         /*'<li class="parent">'+
             '<a href="../ready_made_cake"><i class="icon s7-graph"></i><span>Ready Made Cake</span></a>'+
          '</li>'+
+        
           '<li class="parent">'+
             '<a href="../track_orders"><i class="icon s7-box1"></i><span>Track Custom Orders</span></a>'+
-         '</li>'+
-          '<li class="parent">'+
-            '<a href="../user_graphics"><i class="icon s7-box1"></i><span>User Graphics Management</span></a>'+
-         '</li>'+
+         '</li>'+*/
+         
          '<li class="parent">'+
             '<a href="../track_ready_orders"><i class="icon s7-box1"></i><span>Track Ready Made Orders</span></a>'+
+         '</li>'+
+         
+
+          '<li class="parent">'+
+            '<a href="../track_orders"><i class="icon s7-box1"></i><span>Track Orders</span></a>'+
+         '</li>'+
+           '<li class="parent">'+
+            '<a href="../user_graphics"><i class="icon s7-box1"></i><span>User Graphics Management</span></a>'+
          '</li>'+
           '<li class="parent">'+
             '<a href="../profile"><i class="icon s7-box2"></i><span>Profile Setting</span></a>'+

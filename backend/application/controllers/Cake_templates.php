@@ -30,10 +30,14 @@ class Cake_templates extends CORE_Controller
             $m_c_template->cake_template_description = $this->input->post('cake_template_description', TRUE);
             $m_c_template->front_view = $this->input->post('front_view',false);
             $m_c_template->rear_view = $this->input->post('rear_view',false);
+            $m_c_template->tbl_details = $this->input->post('tbl_details',false);
             $m_c_template->estimated_price = $this->input->post('estimated_price', TRUE);
             $m_c_template->actual_price = $this->input->post('actual_price', TRUE);
             $m_c_template->customer_id = $this->input->post('customer_id', TRUE);
-
+            $m_c_template->suggestion_box = $this->input->post('suggestion_box', TRUE);
+            $m_c_template->dedication_details = $this->input->post('dedication_details', TRUE);
+            $m_c_template->status = $this->input->post('status', TRUE);
+               $m_c_template->estimated_picktup_date = date('Y-m-d', strtotime($this->input->post('estimated_picktup_date', TRUE)));
             // auditing purposes
 
             $m_c_template->save();
@@ -63,9 +67,16 @@ class Cake_templates extends CORE_Controller
             $m_c_template->cake_template_description = $this->input->post('cake_template_description', TRUE);
             $m_c_template->front_view = $this->input->post('front_view',false);
             $m_c_template->rear_view = $this->input->post('rear_view',false);
+             $m_c_template->tbl_details = $this->input->post('tbl_details',false);
             $m_c_template->estimated_price = $this->input->post('estimated_price', TRUE);
             $m_c_template->serving_details = $this->input->post('serving_details', TRUE);
+              $m_c_template->suggestion_box = $this->input->post('suggestion_box', TRUE);
             $m_c_template->customer_id = $this->input->post('customer_id', TRUE);
+   $m_c_template->dedication_details = $this->input->post('dedication_details', TRUE);
+            $m_c_template->status = $this->input->post('status', TRUE);
+                 $m_c_template->estimated_picktup_date = date('Y-m-d', strtotime($this->input->post('estimated_picktup_date', TRUE)));
+
+
             $m_c_template->modify($cake_template_id);
             $m_c_template->commit();
             if ($m_c_template->status() === TRUE)
@@ -164,4 +175,68 @@ class Cake_templates extends CORE_Controller
             )
         ));
         }
+
+
+        public function assess(){
+
+         
+            $m_c_template = $this->Cake_template_model;
+            $cake_template_id = $this->input->post('cake_template_id', TRUE);
+               $m_c_template->begin();
+            $m_c_template->actual_price = $this->input->post('actual_price', TRUE);
+            $m_c_template->status = $this->input->post('status', TRUE);
+            $m_c_template->modify($cake_template_id);
+            $m_c_template->commit();
+
+
+
+
+       if ($m_c_template->status() === TRUE)
+                {
+                $response['title'] = 'Success!';
+                $response['stat'] = 'success';
+                $response['msg'] = 'Cake Template successfully updated.';
+                $response['row_updated'] = $this->get_response_rows($cake_template_id);
+                }
+              else
+                {
+                $response['title'] = 'Error!';
+                $response['stat'] = 'error';
+                $response['msg'] = 'Something went wrong! Please try again.';
+                }
+
+            $this->json_output(json_encode($response));
+
+
+        }
+
+
+
+
+        public function ready_to_assess(){
+
+         $m_c_template = $this->Cake_template_model;
+             $response['data'] =  $m_c_template->get_list('cake_templates.is_active=TRUE AND cake_templates.is_deleted=FALSE ' , array(
+            'cake_templates.*',
+            'c.*',
+            'DATE_FORMAT(c.cust_bdate,"%m/%d/%Y")as cust_bdate',
+            'CONCAT_WS(" ",c.cust_fname,c.cust_mname,c.cust_lname) as cust_fullname'
+        ) , array(
+            array(
+                'customers as c',
+                'cake_templates.customer_id=c.customer_id',
+                'left'
+            )
+        ));
+
+                $this->json_output(json_encode($response));
+        }
+
+
+
+
+
+
+
+
     }

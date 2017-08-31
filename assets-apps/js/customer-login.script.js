@@ -30,7 +30,7 @@ $('#btn_login').click(function() {
             if (response.stat == "success") {
                sessionCustomer(response.result[0]);
                 setTimeout(function() {
-                    window.location.href = 'customer/cake_builder';
+                    window.location.href = '../customer/cake_builder';
                 }, 600);
 
             }
