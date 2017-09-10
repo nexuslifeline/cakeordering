@@ -42,12 +42,15 @@ var html_header = '<nav class="navbar navbar-default navbar-fixed-top am-top-hea
         
           '<li class="parent">'+
             '<a href="../track_orders"><i class="icon s7-box1"></i><span>Track Custom Orders</span></a>'+
-         '</li>'+*/
-         
-         '<li class="parent">'+
+         '</li>'+
+
+
+            '<li class="parent">'+
             '<a href="../track_ready_orders"><i class="icon s7-box1"></i><span>Track Ready Made Orders</span></a>'+
          '</li>'+
+         */
          
+      
 
           '<li class="parent">'+
             '<a href="../track_orders"><i class="icon s7-box1"></i><span>Track Orders</span></a>'+

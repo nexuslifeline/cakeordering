@@ -364,7 +364,7 @@
           $.ajax({
               dataType: "json",
               type: "POST",
-              url: http + 'Cake_1/transaction/list', //call controller class/function to execute
+              url: http + 'Cake/transaction/list', //call controller class/function to execute
 
               success: function(response) {
 

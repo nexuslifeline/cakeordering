@@ -234,8 +234,30 @@ class Cake_templates extends CORE_Controller
 
 
 
-
-
+         
+    public function get_verified_templates($cust_id=null)
+    {
+        
+        
+       $m_c_template = $this->Cake_template_model;
+        $response['data'] = $m_c_template->get_list('cake_templates.is_active=TRUE AND cake_templates.is_deleted=FALSE AND cake_templates.status="verified" AND ' . ($cust_id == null ? '' : 'cake_templates.customer_id=' . $cust_id), array(
+            'cake_templates.*',
+            'c.*',
+            'DATE_FORMAT(c.cust_bdate,"%m/%d/%Y")as cust_bdate',
+            'CONCAT_WS(" ",c.cust_fname,c.cust_mname,c.cust_lname) as cust_fullname'
+        ), array(
+            array(
+                 'customers as c',
+                'cake_templates.customer_id=c.customer_id',
+                'left'
+            )
+        ));
+        
+        
+        $this->json_output(json_encode($response));
+        
+    }
+    
 
 
 

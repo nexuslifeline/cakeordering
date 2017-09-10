@@ -4,6 +4,96 @@
 
 
 
+      load_category_list();
+
+
+      $('#category_type').on('change', function(e) {
+          var optionSelected = $("option:selected", this);
+          var valueSelected = this.value;
+
+          $('#item-container').html('');
+          loadSelectedItem(valueSelected);
+
+      });
+
+
+
+
+      var catStructure = function(obj) {
+
+          var tags = "<option value=" + obj.category_id + " >" + obj.category_name + "</option";
+
+          $('#category_id').append(tags);
+          $('#category_type').append(tags);
+      }
+
+
+
+
+      function loadSelectedItem(valueSelected) {
+
+
+
+          $.ajax({
+              dataType: "json",
+              type: "POST",
+              url: http + 'Ready_cakes/get_selected_items/' + valueSelected, //call controller class/function to execute
+
+              success: function(response) {
+
+                  console.log(response.data);
+
+
+                  $.each(response.data, function(index, value) {
+
+                      createStructure(value);
+
+
+                  });
+
+              },
+              error: function(xhr, status, error) {
+                  // check status && error
+                  console.log(xhr);
+              }
+          });
+
+      }
+
+
+
+      function load_category_list() {
+
+
+
+          $.ajax({
+              dataType: "json",
+              type: "POST",
+              url: http + 'Categories/transaction/list', //call controller class/function to execute
+
+              success: function(response) {
+
+                  console.log(response.data);
+
+
+                  $.each(response.data, function(index, value) {
+
+                      catStructure(value);
+
+
+                  });
+
+              },
+              error: function(xhr, status, error) {
+                  // check status && error
+                  console.log(xhr);
+              }
+          });
+
+      }
+
+
+
 
       //new
       $('#btn_new').click(function() {
@@ -12,7 +102,7 @@
           var m = $('#modal_form');
 
           clearFields(m);
-         $('#image_path').attr('src', '../../assets-apps/img/dummy/image-upload-placeholder.jpg');
+          $('#image_path').attr('src', '../../assets-apps/img/dummy/image-upload-placeholder.jpg');
           m.modal('show');
 
 
@@ -191,7 +281,7 @@
           '<div  class="item  col-xs-12 col-lg-2">' +
           '<div class="thumbnail thumbnail-1">' +
           '<input type="hidden" name="ready_cake_id" value="' + value.ready_cake_id + '" />' +
-          '<img class="group list-group-image img-thumbnail" title="'+ value.ready_cake_description +'" name="image_path" src="' + value.image_path + '" alt="">' +
+          '<img class="group list-group-image img-thumbnail" title="' + value.ready_cake_description + '" name="image_path" src="' + value.image_path + '" alt="">' +
           '<div class="caption" style="border: solid #ec4444 1px;"  >' +
           '<h4 class="group inner list-group-item-heading" name="ready_cake_name">' + value.ready_cake_name + '</h4>' +
           '<div class="row">' +
@@ -243,61 +333,59 @@
           }
       });
 
-}
+  }
 
 
-      $('#btn_browse').click(function(event) {
-          event.preventDefault();
-          $('input[name="file_upload[]"]').click();
+
+
+  $('#btn_browse').click(function(event) {
+      event.preventDefault();
+      $('input[name="file_upload[]"]').click();
+  });
+
+
+  $('#btn_remove_photo').click(function(event) {
+      event.preventDefault();
+      $('#image_path').attr('src', '../../assets-apps/img/dummy/image-upload-placeholder.jpg');
+  });
+
+
+
+
+  $('input[name="file_upload[]"]').change(function(event) {
+      var _files = event.target.files;
+
+      $('#div_img_user').hide();
+      $('#div_img_loader').show();
+
+
+      var data = new FormData();
+      $.each(_files, function(key, value) {
+          data.append(key, value);
       });
 
 
-      $('#btn_remove_photo').click(function(event) {
-          event.preventDefault();
-         $('#image_path').attr('src', '../../assets-apps/img/dummy/image-upload-placeholder.jpg');
+      $.ajax({
+          url: http + 'Ready_cakes/transaction/upload',
+          type: "POST",
+          data: data,
+          cache: false,
+          dataType: 'json',
+          processData: false,
+          contentType: false,
+          success: function(response) {
+              //console.log(response);
+
+              $('#div_img_loader').hide();
+              $('#div_img_user').show();
+              $('#image_path').attr('src', http + response.path);
+
+
+              console.log(http + response.path);
+          }
       });
 
-
-
-
-      $('input[name="file_upload[]"]').change(function(event) {
-          var _files = event.target.files;
-
-          $('#div_img_user').hide();
-          $('#div_img_loader').show();
-
-
-          var data = new FormData();
-          $.each(_files, function(key, value) {
-              data.append(key, value);
-          });
-
-
-          $.ajax({
-              url: http + 'Ready_cakes/transaction/upload',
-              type: "POST",
-              data: data,
-              cache: false,
-              dataType: 'json',
-              processData: false,
-              contentType: false,
-              success: function(response) {
-                  //console.log(response);
-
-                  $('#div_img_loader').hide();
-                  $('#div_img_user').show();
-                  $('#image_path').attr('src', http + response.path);
-
-
-                  console.log(http + response.path);
-              }
-          });
-
-      });
-
-
-
-
+  });
 
 
 

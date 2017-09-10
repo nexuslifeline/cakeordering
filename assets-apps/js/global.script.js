@@ -22,8 +22,18 @@ $('#main-photo').attr('src',localStorage.cust_photo);
     $(document).on('click', '#btn-sign-out', function() {
 
 
+if (localStorage.type == 'admin') {
+
+
         localStorage.clear();
         window.location.href = '../';   
+
+    }else{
+
+
+          localStorage.clear();
+        window.location.href = '../../';   
+    }
 
     })
 
@@ -39,11 +49,13 @@ var http = '../../backend/';
 
 $('.date-picker').val("");
 $('.date-picker').datepicker({
+      dateFormat: 'yy-mm-dd',
     todayBtn: "linked",
     keyboardNavigation: false,
     forceParse: false,
     calendarWeeks: true,
-    autoclose: true
+    autoclose: true,
+
 });
 
 
