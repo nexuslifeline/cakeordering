@@ -1,4 +1,72 @@
   $(document).ready(function() {
+
+  var yes = 0;
+loadAgreementMsg();
+
+  $("#myModal").modal();
+
+$('#btn-yes').click(function(){
+
+    yes = 1;
+
+
+
+});
+
+
+
+
+$('#btn-no').click(function(){
+  yes = 0;
+
+
+
+    if(yes==1){
+
+
+}else{
+
+
+    window.location.href = '../online_ordering';
+}
+
+
+});
+
+
+
+
+   function loadAgreementMsg() {
+
+        $.ajax({
+            dataType: "json",
+            type: "POST",
+            url: http + 'Agreements/transaction/list', //call controller class/function to execute
+
+            success: function(response) {
+
+
+                $.each(response.data, function(index, value) {
+
+
+                    $('#msg').html(value.agreement_message);
+                });
+
+            },
+            error: function(xhr, status, error) {
+                // check status && error
+                console.log(xhr);
+            }
+        });
+
+
+    }
+
+
+
+
+
+
       var _txnMode;
       var oTable;
       var oSelectedRow;
@@ -13,6 +81,8 @@
 
       var estimated_price_new = 0;
 
+      var customer_id  = localStorage.customer_id;
+
       load_serving_list();
       load_flavor_list();
       load_cake_list();
@@ -22,12 +92,17 @@
       //$('.layer1 img,.layer2 img,.layer3 img,.layer4 img,.layer5 img').hide()
 
 
+    
+
+
+
+
       //*******************************************************************************************************************
       var initializeControls = function() {
           oTable = $('#list').DataTable({
               "dom": '<"toolbar">frtip',
               "bLengthChange": false,
-              "ajax": http + "Cake_templates/transaction/list",
+              "ajax": http + "Cake_templates/get_my_templates/"+customer_id,
               "columns": [
 
                   {
@@ -52,10 +127,21 @@
                       data: "status"
                   },
 
-                  {
+                
+
+                           {
                       targets: [6],
                       render: function(data, type, full, meta) {
-                          return '<center><a href="#" id="edit_info" class="btn btn-info"><i class="glyphicon glyphicon-pencil"></i></a> <a href="#" id="delete_info" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a></center>';
+                          if (full.status == 'verified') {
+                              return '<center><a  href="#" id="view_info" class="btn btn-success" title="View Order Details"><i class="glyphicon glyphicon-folder-open"></i></a> </center>';
+
+
+                          }  else {
+
+                              return '<center><a href="#" id="edit_info" class="btn btn-info"><i class="glyphicon glyphicon-pencil"></i></a> <a href="#" id="delete_info" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></a></center>';
+
+
+                          }
                       }
                   }
 
@@ -148,6 +234,9 @@
 
 
       }();
+
+
+
 
 
       $('#select_tops').on('change', function(e) {
@@ -460,7 +549,7 @@
           $.ajax({
               dataType: "json",
               type: "POST",
-              url: http + 'User_graphics/transaction/list', //call controller class/function to execute
+              url: http + 'User_graphics/get_customer_graphics/'+customer_id, //call controller class/function to execute
 
               success: function(response) {
 

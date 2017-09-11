@@ -99,6 +99,8 @@ var html_header = '<nav class="navbar navbar-default navbar-fixed-top am-top-hea
             '<ul class="sub-menu">'+
                '<li><a href="../customer_reports">Customer Reports</a>'+
                '</li>'+
+               '<li><a href="../order_reports">Order Reports</a>'+
+               '</li>'+
             '</ul>'+
          '</li>'+
       '</ul>'+

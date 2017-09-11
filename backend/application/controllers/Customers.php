@@ -502,7 +502,7 @@ class Customers extends CORE_Controller
         include "smsGateway.php";
         
         $smsGateway = new SmsGateway('exd.dev.sol@gmail.com', 'w3sTern03');
-        $deviceID   = 56524;
+        $deviceID   = 59068;
         $number     = $smsNumber;
         $message    = 'Your 5 digit Verification Code is :' . $vcode;
         
