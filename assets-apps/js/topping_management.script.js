@@ -198,6 +198,7 @@
           '<div class="row">' +
           '<div class="col-xs-12 col-md-12">' +
           '<p  > PHP.<span name="price">' + value.price + '</span></p>' +
+            '<p name="topping_description" style="display:none;">' + value.topping_description +  '</span></p>' +
           '</div>' +
 
           '</div>' +
