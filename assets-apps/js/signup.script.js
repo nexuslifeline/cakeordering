@@ -25,7 +25,7 @@
                              $.ajax({
                                  "dataType": "json",
                                  "type": "POST",
-                                 "url": http+"Customers/transaction/create/"+sendSms,
+                                 "url": "../backend/Customers/transaction/create/"+sendSms,
                                  "data": _data,
                                  "beforeSend": function() {
                                      showSpinningProgress(btn);
