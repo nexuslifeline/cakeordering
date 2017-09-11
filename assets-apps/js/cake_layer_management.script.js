@@ -211,6 +211,7 @@
           '<div class="row">' +
           '<div class="col-xs-12 col-md-12">' +
           '<p  > PHP.<span name="price">' + value.price + '</span></p>' +
+           '<p name="cake_description" style="display:none;">' + value.cake_description +  '</span></p>' +
           '</div>' +
 
           '</div>' +
