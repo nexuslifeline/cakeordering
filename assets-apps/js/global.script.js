@@ -18,7 +18,7 @@ $('#main-photo').attr('src',localStorage.cust_photo);
 }
 
 
- 
+
     $(document).on('click', '#btn-sign-out', function() {
 
 
@@ -26,13 +26,13 @@ if (localStorage.type == 'admin') {
 
 
         localStorage.clear();
-        window.location.href = '../';   
+        window.location.href = '../';
 
     }else{
 
 
           localStorage.clear();
-        window.location.href = '../../';   
+        window.location.href = '../../';
     }
 
     })
@@ -44,8 +44,8 @@ if (localStorage.type == 'admin') {
 
 //Cross Origin
 //var http = 'http://localhost:8082/cakeordering/backend/';
-//var http = 'http://localhost:8082/cakeordering/backend/';
-var http = '../../backend/';
+var http = 'http://localhost/cakeordering/backend/';
+//var http = '../../backend/';
 
 $('.date-picker').val("");
 $('.date-picker').datepicker({
@@ -154,7 +154,7 @@ localStorage.setItem("user_bdate",obj.user_bdate);
 localStorage.setItem("user_photo",obj.user_photo);
 localStorage.setItem("type","admin");
 
-  
+
 
 };
 

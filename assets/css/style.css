@@ -920,7 +920,7 @@ Sidebar layout
 Slider styles
 ==========================
 */
-/* 
+/*
    Main flex slider
 */
 /**rev slider**/
@@ -1704,7 +1704,7 @@ label.error {
   background: #55bb55 !important ;
   color: white !important;
   width: auto !important;
-    
+
 }
 
 .custom-button:active {
@@ -1733,10 +1733,9 @@ label.error {
 .popupContainer {
     position: absolute;
     width: 35%;
-    left: 50%;
-    top: 50%;
+    left: 33%;
+    top: 30%;
     background: #FFF;
-    transform: translate(-50%,-50%) !important;
 }
 
 .modal_trigger {
@@ -2117,6 +2116,3 @@ a.btn_red {
     width: 15% !important;
     position: sticky !important;
 }
-
-
-
