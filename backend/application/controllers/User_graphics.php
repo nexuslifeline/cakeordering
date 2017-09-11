@@ -28,7 +28,7 @@ class User_graphics extends CORE_Controller
             $m_user_graphic->begin();
             $m_user_graphic->graphic_name = $this->input->post('graphic_name', TRUE);
             $m_user_graphic->graphic_description = $this->input->post('graphic_description', TRUE);
-            $m_user_graphic->price = $this->input->post('price', TRUE);
+            $m_user_graphic->price =  0;  //$this->input->post('price', TRUE);
             $m_user_graphic->image_path = $this->input->post('image_path', TRUE);
             $m_user_graphic->customer_id = $this->input->post('customer_id', TRUE);
 
@@ -59,7 +59,7 @@ class User_graphics extends CORE_Controller
             $graphic_id = $this->input->post('graphic_id', TRUE);
             $m_user_graphic->graphic_name = $this->input->post('graphic_name', TRUE);
             $m_user_graphic->graphic_description = $this->input->post('graphic_description', TRUE);
-            $m_user_graphic->price = $this->input->post('price', TRUE);
+            $m_user_graphic->price =  0; //$this->input->post('price', TRUE);
             $m_user_graphic->image_path = $this->input->post('image_path', TRUE);
             $m_user_graphic->customer_id = $this->input->post('customer_id', TRUE);
             $m_user_graphic->modify($graphic_id);
@@ -163,7 +163,7 @@ class User_graphics extends CORE_Controller
 
     public
 
-    function get_customer_graphics($id)
+    function get_customer_graphics($id=null)
         {
         $m_user_graphic = $this->User_graphic_model;
         $response['data'] = $m_user_graphic->get_list('user_graphics.is_active=TRUE AND user_graphics.is_deleted=FALSE ' . ($id == null ? '' : ' AND user_graphics.customer_id=' . $id) , array(
