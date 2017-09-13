@@ -233,7 +233,7 @@
 
 
       function createStructureReadyCakes(value) {
-          var tags = "<div class='col-lg-6 box'><div class='sale-cake-box'><div class='thumb-img-box'><a class='cake-thumbs' title='" + value.ready_cake_description + "'><img  src='" + value.image_path + "'  class='img-responsive'></a></div><div class='details'><h5> Cake ID : #C-" + value.ready_cake_id + "</h5><h5> Cake Name : " + value.ready_cake_name + "</h5><h6> Quantity : " + value.qty + "</h6><h6> Unit Price : " + value.u_price + "</h6><h6> Total Price : " + value.t_price + "</h6></div></div></div>";
+          var tags = "<div class='col-lg-6 box'><div class='sale-cake-box'><div class='thumb-img-box'><a class='cake-thumbs' title='" + value.ready_cake_description + "'><img  src='" + value.image_path + "'  class='img-responsive'></a></div><div class='details'><h5> Cake ID : #C-" + value.ready_cake_id + "</h5><h5> Cake Name : " + value.ready_cake_name + "</h5><h6> Quantity : " + value.qty + "</h6><h6> Unit Price : " + value.u_price + "</h6><h6> Total Price : " + value.t_price + "</h6><p> Cake Details : " + value.suggestion_box_rc + "</p></div></div></div>";
           $('#tab1').append(tags);
 
 
@@ -243,7 +243,7 @@
 
       function createStructureCakeTemplate(value) {
 
-          var tags = "<div class='col-lg-12 box'><div class='details'><h5> Cake Template ID : #CT-" + value.cake_template_id + "</h5><h5>  Cake Name  : " + value.cake_template_name + "</h5><h6>  Quantity : " + value.qty_c + "</h6><h6>Unit  Price : " + value.u_price_c + "</h6><h6>Total  Price : " + value.t_price_c + "</h6></div><div class='col-lg-6'><h3>FRONT VIEW</h3><div class='front_view'>" + value.front_view + "</div></div><div class='col-lg-6'><h3>REAR VIEW</h3><div class='rear_view'>" + value.rear_view + "</div></div><a class='cake-thumbs' title='" + value.cake_template_description + "'></a></div>";
+          var tags = "<div class='col-lg-12 box'><div class='details'><h5> Cake Template ID : #CT-" + value.cake_template_id + "</h5><h5>  Cake Name  : " + value.cake_template_name + "</h5><h6>  Quantity : " + value.qty_c + "</h6><h6>Unit  Price : " + value.u_price_c + "</h6><h6>Total  Price : " + value.t_price_c + "</h6><p> Cake Details : " + value.suggestion_box_cc + "</p></div><div class='col-lg-6'><h3>FRONT VIEW</h3><div class='front_view'>" + value.front_view + "</div></div><div class='col-lg-6'><h3>REAR VIEW</h3><div class='rear_view'>" + value.rear_view + "</div></div><a class='cake-thumbs' title='" + value.cake_template_description + "'></a></div>";
 
           $('#tab2').append(tags);
 

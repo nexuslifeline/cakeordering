@@ -31,10 +31,9 @@
          background-image: none !important ;
          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
          }
-
-        .qty,.qty_c{
+         .qty,.qty_c{
          width: 50px !important;
-        }
+         }
       </style>
    </head>
    <body style="background-color: #fff">
@@ -56,13 +55,12 @@
                            </ul>
                            <div class="tab-content">
                               <div id="tab1" class="tab-pane active cont" style="overflow: scroll;">
-                              <div class="col-lg-12">  Category Type <select  class="form-control" id="category_type" name="category_type">
-                                    </select> </div>
-                              <div id="tab1-container"></div>
+                                 <div class="col-lg-12">  Category Type <select  class="form-control" id="category_type" name="category_type">
+                                    </select> 
+                                 </div>
+                                 <div id="tab1-container"></div>
                               </div>
                               <div id="tab2" class="tab-pane cont"  style="overflow: scroll;">
-
-                             
                               </div>
                               <div id="tab3" class="tab-pane">
                               </div>
@@ -70,44 +68,42 @@
                         </div>
                      </div>
                      <div class="col-lg-4">
-                        <div class="checkout-container" style="background-color: #f5f5f5;height: 800px;padding: 10px">
+                        <div class="checkout-container" style="background-color: #f5f5f5;height: 1500px;padding: 10px">
                            <h3>Order Summary Details</h3>
                            <div class="col-lg-12">
                               <form id="frm_data">
                                  <table class="table table-responsive" id="list1">
                                     <thead>
-                                     <tr>
-                                       <td colspan="5">Existing Cake Design</td>
+                                       <tr>
+                                          <td colspan="5">Existing Cake Design</td>
                                        </tr>
                                     </thead>
                                     <thead>
-                                    <tr>
-                                       <th width="10%">Cake ID</th>
-                                       <th width="30%">Cake Name</th>
-                                       <th width="10%">Qty</th>
-                                       <th width="25%">Unit Price</th>
-                                       <th width="25%">Total Price</th>
+                                       <tr>
+                                          <th width="10%">Cake ID</th>
+                                          <th width="30%">Cake Name</th>
+                                          <th width="10%">Qty</th>
+                                          <th width="25%">Unit Price</th>
+                                          <th width="25%">Total Price</th>
                                        </tr>
                                     </thead>
-
                                     <tbody></tbody>
                                  </table>
                                  <table class="table table-responsive" id="list2">
-                                     <thead>
-                                     <tr>
-                                       <td colspan="5">My Cake Design</td>
+                                    <thead>
+                                       <tr>
+                                          <td colspan="5">My Cake Design</td>
                                        </tr>
                                     </thead>
                                     <thead>
-                                    <tr>
-                                       <th width="10%">Cake ID</th>
-                                       <th width="30%">Cake Name</th>
-                                       <th width="10%">Qty</th>
-                                       <th width="25%">Unit Price</th>
-                                       <th width="25%">Total Price</th>
+                                       <tr>
+                                          <th width="10%">Cake ID</th>
+                                          <th width="30%">Cake Name</th>
+                                          <th width="10%">Qty</th>
+                                          <th width="25%">Unit Price</th>
+                                          <th width="25%">Total Price</th>
                                        </tr>
                                     </thead>
-
                                     <tbody></tbody>
                                  </table>
                                  <table class="table table-responsive" id="summary_price">
@@ -116,26 +112,16 @@
                                        <td id="html_grand_price">0</td>
                                     </tr>
                                  </table>
-
-
-
                            </div>
-                      
-
-
-
-
-                                          <div class="form-group">
-                                 <label class="col-lg-12 control-label">Estimated Pickup Date:</label>
-                                 <div class="col-lg-12">
-                                    <div class="input-group date">
-                                       <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>  <input type="text" class="form-control date-picker"   name="estimated_picktup_date" id="estimated_picktup_date" placeholder="Pick Up Date " required." required>
-                                    </div>
-                                 </div>
-                              </div>
-
-
-
+                           <div class="form-group">
+                           <label class="col-lg-12 control-label">Estimated Pickup Date:</label>
+                           <div class="col-lg-12">
+                           <div class="input-group date">
+                           <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>  <input type="text" class="form-control date-picker"   name="estimated_picktup_date" id="estimated_picktup_date" placeholder="Pick Up Date " required." required>
+                           </div>
+                           </div>
+                           </div>
+                           <!--
                            <div class="form-group">
                            <div class="col-lg-12">
                            Suggestion Box
@@ -143,32 +129,50 @@
                            <div class="col-lg-12">
                            <textarea type="text" class="form-control"   name="suggestion_box" id="suggestion_box" placeholder="Please Write Here Your Pesonal Details"></textarea>
                            </div>
+                           </div>-->
+                           <div class="form-group">
+                           <div class="col-lg-12">
+                           Payment Method
                            </div>
+                           <div class="col-lg-12">
+                           <select name="payment_method" id="payment_method" class="form-control">
+                           <option value="g-cash">G-Cash</option>
+                           <option value="smart-padala">Smart Padala</option>
+                           </select>
+                           </div>
+                           </div>
+                           <div class="form-group">
+                           <div class="col-lg-12">
+                           <p id="e-details1" >
+                           <br />
+                          <strong>Pay via G Cash </strong> <br/>
+                       
+                             <strong>G Cash Account :  09051234567</strong>  <br/>
 
-                              <div class="form-group">
-                                          <div class="col-lg-12">
-                                           Payment Method
-                                          </div>
-                                          <div class="col-lg-12">
-                                             <select name="payment_method" id="payment_method" class="form-control">
-                                                <option value="g-cash">G-Cash</option>
-                                                <option value="smart-padala">Smart Padala</option>
-                                             </select>
-                                          </div>
-                                       </div>
-
-
-
-                                         <div class="form-group">
-                              <div class="col-lg-12">
-                                 <!--
-                                    <input type="text" class="form-control" name="reference_no" id="reference_no" placeholder="Ref #"  >-->
-
-
-                                    <p id="e-details1" >G Cash Account No #1234567890</p>
-                                    <p id="e-details2" style="display: none;">Smart Padala Account No #0987654321</p>
-                                 
-                              </div>
+                           Please send SMS to 09199991234 to nofity us. You will recieved a notification to us by call or sms if payment was succefull.<br />   <br />
+                           SMS FORMAT <br /> <br />
+                           <i>Order ID: <br/>
+                           Customer Fullname: <br/>
+                           Contact Number: <br/>
+                           G Cash Account: <br/>
+                           Amount: <br/>
+                           </i> 
+                           </p>
+                           <p id="e-details2" style="display: none;">
+                           
+                           <br />
+                           <strong>Pay via Smart Padala </strong> <br/>
+                         
+                           Please send SMS to 09199991234 using the format provided below. You will recieved a notification to us by call or sms if payment was succefull.<br />   <br />
+                           SMS FORMAT <br /> <br />
+                           <i>Order ID: <br/>
+                           Customer Fullname: <br/>
+                           Contact Number: <br/>
+                           Smart Padala Ref. # : <br/>
+                           Amount : <br/>
+                           </i>         
+                           </p>
+                           </div>
                            </div>
                            </form>
                            <div class="col-lg-12">

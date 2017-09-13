@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 11, 2017 at 03:16 AM
+-- Generation Time: Sep 13, 2017 at 03:43 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -156,7 +156,8 @@ CREATE TABLE `customers` (
 
 INSERT INTO `customers` (`customer_id`, `cust_lname`, `cust_fname`, `cust_mname`, `address`, `contact_no`, `cust_bdate`, `security_code`, `cust_vcode`, `cust_uname`, `cust_email`, `cust_pword`, `cust_photo`, `is_active`, `is_deleted`) VALUES
 (1, 'Jose', 'Rizal', 'Protacio', 'Lunete Part', '09999999', '2017-08-16', 'vx', 'vx', 'customer1', 'joserizal@gmail.com', 'e2ea3c6b50c654e7c809c252b97d94386fb283fc', '../../backend/assets/images/cust/59b507ec260ea.png', 1, 0),
-(2, 'customer2', 'customer2', 'customer2', 'customer2', '123456789', '2017-09-30', '', 'a89a6', 'customer2', 'customer2@gmail.com', '80dae43ddfcfbd7a5e75b83260eab8fd35fd6778', '../../backend/assets/images/cust/59b506586b968.png', 1, 0);
+(2, 'customer2', 'customer2', 'customer2', 'customer2', '123456789', '2017-09-30', '', 'a89a6', 'customer2', 'customer2@gmail.com', '80dae43ddfcfbd7a5e75b83260eab8fd35fd6778', '../../backend/assets/images/cust/59b506586b968.png', 1, 0),
+(3, 'c', 'c', NULL, NULL, '09052037350', '1970-01-01', '', 'b2bab', 'c', 'c', '84a516841ba77a5b4648de2cd0dfcb30ea46dbb4', '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -211,8 +212,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `customer_id`, `grand_price`, `estimated_pickedup`, `suggestion_box`, `order_status`, `payment_method`, `reference_no`, `date_ordered`, `date_pickedup`, `is_pickedup`, `is_active`, `is_deleted`) VALUES
-(15, 2, '1100.0000', '2017-09-30', 'This is a sample text', 'paid', 'g-cash', '#123466', '2017-09-10 18:09:31', '2017-09-29', 0, 1, 0),
-(16, 1, '1100.0000', '2017-10-03', 'test', 'paid', 'g-cash', '#12455', '2017-09-10 19:03:13', '2017-10-04', 0, 1, 0);
+(1, NULL, NULL, '1970-01-01', NULL, 'pending', NULL, 'not yet approved', '2017-09-13 21:42:19', '0000-00-00', 0, 1, 0),
+(2, NULL, NULL, '1970-01-01', NULL, 'pending', NULL, 'not yet approved', '2017-09-13 21:43:20', '0000-00-00', 0, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -221,12 +222,13 @@ INSERT INTO `orders` (`order_id`, `customer_id`, `grand_price`, `estimated_picke
 --
 
 CREATE TABLE `order_details_cc` (
-  `order_details_rc_id` int(11) NOT NULL,
+  `order_details_cc_id` int(11) NOT NULL,
   `order_id` int(11) DEFAULT NULL,
   `qty_c` int(11) DEFAULT '0',
   `cake_template_id` int(11) DEFAULT '0',
   `u_price_c` double DEFAULT '0',
-  `t_price_c` double DEFAULT '0'
+  `t_price_c` double DEFAULT '0',
+  `suggestion_box_cc` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
@@ -242,18 +244,8 @@ CREATE TABLE `order_details_rc` (
   `ready_cake_id` int(11) DEFAULT '0',
   `u_price` double DEFAULT '0',
   `t_price` double DEFAULT '0',
-  `suggestion_box` text NOT NULL
+  `suggestion_box_rc` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
-
---
--- Dumping data for table `order_details_rc`
---
-
-INSERT INTO `order_details_rc` (`order_details_rc_id`, `order_id`, `qty`, `ready_cake_id`, `u_price`, `t_price`, `suggestion_box`) VALUES
-(32, 15, 1, 9, 400, 400, ''),
-(33, 15, 1, 10, 700, 700, ''),
-(34, 16, 1, 9, 400, 400, ''),
-(35, 16, 1, 10, 700, 700, '');
 
 -- --------------------------------------------------------
 
@@ -496,7 +488,7 @@ ALTER TABLE `orders`
 -- Indexes for table `order_details_cc`
 --
 ALTER TABLE `order_details_cc`
-  ADD PRIMARY KEY (`order_details_rc_id`);
+  ADD PRIMARY KEY (`order_details_cc_id`);
 
 --
 -- Indexes for table `order_details_rc`
@@ -574,7 +566,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `flavors`
 --
@@ -584,17 +576,17 @@ ALTER TABLE `flavors`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `order_details_cc`
 --
 ALTER TABLE `order_details_cc`
-  MODIFY `order_details_rc_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_details_cc_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `order_details_rc`
 --
 ALTER TABLE `order_details_rc`
-  MODIFY `order_details_rc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `order_details_rc_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `other_toppings`
 --

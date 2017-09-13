@@ -7,7 +7,7 @@
 
 
 
- load_category_list();
+      load_category_list();
 
 
       $('#category_type').on('change', function(e) {
@@ -21,22 +21,22 @@
 
 
 
- $('#payment_method').on('change', function(e) {
+      $('#payment_method').on('change', function(e) {
           var optionSelected = $("option:selected", this);
           var valueSelected = this.value;
 
 
-          if (valueSelected=='g-cash') {
+          if (valueSelected == 'g-cash') {
 
- $('#e-details1').show();
- $('#e-details2').hide();
-          }else{
- $('#e-details2').show();
- $('#e-details1').hide();
+              $('#e-details1').show();
+              $('#e-details2').hide();
+          } else {
+              $('#e-details2').show();
+              $('#e-details1').hide();
 
           }
 
-        });
+      });
 
       var catStructure = function(obj) {
 
@@ -127,9 +127,9 @@
                   type: 'info'
               });
           } else {
-              var htmltags = '<tr><td> #C-' + ready_cake_id + '</td><td>' + itemname + '</td><td><input  data-ready-cake-id=' + ready_cake_id + ' type="hidden" name="ready_cake_id[]" value=' + ready_cake_id + '><input type="text"  name="qty[]" class="qty" value=1><input type="hidden" name="u_price[]"  value=' + price + ' class="u_price"> <input type="hidden" class="t_price" name="t_price[]" value=' + price + '></td><td>' + price + ' </td><td class="html-t-price">' + price + '</td></tr>';
-
-              $('#list1 tbody').append(htmltags);
+              var htmltags = '<tr class="trx"><td> #C-' + ready_cake_id + '</td><td>' + itemname + '</td><td><input  data-ready-cake-id=' + ready_cake_id + ' type="hidden" name="ready_cake_id[]" value=' + ready_cake_id + '><input type="text"  name="qty[]" class="qty" value=1><input type="hidden" name="u_price[]"  value=' + price + ' class="u_price"> <input type="hidden" class="t_price" name="t_price[]" value=' + price + '></td><td>' + price + ' </td><td class="html-t-price">' + price + '</td></tr>';
+              var htmltags2 = '<tr><td colspan=5><textarea type="text" class="form-control"   name="suggestion_box_rc[]" id="suggestion_box_rc" placeholder="Cake Details"></textarea></td></tr>';
+              $('#list1 tbody').append(htmltags+htmltags2);
           }
 
           compute();
@@ -155,9 +155,9 @@
                   type: 'info'
               });
           } else {
-              var htmltags = '<tr><td> #CT-' + cake_template_id + '</td><td>' + itemname + '</td><td><input  data-cake-template-id=' + cake_template_id + ' type="hidden" name="cake_template_id[]" value=' + cake_template_id + '><input type="text"  name="qty_c[]" class="qty_c" value=1><input type="hidden" name="u_price_c[]"  value=' + price + ' class="u_price_c"> <input type="hidden" class="t_price_c" name="t_price_c[]" value=' + price + '></td><td>' + price + ' </td><td class="html-t-price-c">' + price + '</td></tr>';
-
-              $('#list2 tbody').append(htmltags);
+              var htmltags = '<tr class="trx"><td> #CT-' + cake_template_id + '</td><td>' + itemname + '</td><td><input  data-cake-template-id=' + cake_template_id + ' type="hidden" name="cake_template_id[]" value=' + cake_template_id + '><input type="text"  name="qty_c[]" class="qty_c" value=1><input type="hidden" name="u_price_c[]"  value=' + price + ' class="u_price_c"> <input type="hidden" class="t_price_c" name="t_price_c[]" value=' + price + '></td><td>' + price + ' </td><td class="html-t-price-c">' + price + '</td></tr>';
+              var htmltags2 = '<tr><td colspan=5><textarea type="text" class="form-control"   name="suggestion_box_cc[]" id="suggestion_box_cc" placeholder="Cake Details"></textarea></td></tr>';
+              $('#list2 tbody').append(htmltags+htmltags2);
           }
 
           compute();
@@ -218,14 +218,13 @@
 
 
 
-
-$(document).on('input', '.qty,.qty_c', function() {
-
-
-compute();
+      $(document).on('input', '.qty,.qty_c', function() {
 
 
-});
+          compute();
+
+
+      });
 
       function loadVerifiedTemplate() {
 
@@ -263,7 +262,7 @@ compute();
       $('#btn_save_record').click(function() {
 
 
- compute();
+          compute();
           if ($("#list1 input.qty").length > 0 || $("#list2 input.qty_c").length > 0) {
 
 
@@ -311,18 +310,16 @@ compute();
                       showNotification(response);
 
 
-                  
 
 
+                      if (response.stat == "success") {
 
-                    if (response.stat == "success") {
+                          setTimeout(function() {
+                              window.location.href = '../track_orders';
+                          }, 1000);
 
-                        setTimeout(function() {
-                            window.location.href = '../track_orders';
-                        }, 1000);
+                      }
 
-                    }
-        
 
                   }).always(function() {
 
@@ -352,10 +349,11 @@ compute();
 
       function compute() {
 
-          var   t_price_per_item  =0 ,t_price_per_item_c  =0  ;
-           
+          var t_price_per_item = 0,
+              t_price_per_item_c = 0;
 
-          $("#list1 tbody tr").each(function(index) {
+
+          $("#list1 tbody .trx").each(function(index) {
               var row = $(this);
 
               var qty = row.find('.qty');
@@ -369,13 +367,13 @@ compute();
 
               t_price_per_item += (a * b);
 
-               t_price.val(a * b);
+              t_price.val(a * b);
               td_t_price.html(a * b);
           });
 
 
 
-          $("#list2 tbody tr").each(function(index) {
+          $("#list2 tbody .trx").each(function(index) {
               var row = $(this);
 
               var qty_c = row.find('.qty_c');
@@ -386,18 +384,16 @@ compute();
               var y = parseInt(u_price_c.val());
 
               t_price_per_item_c += (x * y);
-            t_price_c.val(x * y);
-            td_t_price_c.html(x * y);
+              t_price_c.val(x * y);
+              td_t_price_c.html(x * y);
           });
 
 
 
 
+          $('#grand_price').val(t_price_per_item + t_price_per_item_c);
 
-
-$('#grand_price').val(t_price_per_item+t_price_per_item_c);
-
-$('#html_grand_price').html(t_price_per_item+t_price_per_item_c);
+          $('#html_grand_price').html(t_price_per_item + t_price_per_item_c);
       }
 
 

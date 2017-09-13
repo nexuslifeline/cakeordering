@@ -28,7 +28,7 @@ class Orders extends CORE_Controller
                 $m_order->reference_no       = 'not yet approved';
                 $m_order->payment_method     = $this->input->post('payment_method', TRUE);
                 $m_order->estimated_pickedup = date('Y-m-d', strtotime($this->input->post('estimated_pickedup', TRUE)));
-                $m_order->suggestion_box     = $this->input->post('suggestion_box', TRUE);
+               // $m_order->suggestion_box     = $this->input->post('suggestion_box', TRUE);
                 $m_order->order_status       = 'pending';
                 $m_order->save();
                 $order_id      = $m_order->last_insert_id();
@@ -37,12 +37,14 @@ class Orders extends CORE_Controller
                 $qty           = $this->input->post('qty', TRUE);
                 $u_price       = $this->input->post('u_price', TRUE);
                 $t_price       = $this->input->post('t_price', TRUE);
+                $suggestion_box_rc       = $this->input->post('suggestion_box_rc', TRUE);
                 for ($i = 0; $i < count($ready_cake_id); $i++) {
                     $m_order_rc->order_id      = $order_id;
                     $m_order_rc->ready_cake_id = $ready_cake_id[$i];
                     $m_order_rc->qty           = $qty[$i];
                     $m_order_rc->u_price       = $u_price[$i];
                     $m_order_rc->t_price       = $t_price[$i];
+                    $m_order_rc->suggestion_box_rc       = $suggestion_box_rc[$i];
                     $m_order_rc->save();
                 }
                 
@@ -51,12 +53,14 @@ class Orders extends CORE_Controller
                 $qty_c            = $this->input->post('qty_c', TRUE);
                 $u_price_c        = $this->input->post('u_price_c', TRUE);
                 $t_price_c        = $this->input->post('t_price_c', TRUE);
+                 $suggestion_box_cc       = $this->input->post('suggestion_box_cc', TRUE);
                 for ($i = 0; $i < count($cake_template_id); $i++) {
                     $m_order_cc->order_id         = $order_id;
                     $m_order_cc->cake_template_id = $cake_template_id[$i];
                     $m_order_cc->qty_c            = $qty_c[$i];
                     $m_order_cc->u_price_c        = $u_price_c[$i];
                     $m_order_cc->t_price_c        = $t_price_c[$i];
+                    $m_order_cc->suggestion_box_cc       = $suggestion_box_cc[$i];
                     $m_order_cc->save();
                 }
                 

@@ -40,7 +40,7 @@ SignUpCustomer = {
                              $.ajax({
                                  "dataType": "json",
                                  "type": "POST",
-                                 "url": http+"Customers/transaction/signup/"+sendSms,
+                                 "url": "backend/Customers/transaction/signup/"+sendSms,
                                  "data": _data,
                                  "beforeSend": function() {
                                      Main.showSpinningProgress(btn);
@@ -83,7 +83,7 @@ SignUpCustomer = {
                            $.ajax({
                               "dataType": "json",
                               "type": "POST",
-                              "url": http + "Customers/transaction/update-isactive",
+                              "url": "backend/Customers/transaction/update-isactive",
                               "data": [{
 
                                   name: "customer_id",
